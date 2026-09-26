@@ -1,82 +1,173 @@
 /**
- * VOLTIX TECHNOLOGY — Enrutador Inteligente para Google Sites y GitHub Pages
+ * VOLTIX TECHNOLOGY — Enrutador Central de Navegación
  * Lema: Electricidad • Tecnología • Innovación
- * Proyecto Académico • Ingeniería Eléctrica • Curso: 2-AF
+ * Proyecto Académico: Computación II • Ingeniería Eléctrica • Curso: 2-AF
  * Estudiante: GARCIA ANDRADE MATIAS EDUARDO
+ * Docente: VICTOR JAVIER QUIÑONEZ QUIÑONEZ
+ * Año: 2026
  * 
- * Este módulo gestiona de forma centralizada y limpia los enlaces de navegación,
- * adaptándose automáticamente a dos entornos de ejecución:
- * 
- * 1. ENTORNO A: GitHub Pages / Localhost (Navegación directa estándar entre archivos HTML)
- * 2. ENTORNO B: Google Sites (Página de inserción completa embebida en iframe)
- * 
- * REGLAS DE SEGURIDAD ESTRICTAS APLICADAS:
- * - NO se usa target="_top" (evita bloqueos de seguridad del sandbox de Google Sites).
- * - NO se usa window.top.location ni window.parent.location (previene violaciones de Same-Origin).
- * - NO se abren nuevas pestañas en la navegación interna (mantiene la experiencia integrada).
- * - NO se generan iframes anidados.
+ * =============================================================================
+ * 1. CONFIGURACIÓN CENTRALIZADA DE RUTAS DEL PROYECTO
+ * =============================================================================
+ * Este objeto centraliza todas las rutas oficiales de VOLTIX TECHNOLOGY
+ * tanto para visualización directa en GitHub Pages como para la arquitectura
+ * incrustada en Google Sites.
  */
+const VOLTIX_ROUTER = {
+  // Dominio base de GitHub Pages
+  githubPagesBase: "https://dinoameges.github.io/google-sites/",
 
-// =============================================================================
-// 1. URLs DE GITHUB PAGES (Rutas HTML estándar y portables)
-// =============================================================================
-const GITHUB_PAGES_URLS = {
-  inicio: "inicio.html",
-  electricidad: "electricidad.html",
-  componentes: "componentes.html",
-  aplicaciones: "aplicaciones.html",
-  energias: "energias.html",
-  multimedia: "multimedia.html",
-  contacto: "contacto.html"
-};
-
-// =============================================================================
-// CONFIGURAR URLs DE GOOGLE SITES
-// =============================================================================
-// Instrucción para el usuario:
-// Una vez que tengas publicadas las páginas correspondientes en tu Google Site,
-// coloca dentro de las comillas la URL real de cada una de ellas.
-// 
-// Ejemplo:
-//   inicio: "https://sites.google.com/view/voltix-technology/inicio",
-//   electricidad: "https://sites.google.com/view/voltix-technology/electricidad",
-// 
-// NOTA: Si una URL se deja vacía (""), el sistema utilizará automáticamente
-// la ruta normal de GitHub Pages como respaldo seguro y funcional.
-// =============================================================================
-const GOOGLE_SITES_URLS = {
-  inicio: "",
-  electricidad: "",
-  componentes: "",
-  aplicaciones: "",
-  energias: "",
-  multimedia: "",
-  contacto: ""
+  // Las 7 páginas oficiales del proyecto
+  pages: {
+    inicio: {
+      file: "inicio.html",
+      name: "Inicio",
+      githubUrl: "https://dinoameges.github.io/google-sites/inicio.html"
+    },
+    electricidad: {
+      file: "electricidad.html",
+      name: "Electricidad",
+      githubUrl: "https://dinoameges.github.io/google-sites/electricidad.html"
+    },
+    componentes: {
+      file: "componentes.html",
+      name: "Componentes",
+      githubUrl: "https://dinoameges.github.io/google-sites/componentes.html"
+    },
+    aplicaciones: {
+      file: "aplicaciones.html",
+      name: "Aplicaciones",
+      githubUrl: "https://dinoameges.github.io/google-sites/aplicaciones.html"
+    },
+    energias: {
+      file: "energias.html",
+      name: "Energías",
+      githubUrl: "https://dinoameges.github.io/google-sites/energias.html"
+    },
+    multimedia: {
+      file: "multimedia.html",
+      name: "Multimedia",
+      githubUrl: "https://dinoameges.github.io/google-sites/multimedia.html"
+    },
+    contacto: {
+      file: "contacto.html",
+      name: "Contacto",
+      githubUrl: "https://dinoameges.github.io/google-sites/contacto.html"
+    }
+  }
 };
 
 /**
- * Detecta de forma segura el entorno de ejecución actual:
- * @returns {boolean} true si está embebido en Google Sites (o cualquier iframe); false si se visualiza directo.
+ * =============================================================================
+ * 2. DETECCIÓN DE ENTORNO DE EJECUCIÓN
+ * =============================================================================
+ * Determina si la página se ejecuta de forma directa (GitHub Pages / Localhost)
+ * o si está incrustada dentro de un iframe (Google Sites).
+ * 
+ * @returns {boolean} true si está dentro de un iframe (Google Sites), false si es directo.
  */
-function isRunningInGoogleSites() {
+function isRunningInsideGoogleSites() {
   try {
     return window.self !== window.top;
   } catch (e) {
-    // Si el acceso a window.top lanza excepción de Same-Origin (CORS),
-    // confirma fehacientemente que la página se encuentra dentro de un iframe externo.
+    // Si la lectura de window.top genera excepción de Same-Origin (CORS),
+    // confirma que estamos dentro de un iframe sandboxed de otro dominio.
     return true;
   }
 }
 
-(function initVoltixNavigation() {
-  const inGoogleSites = isRunningInGoogleSites();
+/**
+ * =============================================================================
+ * 3. IDENTIFICADOR DE PÁGINA ACTUAL
+ * =============================================================================
+ */
+function getCurrentPageKey() {
+  const rawPath = window.location.pathname.split('/').pop() || 'inicio.html';
+  const cleanPath = rawPath.split('?')[0].split('#')[0].toLowerCase();
+  
+  if (cleanPath === '' || cleanPath === 'index.html' || cleanPath === 'inicio.html') {
+    return 'inicio';
+  }
+  return cleanPath.replace('.html', '');
+}
 
-  // Indicador de clase contextual en <html> para posibles adaptaciones visuales
-  if (inGoogleSites && document.documentElement) {
-    document.documentElement.classList.add('in-iframe');
+/**
+ * =============================================================================
+ * 4. NOTIFICACIÓN VISUAL ELEGANTE PARA GOOGLE SITES
+ * =============================================================================
+ * Muestra un aviso discreto y premium al usuario cuando intenta usar el navbar
+ * interno dentro de Google Sites, guiándolo hacia el menú principal de Google Sites.
+ */
+function showGoogleSitesNavNotice(targetPageName) {
+  let notice = document.getElementById('voltixGsNavNotice');
+  if (!notice) {
+    notice = document.createElement('div');
+    notice.id = 'voltixGsNavNotice';
+    notice.setAttribute('role', 'status');
+    notice.setAttribute('aria-live', 'polite');
+    notice.style.cssText = `
+      position: fixed;
+      top: 18px;
+      left: 50%;
+      transform: translateX(-50%) translateY(-20px);
+      background: rgba(14, 21, 36, 0.96);
+      backdrop-filter: blur(14px);
+      -webkit-backdrop-filter: blur(14px);
+      border: 1px solid rgba(0, 212, 255, 0.4);
+      border-radius: 8px;
+      padding: 10px 18px;
+      color: #f1f5f9;
+      font-family: 'Inter', -apple-system, sans-serif;
+      font-size: 0.86rem;
+      font-weight: 500;
+      box-shadow: 0 10px 30px rgba(0, 0, 0, 0.6), 0 0 15px rgba(0, 212, 255, 0.25);
+      z-index: 999999;
+      pointer-events: none;
+      opacity: 0;
+      transition: opacity 0.3s ease, transform 0.3s cubic-bezier(0.16, 1, 0.3, 1);
+      display: flex;
+      align-items: center;
+      gap: 10px;
+      max-width: 90vw;
+      text-align: center;
+    `;
+    document.body.appendChild(notice);
   }
 
-  // Reseteo preventivo del scroll para asegurar que cada página inicie en el tope
+  notice.innerHTML = `
+    <span style="color: #ff9500; font-size: 1.15rem; filter: drop-shadow(0 0 6px #ff9500); line-height: 1;">⚡</span>
+    <span>Para cambiar a <strong style="color: #00d4ff;">${targetPageName}</strong>, utiliza el menú principal en la parte superior de Google Sites.</span>
+  `;
+
+  // Animar entrada
+  requestAnimationFrame(() => {
+    notice.style.opacity = '1';
+    notice.style.transform = 'translateX(-50%) translateY(0)';
+  });
+
+  if (notice._timer) clearTimeout(notice._timer);
+
+  notice._timer = setTimeout(() => {
+    notice.style.opacity = '0';
+    notice.style.transform = 'translateX(-50%) translateY(-15px)';
+  }, 3600);
+}
+
+/**
+ * =============================================================================
+ * 5. CONTROLADOR PRINCIPAL DE NAVEGACIÓN
+ * =============================================================================
+ */
+(function initVoltixNavigationController() {
+  const inGoogleSites = isRunningInsideGoogleSites();
+  const currentPageKey = getCurrentPageKey();
+
+  // Clase contextual en el elemento raíz
+  if (inGoogleSites && document.documentElement) {
+    document.documentElement.classList.add('in-iframe', 'in-google-sites');
+  }
+
+  // Reseteo preventivo del scroll hacia arriba
   try {
     window.scrollTo(0, 0);
     if (document.documentElement) document.documentElement.scrollTop = 0;
@@ -96,10 +187,10 @@ function isRunningInGoogleSites() {
 
       const trimmedHref = rawHref.trim();
 
-      // Caso 1: Enlaces de ancla interna en la misma página (#seccion) -> Dejar intactos
+      // 1. Enlaces de ancla interna en la misma página (#seccion) -> Preservar para scroll suave
       if (trimmedHref.startsWith('#')) return;
 
-      // Caso 2: Protocolos especiales (javascript:, mailto:, tel:) -> Dejar intactos
+      // 2. Protocolos especiales (javascript:, mailto:, tel:) -> Preservar
       if (
         trimmedHref.startsWith('javascript:') ||
         trimmedHref.startsWith('mailto:') ||
@@ -108,17 +199,15 @@ function isRunningInGoogleSites() {
         return;
       }
 
-      // Caso 3: Enlaces externos que NO forman parte de la navegación de VOLTIX
+      // 3. Enlaces externos que no corresponden a páginas de VOLTIX -> Preservar
       if (
         (trimmedHref.startsWith('http://') || trimmedHref.startsWith('https://')) &&
-        !trimmedHref.includes('sites.google.com') &&
         !trimmedHref.includes('dinoameges.github.io')
       ) {
-        // Enlaces puramente externos (ej. YouTube, documentación externa)
         return;
       }
 
-      // Caso 4: Identificar si el enlace corresponde a una de las páginas de VOLTIX
+      // 4. Identificar la página destino del proyecto VOLTIX
       const cleanName = trimmedHref
         .split('?')[0]
         .split('#')[0]
@@ -126,43 +215,62 @@ function isRunningInGoogleSites() {
         .replace('.html', '')
         .toLowerCase();
 
-      // Mapear 'index' hacia 'inicio' por compatibilidad
-      const pageKey = (cleanName === 'index') ? 'inicio' : cleanName;
+      const targetKey = (cleanName === 'index') ? 'inicio' : cleanName;
 
-      if (GITHUB_PAGES_URLS[pageKey] !== undefined) {
-        let destinationUrl = GITHUB_PAGES_URLS[pageKey];
+      // Si es una de las 7 páginas oficiales:
+      if (VOLTIX_ROUTER.pages[targetKey]) {
+        const pageConfig = VOLTIX_ROUTER.pages[targetKey];
 
-        // Si está integrado en Google Sites y el usuario configuró una URL real de Google Sites:
-        if (inGoogleSites) {
-          const configuredGsUrl = (GOOGLE_SITES_URLS[pageKey] || '').trim();
-          if (configuredGsUrl !== '') {
-            destinationUrl = configuredGsUrl;
-          }
-        }
+        // Normalizar siempre el href al archivo HTML relativo portable
+        link.setAttribute('href', pageConfig.file);
 
-        // Asignar la ruta resultante
-        link.setAttribute('href', destinationUrl);
-
-        // Garantizar que NO se utilice target="_top" ni target="_parent"
-        // para cumplir estrictamente la regla de seguridad y sandbox de Google Sites
+        // Remover target="_top" o target="_parent" para respetar la sandbox
         const currentTarget = link.getAttribute('target');
         if (currentTarget === '_top' || currentTarget === '_parent') {
           link.removeAttribute('target');
         }
 
-        // Listener para garantizar que el scroll empiece desde arriba al navegar
-        link.addEventListener('click', (e) => {
-          // Si el usuario utiliza teclas modificadoras (Ctrl/Cmd/Shift), respetar atajo del sistema
-          if (e.ctrlKey || e.metaKey || e.shiftKey) return;
+        // =====================================================================
+        // COMPORTAMIENTO SEGÚN EL ENTORNO:
+        // =====================================================================
 
-          try {
-            window.scrollTo(0, 0);
-          } catch (err) {}
-        });
+        if (!inGoogleSites) {
+          // --- MODO GITHUB PAGES (Directo) ---
+          // Navegación nativa limpia entre archivos HTML independientes
+          link.addEventListener('click', (e) => {
+            if (e.ctrlKey || e.metaKey || e.shiftKey) return;
+            try {
+              window.scrollTo(0, 0);
+            } catch (err) {}
+          });
+
+        } else {
+          // --- MODO GOOGLE SITES (Incrustado en Iframe) ---
+          // En Google Sites, la navegación entre páginas padre la controla el menú
+          // superior nativo de Google Sites para que la URL del navegador cambie y
+          // la tecla F5 no desincronice el contenido.
+
+          if (targetKey === currentPageKey) {
+            // Clic en la página activa: hacer scroll suave hacia arriba
+            link.addEventListener('click', (e) => {
+              e.preventDefault();
+              window.scrollTo({ top: 0, behavior: 'smooth' });
+            });
+            link.setAttribute('title', `Página activa: ${pageConfig.name}`);
+          } else {
+            // Clic en otra página desde adentro del iframe:
+            // Interceptar para evitar desincronizar la URL de Google Sites y guiar al usuario
+            link.addEventListener('click', (e) => {
+              e.preventDefault();
+              showGoogleSitesNavNotice(pageConfig.name);
+            });
+            link.setAttribute('title', `En Google Sites, utiliza el menú superior para ir a ${pageConfig.name}`);
+          }
+        }
       }
     });
 
-    // Notificación opcional de altura al contenedor padre mediante postMessage
+    // Notificación de altura al contenedor padre si aplica
     if (inGoogleSites) {
       const sendResize = () => {
         try {
