@@ -7,6 +7,7 @@
 
 /* --- 1. Variables & Tokens de Diseño --- */
 :root {
+  color-scheme: dark;
   /* Paleta Base Dark & Electric */
   --bg-primary: #07090e;
   --bg-surface-1: #0c101a;
@@ -76,6 +77,8 @@ html {
   scroll-padding-top: var(--header-height);
   font-size: 16px;
   -webkit-font-smoothing: antialiased;
+  scrollbar-width: none !important;
+  -ms-overflow-style: none !important;
 }
 
 body {
@@ -84,11 +87,29 @@ body {
   color: var(--text-primary);
   line-height: 1.6;
   overflow-x: hidden;
+  scrollbar-width: none !important;
+  -ms-overflow-style: none !important;
   background-image: 
     radial-gradient(circle at 20% 15%, rgba(0, 102, 255, 0.05) 0%, transparent 40%),
     radial-gradient(circle at 80% 80%, rgba(0, 212, 255, 0.04) 0%, transparent 45%),
     linear-gradient(to bottom, #07090e, #07090e);
   background-attachment: fixed;
+}
+
+/* Eliminación total de barra lateral de desplazamiento (Scrollbar oculta) */
+* {
+  scrollbar-width: none !important;
+  -ms-overflow-style: none !important;
+}
+
+::-webkit-scrollbar,
+html::-webkit-scrollbar,
+body::-webkit-scrollbar,
+*::-webkit-scrollbar {
+  display: none !important;
+  width: 0 !important;
+  height: 0 !important;
+  background: transparent !important;
 }
 
 /* Cuadrícula Tecnológica Sutil */
