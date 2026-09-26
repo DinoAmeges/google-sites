@@ -103,26 +103,33 @@ Google Sites **no es un servidor de hosting tradicional** (no tiene un botón pa
 
 ---
 
-### PASO 4: Sincronizar el Menú de Navegación de VOLTIX con las URLs de Google Sites
+### PASO 4: Enrutamiento Inteligente Universal en `google-sites-nav.js`
 
-Dentro del archivo `google-sites/js/google-sites-nav.js` existe una configuración centralizada:
+El proyecto utiliza un sistema de enrutamiento centralizado y universal en `google-sites/js/google-sites-nav.js`:
 
 ```javascript
-const GOOGLE_SITES_URLS = {
-  inicio: "https://sites.google.com/view/tu-sitio/inicio",
-  electricidad: "https://sites.google.com/view/tu-sitio/electricidad",
-  componentes: "https://sites.google.com/view/tu-sitio/componentes",
-  aplicaciones: "https://sites.google.com/view/tu-sitio/aplicaciones",
-  energias: "https://sites.google.com/view/tu-sitio/energias",
-  multimedia: "https://sites.google.com/view/tu-sitio/multimedia",
-  contacto: "https://sites.google.com/view/tu-sitio/contacto"
+const VOLTIX_ROUTES = {
+  inicio: "inicio.html",
+  electricidad: "electricidad.html",
+  componentes: "componentes.html",
+  aplicaciones: "aplicaciones.html",
+  energias: "energias.html",
+  multimedia: "multimedia.html",
+  contacto: "contacto.html"
 };
 ```
 
-1. Copia las direcciones exactas de tus páginas de Google Sites.
-2. Pégalas en `google-sites/js/google-sites-nav.js`.
-3. Guarda y sube el cambio a tu repositorio.
-4. **¡Listo!** Ahora, al hacer clic en el menú o en los botones dentro del diseño, la navegación cambiará fluidamente de página en Google Sites.
+#### ¿Por qué NO se utiliza `target="_top"`?
+Google Sites incrusta contenidos web dentro de un iframe protegido por la directiva de seguridad del navegador:
+`sandbox="allow-scripts allow-forms allow-same-origin allow-popups allow-popups-to-escape-sandbox"`
+
+Al **no incluir** `allow-top-navigation`, si un enlace intenta usar `target="_top"`, el navegador bloquea la acción inmediatamente por seguridad (`DOMException`), haciendo que los enlaces parezcan "congelados" o no respondan al clic.
+
+#### ¿Cómo opera la navegación actual?
+1. **En GitHub Pages directo:** Los enlaces navegan de forma estándar y rápida entre los archivos HTML independientes.
+2. **Dentro de Google Sites (Página de inserción completa):** La navegación se ejecuta limpiamente dentro del contenedor embebido de pantalla completa. Al pulsar "ELECTRICIDAD", la vista se actualiza inmediatamente a `electricidad.html`, resetea el scroll hacia arriba automáticamente y conserva el estado visual activo en el navbar.
+3. **No se crean iframes anidados:** Cada navegación sustituye el documento del marco actual respetando las políticas de same-origin de GitHub Pages.
+4. **Enlaces externos protegidos:** Cualquier enlace hacia dominios externos abre en una pestaña nueva (`target="_blank"` con `rel="noopener noreferrer"`) para evitar que el sandbox de Google Sites bloquee su visualización.
 
 ---
 

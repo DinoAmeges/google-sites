@@ -145,12 +145,18 @@ function initScrollHeader() {
    4. Detección de Enlace Activo en la Navegación
    ========================================================================== */
 function initActiveNavLink() {
-  const currentPath = window.location.pathname.split('/').pop() || 'inicio.html';
+  const rawCurrent = window.location.pathname.split('/').pop() || 'inicio.html';
+  const currentPath = rawCurrent.split('?')[0].split('#')[0] || 'inicio.html';
   const navLinks = document.querySelectorAll('.nav-link');
 
   navLinks.forEach(link => {
-    const linkPath = link.getAttribute('href');
-    if (linkPath === currentPath || (currentPath === '' && (linkPath === 'inicio.html' || linkPath === 'index.html'))) {
+    const rawLinkPath = (link.getAttribute('href') || '').split('?')[0].split('#')[0];
+    const isCurrent = rawLinkPath === currentPath || 
+      (currentPath === 'inicio.html' && (rawLinkPath === 'inicio.html' || rawLinkPath === 'index.html')) ||
+      (currentPath === 'index.html' && (rawLinkPath === 'inicio.html' || rawLinkPath === 'index.html')) ||
+      (currentPath === '' && (rawLinkPath === 'inicio.html' || rawLinkPath === 'index.html'));
+
+    if (isCurrent) {
       link.classList.add('active');
     } else {
       link.classList.remove('active');
