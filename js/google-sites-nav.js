@@ -231,42 +231,16 @@ function showGoogleSitesNavNotice(targetPageName) {
         }
 
         // =====================================================================
-        // COMPORTAMIENTO SEGÚN EL ENTORNO:
+        // NAVEGACIÓN FLUIDA UNIVERSAL (GITHUB PAGES Y GOOGLE SITES)
         // =====================================================================
-
-        if (!inGoogleSites) {
-          // --- MODO GITHUB PAGES (Directo) ---
-          // Navegación nativa limpia entre archivos HTML independientes
-          link.addEventListener('click', (e) => {
-            if (e.ctrlKey || e.metaKey || e.shiftKey) return;
-            try {
-              window.scrollTo(0, 0);
-            } catch (err) {}
-          });
-
-        } else {
-          // --- MODO GOOGLE SITES (Incrustado en Iframe) ---
-          // En Google Sites, la navegación entre páginas padre la controla el menú
-          // superior nativo de Google Sites para que la URL del navegador cambie y
-          // la tecla F5 no desincronice el contenido.
-
-          if (targetKey === currentPageKey) {
-            // Clic en la página activa: hacer scroll suave hacia arriba
-            link.addEventListener('click', (e) => {
-              e.preventDefault();
-              window.scrollTo({ top: 0, behavior: 'smooth' });
-            });
-            link.setAttribute('title', `Página activa: ${pageConfig.name}`);
-          } else {
-            // Clic en otra página desde adentro del iframe:
-            // Interceptar para evitar desincronizar la URL de Google Sites y guiar al usuario
-            link.addEventListener('click', (e) => {
-              e.preventDefault();
-              showGoogleSitesNavNotice(pageConfig.name);
-            });
-            link.setAttribute('title', `En Google Sites, utiliza el menú superior para ir a ${pageConfig.name}`);
-          }
-        }
+        link.addEventListener('click', (e) => {
+          if (e.ctrlKey || e.metaKey || e.shiftKey) return;
+          try {
+            window.scrollTo(0, 0);
+            if (document.documentElement) document.documentElement.scrollTop = 0;
+            if (document.body) document.body.scrollTop = 0;
+          } catch (err) {}
+        });
       }
     });
 
