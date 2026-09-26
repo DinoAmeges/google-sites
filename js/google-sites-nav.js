@@ -1,25 +1,26 @@
 /**
- * VOLTIX TECHNOLOGY — Enrutador de Navegación Universal
- * Proyecto Académico: Ingeniería Eléctrica • Curso: 2-AF
+ * VOLTIX TECHNOLOGY — Enrutador Inteligente para Google Sites y GitHub Pages
+ * Lema: Electricidad • Tecnología • Innovación
+ * Proyecto Académico • Ingeniería Eléctrica • Curso: 2-AF
+ * Estudiante: GARCIA ANDRADE MATIAS EDUARDO
  * 
- * Compatibilidad garantizada:
- * 1. Escenario A: Visualización directa en GitHub Pages (ej. https://dinoameges.github.io/google-sites/inicio.html)
- * 2. Escenario B: Inserción como "Página completa" en Google Sites (Iframe sandboxed)
- * 3. Escenario C: Entorno local de desarrollo (localhost / file://)
+ * Este módulo gestiona de forma centralizada y limpia los enlaces de navegación,
+ * adaptándose automáticamente a dos entornos de ejecución:
  * 
- * ANÁLISIS DE LA RESTRICCIÓN DE GOOGLE SITES:
- * Google Sites incrusta páginas externas dentro de un iframe con el atributo:
- * sandbox="allow-scripts allow-forms allow-same-origin allow-popups allow-popups-to-escape-sandbox"
+ * 1. ENTORNO A: GitHub Pages / Localhost (Navegación directa estándar entre archivos HTML)
+ * 2. ENTORNO B: Google Sites (Página de inserción completa embebida en iframe)
  * 
- * Al NO incluir "allow-top-navigation", cualquier enlace con target="_top" es bloqueado
- * automáticamente por las políticas de seguridad del navegador (DOMException).
- * La navegación correcta y estable dentro de Google Sites debe operar en el marco actual
- * (navegación relativa sin forzar _top), permitiendo recorrer fluidamente todo el sitio
- * sin abrir pestañas innecesarias, sin crear iframes anidados y sin congelar la barra de navegación.
+ * REGLAS DE SEGURIDAD ESTRICTAS APLICADAS:
+ * - NO se usa target="_top" (evita bloqueos de seguridad del sandbox de Google Sites).
+ * - NO se usa window.top.location ni window.parent.location (previene violaciones de Same-Origin).
+ * - NO se abren nuevas pestañas en la navegación interna (mantiene la experiencia integrada).
+ * - NO se generan iframes anidados.
  */
 
-// 1. Configuración Centralizada de Rutas (Relativas, portables y seguras)
-const VOLTIX_ROUTES = {
+// =============================================================================
+// 1. URLs DE GITHUB PAGES (Rutas HTML estándar y portables)
+// =============================================================================
+const GITHUB_PAGES_URLS = {
   inicio: "inicio.html",
   electricidad: "electricidad.html",
   componentes: "componentes.html",
@@ -29,18 +30,49 @@ const VOLTIX_ROUTES = {
   contacto: "contacto.html"
 };
 
-(function initVoltixNavigation() {
-  // Detección segura de entorno iframe
-  let isInsideIframe = false;
-  try {
-    isInsideIframe = window.self !== window.top;
-  } catch (e) {
-    // Si el acceso a window.top lanza error de cross-origin, definitivamente estamos en un iframe
-    isInsideIframe = true;
-  }
+// =============================================================================
+// CONFIGURAR URLs DE GOOGLE SITES
+// =============================================================================
+// Instrucción para el usuario:
+// Una vez que tengas publicadas las páginas correspondientes en tu Google Site,
+// coloca dentro de las comillas la URL real de cada una de ellas.
+// 
+// Ejemplo:
+//   inicio: "https://sites.google.com/view/voltix-technology/inicio",
+//   electricidad: "https://sites.google.com/view/voltix-technology/electricidad",
+// 
+// NOTA: Si una URL se deja vacía (""), el sistema utilizará automáticamente
+// la ruta normal de GitHub Pages como respaldo seguro y funcional.
+// =============================================================================
+const GOOGLE_SITES_URLS = {
+  inicio: "",
+  electricidad: "",
+  componentes: "",
+  aplicaciones: "",
+  energias: "",
+  multimedia: "",
+  contacto: ""
+};
 
-  // Marcar visualmente el contenedor para estilos contextuales si es necesario
-  if (isInsideIframe) {
+/**
+ * Detecta de forma segura el entorno de ejecución actual:
+ * @returns {boolean} true si está embebido en Google Sites (o cualquier iframe); false si se visualiza directo.
+ */
+function isRunningInGoogleSites() {
+  try {
+    return window.self !== window.top;
+  } catch (e) {
+    // Si el acceso a window.top lanza excepción de Same-Origin (CORS),
+    // confirma fehacientemente que la página se encuentra dentro de un iframe externo.
+    return true;
+  }
+}
+
+(function initVoltixNavigation() {
+  const inGoogleSites = isRunningInGoogleSites();
+
+  // Indicador de clase contextual en <html> para posibles adaptaciones visuales
+  if (inGoogleSites && document.documentElement) {
     document.documentElement.classList.add('in-iframe');
   }
 
@@ -52,11 +84,10 @@ const VOLTIX_ROUTES = {
   } catch (e) {}
 
   document.addEventListener('DOMContentLoaded', () => {
-    if (isInsideIframe && document.body) {
+    if (inGoogleSites && document.body) {
       document.body.classList.add('in-iframe', 'in-google-sites');
     }
 
-    // Normalización de enlaces
     const allLinks = document.querySelectorAll('a[href]');
 
     allLinks.forEach(link => {
@@ -65,29 +96,29 @@ const VOLTIX_ROUTES = {
 
       const trimmedHref = rawHref.trim();
 
-      // Caso 1: Enlaces de ancla dentro de la misma página (#introduccion, #que-es, etc.)
-      if (trimmedHref.startsWith('#')) {
-        // Dejar intacto para permitir scroll suave nativo
+      // Caso 1: Enlaces de ancla interna en la misma página (#seccion) -> Dejar intactos
+      if (trimmedHref.startsWith('#')) return;
+
+      // Caso 2: Protocolos especiales (javascript:, mailto:, tel:) -> Dejar intactos
+      if (
+        trimmedHref.startsWith('javascript:') ||
+        trimmedHref.startsWith('mailto:') ||
+        trimmedHref.startsWith('tel:')
+      ) {
         return;
       }
 
-      // Caso 2: Protocolos especiales (javascript:, mailto:, tel:)
-      if (trimmedHref.startsWith('javascript:') || trimmedHref.startsWith('mailto:') || trimmedHref.startsWith('tel:')) {
+      // Caso 3: Enlaces externos que NO forman parte de la navegación de VOLTIX
+      if (
+        (trimmedHref.startsWith('http://') || trimmedHref.startsWith('https://')) &&
+        !trimmedHref.includes('sites.google.com') &&
+        !trimmedHref.includes('dinoameges.github.io')
+      ) {
+        // Enlaces puramente externos (ej. YouTube, documentación externa)
         return;
       }
 
-      // Caso 3: Enlaces externos absolutos (http://, https://) que NO son de VOLTIX
-      if (trimmedHref.startsWith('http://') || trimmedHref.startsWith('https://')) {
-        // Enlaces externos deben abrir en pestaña nueva para no ser bloqueados
-        if (isInsideIframe && !link.hasAttribute('target')) {
-          link.setAttribute('target', '_blank');
-          link.setAttribute('rel', 'noopener noreferrer');
-        }
-        return;
-      }
-
-      // Caso 4: Enlaces del proyecto VOLTIX TECHNOLOGY
-      // Extraer nombre de la página de destino (ej. "inicio.html" -> "inicio", "./electricidad.html" -> "electricidad")
+      // Caso 4: Identificar si el enlace corresponde a una de las páginas de VOLTIX
       const cleanName = trimmedHref
         .split('?')[0]
         .split('#')[0]
@@ -95,22 +126,35 @@ const VOLTIX_ROUTES = {
         .replace('.html', '')
         .toLowerCase();
 
-      if (VOLTIX_ROUTES[cleanName]) {
-        // Asignar la ruta normalizada correspondiente
-        const targetFile = VOLTIX_ROUTES[cleanName];
-        link.setAttribute('href', targetFile);
+      // Mapear 'index' hacia 'inicio' por compatibilidad
+      const pageKey = (cleanName === 'index') ? 'inicio' : cleanName;
 
-        // Si previamente tenía target="_top", removerlo para evitar que el sandbox de Google Sites lo bloquee
-        if (link.getAttribute('target') === '_top') {
+      if (GITHUB_PAGES_URLS[pageKey] !== undefined) {
+        let destinationUrl = GITHUB_PAGES_URLS[pageKey];
+
+        // Si está integrado en Google Sites y el usuario configuró una URL real de Google Sites:
+        if (inGoogleSites) {
+          const configuredGsUrl = (GOOGLE_SITES_URLS[pageKey] || '').trim();
+          if (configuredGsUrl !== '') {
+            destinationUrl = configuredGsUrl;
+          }
+        }
+
+        // Asignar la ruta resultante
+        link.setAttribute('href', destinationUrl);
+
+        // Garantizar que NO se utilice target="_top" ni target="_parent"
+        // para cumplir estrictamente la regla de seguridad y sandbox de Google Sites
+        const currentTarget = link.getAttribute('target');
+        if (currentTarget === '_top' || currentTarget === '_parent') {
           link.removeAttribute('target');
         }
 
-        // Listener para garantizar reseteo de scroll antes de navegar a la nueva página
+        // Listener para garantizar que el scroll empiece desde arriba al navegar
         link.addEventListener('click', (e) => {
-          // Si el usuario presiona Ctrl, Cmd o Shift para abrir en nueva pestaña, respetar atajo nativo
+          // Si el usuario utiliza teclas modificadoras (Ctrl/Cmd/Shift), respetar atajo del sistema
           if (e.ctrlKey || e.metaKey || e.shiftKey) return;
 
-          // Asegurar que la nueva página cargue desde arriba
           try {
             window.scrollTo(0, 0);
           } catch (err) {}
@@ -118,8 +162,8 @@ const VOLTIX_ROUTES = {
       }
     });
 
-    // Comunicación opcional de altura con la ventana padre
-    if (isInsideIframe) {
+    // Notificación opcional de altura al contenedor padre mediante postMessage
+    if (inGoogleSites) {
       const sendResize = () => {
         try {
           const height = Math.max(
