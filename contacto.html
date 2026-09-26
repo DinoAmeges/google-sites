@@ -1,0 +1,308 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Contacto | VOLTIX TECHNOLOGY</title>
+  <meta name="description" content="Conecta con VOLTIX TECHNOLOGY, espacio académico dedicado a explorar los fundamentos de la electricidad, sus aplicaciones y la tecnología.">
+  <meta name="author" content="GARCIA ANDRADE MATIAS EDUARDO - Ingeniería Eléctrica Curso 2-AF">
+  <meta name="theme-color" content="#07090e">
+
+  <!-- Google Fonts -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=JetBrains+Mono:wght@400;500;600;700&family=Outfit:wght@500;600;700;800;900&display=swap" rel="stylesheet">
+
+  <link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+
+  <div class="tech-grid-overlay" aria-hidden="true"></div>
+
+  <!-- HEADER GLOBAL IDÉNTICO A LA REFERENCIA OFICIAL -->
+  <header class="site-header" id="header">
+    <div class="container header-container">
+      <a href="inicio.html" class="brand-logo" aria-label="VOLTIX TECHNOLOGY - Inicio">
+        <div class="brand-icon-box">⚡</div>
+        <div class="brand-text">
+          <span class="brand-title">VOLTIX TECHNOLOGY</span>
+          <span class="brand-subtitle">Electricidad • Innovación</span>
+        </div>
+      </a>
+
+      <nav class="nav-menu" id="navMenu" aria-label="Navegación principal">
+        <a href="inicio.html" class="nav-link">Inicio</a>
+        <a href="electricidad.html" class="nav-link">Electricidad</a>
+        <a href="componentes.html" class="nav-link">Componentes</a>
+        <a href="aplicaciones.html" class="nav-link">Aplicaciones</a>
+        <a href="energias.html" class="nav-link">Energías</a>
+        <a href="multimedia.html" class="nav-link">Multimedia</a>
+        <a href="contacto.html" class="nav-link active">Contacto</a>
+      </nav>
+
+      <button class="mobile-toggle" id="mobileToggle" aria-label="Abrir menú de navegación" aria-expanded="false">
+        <span></span>
+        <span></span>
+        <span></span>
+      </button>
+    </div>
+  </header>
+
+  <main>
+    <!-- ==========================================================================
+         SECCIÓN 1 — HERO EDITORIAL DE CONTACTO
+         ========================================================================== -->
+    <section class="editorial-hero-section">
+      <div class="container">
+        <div class="editorial-hero-grid">
+          <div class="editorial-hero-content">
+            <span class="editorial-hero-eyebrow">⚡ COMUNICACIÓN ACADÉMICA & VINCULACIÓN</span>
+            <h1 class="editorial-hero-title">
+              CON<span class="text-gradient">TACTO</span>
+            </h1>
+            <p class="editorial-hero-subtitle">
+              “Conecta con VOLTIX TECHNOLOGY.”
+            </p>
+            <a href="#comunicacion" class="hero-explore-link">
+              <span>Canal de consulta</span>
+              <span class="explore-arrow">↓</span>
+            </a>
+          </div>
+          <div class="editorial-hero-visual">
+            <div class="editorial-hero-frame">
+              <img src="assets/images/app-tech.jpg" alt="Ingeniería y conectividad de telecomunicaciones y sistemas eléctricos">
+              <div class="editorial-hero-badge">
+                <span class="dot"></span>
+                <span>VOLTIX LAB • INGENIERÍA ELÉCTRICA</span>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ==========================================================================
+         SECCIÓN 2 — COMPOSICIÓN PRINCIPAL DE DOS ZONAS
+         ========================================================================== -->
+    <section class="section" id="comunicacion" style="padding-top: 3rem; padding-bottom: 2rem;">
+      <div class="container">
+        <div class="contact-two-zone-grid">
+
+          <!-- ZONA IZQUIERDA: "¿TIENES ALGUNA DUDA?" + FORMULARIO MINIMALISTA -->
+          <div class="contact-left-zone">
+            <div class="contact-zone-kicker">ESPACIO FORMATIVO</div>
+            <h2 class="contact-zone-title">¿TIENES ALGUNA DUDA?</h2>
+            <p class="contact-zone-desc">
+              VOLTIX TECHNOLOGY es un espacio académico dedicado a explorar los fundamentos de la electricidad, sus aplicaciones y las tecnologías que transforman nuestro entorno.
+            </p>
+
+            <div id="formAlert" class="contact-alert-msg" role="status"></div>
+
+            <div class="contact-minimal-form-box">
+              <form id="academicContactForm">
+                <div class="form-field-group">
+                  <label for="contactName" class="form-field-label">NOMBRE</label>
+                  <input type="text" id="contactName" class="form-field-input" placeholder="Tu nombre y apellido" required>
+                </div>
+
+                <div class="form-field-group">
+                  <label for="contactEmail" class="form-field-label">CORREO</label>
+                  <input type="email" id="contactEmail" class="form-field-input" placeholder="correo@institucion.edu" required>
+                </div>
+
+                <div class="form-field-group">
+                  <label for="contactMessage" class="form-field-label">MENSAJE</label>
+                  <textarea id="contactMessage" class="form-field-input" placeholder="Escribe aquí tu consulta o comentario..." required></textarea>
+                </div>
+
+                <button type="submit" class="btn btn-primary" style="width: 100%; justify-content: center; margin-top: 0.5rem;">
+                  <span>ENVIAR MENSAJE</span>
+                  <span class="btn-icon">→</span>
+                </button>
+              </form>
+            </div>
+          </div>
+
+          <!-- ZONA DERECHA: PANEL VISUAL ELEGANTE (PROYECTO ACADÉMICO) -->
+          <div class="contact-right-panel">
+            <div class="panel-badge-top">
+              <span>⚡</span>
+              <span>COORDINACIÓN ACADÉMICA</span>
+            </div>
+
+            <h3 class="panel-entity-title">PROYECTO ACADÉMICO</h3>
+            <div class="panel-entity-sub">INGENIERÍA ELÉCTRICA</div>
+
+            <div class="panel-triad-box">
+              <span class="triad-item">ELECTRICIDAD</span>
+              <span class="triad-sep">•</span>
+              <span class="triad-item">TECNOLOGÍA</span>
+              <span class="triad-sep">•</span>
+              <span class="triad-item">INNOVACIÓN</span>
+            </div>
+
+            <div class="panel-academic-specs">
+              <div class="spec-line">
+                <span class="spec-label">Institución Universitaria</span>
+                <span class="spec-val">Universidad Técnica “Luis Vargas Torres” de Esmeraldas</span>
+              </div>
+
+              <div class="spec-line">
+                <span class="spec-label">Carrera de Formación</span>
+                <span class="spec-val accent">INGENIERÍA ELÉCTRICA</span>
+              </div>
+
+              <div class="spec-line">
+                <span class="spec-label">Asignatura</span>
+                <span class="spec-val">Computación II</span>
+              </div>
+
+              <div class="spec-line">
+                <span class="spec-label">Curso y Paralelo</span>
+                <span class="spec-val accent">2-AF</span>
+              </div>
+
+              <div class="spec-line">
+                <span class="spec-label">Estudiante Responsable</span>
+                <span class="spec-val accent">GARCIA ANDRADE MATIAS EDUARDO</span>
+              </div>
+
+              <div class="spec-line">
+                <span class="spec-label">Docente Evaluador</span>
+                <span class="spec-val">VICTOR JAVIER QUIÑONEZ QUIÑONEZ</span>
+              </div>
+
+              <div class="spec-line">
+                <span class="spec-label">Período Académico</span>
+                <span class="spec-val">Primer Parcial • 2026</span>
+              </div>
+            </div>
+          </div>
+
+        </div>
+
+        <!-- ==========================================================================
+             SECCIÓN 3 — BLOQUE FINAL VISUAL DE CIERRE
+             ========================================================================== -->
+        <div class="contact-closing-emblem-section">
+          <div class="closing-brand-emblem">
+            <div class="closing-brand-icon">⚡</div>
+            <span class="closing-brand-name">VOLTIX TECHNOLOGY</span>
+          </div>
+          <div class="closing-brand-slogan">ELECTRICIDAD • TECNOLOGÍA • INNOVACIÓN</div>
+          <p class="closing-brand-quote">
+            “Explora. Comprende. Innova.”
+          </p>
+        </div>
+
+      </div>
+    </section>
+  </main>
+
+  <!-- ==========================================================================
+       FOOTER TECNOLÓGICO PREMIUM OFICIAL (3 NIVELES)
+       ========================================================================== -->
+  <footer class="site-footer-premium">
+    <!-- NIVEL 1 — CIERRE VISUAL / TRANSICIÓN -->
+    <div class="footer-transition-level">
+      <div class="container">
+        <div class="footer-transition-pretitle">⚡ VISIÓN & PROYECCIÓN TECNOLÓGICA</div>
+        <h2 class="footer-transition-title">LA ELECTRICIDAD IMPULSA EL FUTURO.</h2>
+        <p class="footer-transition-subtitle">
+          Comprender la energía es el primer paso para transformar la tecnología.
+        </p>
+        <a href="inicio.html" class="btn-footer-explore">
+          <span>VOLVER AL INICIO</span>
+          <span class="explore-arrow">→</span>
+        </a>
+      </div>
+    </div>
+
+    <!-- NIVEL 2 — FOOTER PRINCIPAL (3 COLUMNAS) -->
+    <div class="footer-main-level">
+      <div class="container">
+        <div class="premium-footer-grid">
+          <!-- Columna 1 — Identidad y Datos Académicos -->
+          <div class="premium-footer-col-brand">
+            <div class="footer-logo-wrap">
+              <div class="footer-logo-icon">⚡</div>
+              <span class="footer-logo-text">VOLTIX TECHNOLOGY</span>
+            </div>
+            <div class="footer-brand-slogan">Electricidad • Tecnología • Innovación</div>
+            <p class="footer-brand-summary">
+              Proyecto académico dedicado a explorar los fundamentos de la electricidad, la tecnología y la innovación.
+            </p>
+            <div class="footer-academic-block">
+              <div class="acad-line">Proyecto Académico • <strong>Ingeniería Eléctrica</strong></div>
+              <div class="acad-line">Curso: <strong>2-AF</strong></div>
+              <div class="student-line">
+                <span class="student-label">Estudiante:</span>
+                <span class="student-name">GARCIA ANDRADE MATIAS EDUARDO</span>
+              </div>
+            </div>
+          </div>
+
+          <!-- Columna 2 — Explorar -->
+          <div class="premium-footer-col-nav">
+            <h3 class="premium-footer-title">EXPLORAR</h3>
+            <nav class="footer-nav-premium" aria-label="Navegación del pie de página">
+              <a href="inicio.html" class="footer-nav-link"><span class="nav-arrow">→</span><span>Inicio</span></a>
+              <a href="electricidad.html" class="footer-nav-link"><span class="nav-arrow">→</span><span>Electricidad</span></a>
+              <a href="componentes.html" class="footer-nav-link"><span class="nav-arrow">→</span><span>Componentes</span></a>
+              <a href="aplicaciones.html" class="footer-nav-link"><span class="nav-arrow">→</span><span>Aplicaciones</span></a>
+              <a href="energias.html" class="footer-nav-link"><span class="nav-arrow">→</span><span>Energías</span></a>
+              <a href="multimedia.html" class="footer-nav-link"><span class="nav-arrow">→</span><span>Multimedia</span></a>
+              <a href="contacto.html" class="footer-nav-link"><span class="nav-arrow">→</span><span>Contacto</span></a>
+            </nav>
+          </div>
+
+          <!-- Columna 3 — Sobre el Proyecto -->
+          <div class="premium-footer-col-about">
+            <h3 class="premium-footer-title">SOBRE EL PROYECTO</h3>
+            <p class="footer-about-text">
+              VOLTIX TECHNOLOGY presenta contenidos educativos relacionados con la electricidad, sus fundamentos, aplicaciones, componentes y nuevas formas de generación de energía.
+            </p>
+            <div class="footer-triad-badge">
+              <div class="triad-icon">⚡</div>
+              <div class="triad-items">
+                <span>ELECTRICIDAD</span>
+                <span class="triad-dot">•</span>
+                <span>TECNOLOGÍA</span>
+                <span class="triad-dot">•</span>
+                <span>INNOVACIÓN</span>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- SEPARADOR PISTA DE CIRCUITO -->
+    <div class="footer-circuit-divider">
+      <div class="container">
+        <div class="pcb-trace-line">
+          <span class="pcb-node start"></span>
+          <span class="pcb-node end"></span>
+        </div>
+      </div>
+    </div>
+
+    <!-- NIVEL 3 — COPYRIGHT -->
+    <div class="footer-bottom-level">
+      <div class="container">
+        <div class="footer-bottom-flex">
+          <div class="footer-bottom-left">
+            <span>© 2026 VOLTIX TECHNOLOGY — Proyecto Académico de Ingeniería Eléctrica.</span>
+          </div>
+          <div class="footer-bottom-right">
+            <span>Ingeniería Eléctrica • Curso: 2-AF</span>
+          </div>
+        </div>
+      </div>
+    </div>
+  </footer>
+
+  <script src="js/main.js"></script>
+  <script src="js/google-sites-nav.js"></script>
+</body>
+</html>

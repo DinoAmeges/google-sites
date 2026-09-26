@@ -1,0 +1,3906 @@
+/* ==========================================================================
+   VOLTIX TECHNOLOGY — SISTEMA DE DISEÑO PERFECCIONADO
+   Lema: Electricidad • Tecnología • Innovación
+   Proyecto Académico • Ingeniería Eléctrica • Curso: 2-AF
+   Estilo: Académico, Tecnológico, Elegante, Dark Mode, Minimalista
+   ========================================================================== */
+
+/* --- 1. Variables & Tokens de Diseño --- */
+:root {
+  /* Paleta Base Dark & Electric */
+  --bg-primary: #07090e;
+  --bg-surface-1: #0c101a;
+  --bg-surface-2: #111726;
+  --bg-surface-3: #162035;
+  --bg-card: rgba(16, 23, 37, 0.75);
+  --bg-card-hover: rgba(22, 32, 52, 0.9);
+  --bg-glass: rgba(12, 16, 26, 0.8);
+
+  /* Acentos Eléctricos */
+  --electric-blue: #00d4ff;
+  --electric-cyan: #00f0ff;
+  --electric-deep: #0066ff;
+  --electric-glow: rgba(0, 212, 255, 0.25);
+  --electric-glow-strong: rgba(0, 212, 255, 0.5);
+  --electric-subtle: rgba(0, 212, 255, 0.06);
+
+  /* Acentos de Energía (usados con moderación) */
+  --energy-solar: #ffb703;
+  --energy-wind: #38bdf8;
+  --energy-hydro: #06b6d4;
+  --energy-geo: #f97316;
+
+  /* Tipografía y Jerarquía */
+  --text-white: #ffffff;
+  --text-primary: #f1f5f9;
+  --text-secondary: #94a3b8;
+  --text-muted: #64748b;
+
+  /* Bordes & Separadores Finos */
+  --border-subtle: rgba(255, 255, 255, 0.07);
+  --border-card: rgba(0, 212, 255, 0.14);
+  --border-glow: rgba(0, 212, 255, 0.38);
+
+  /* Tipografías */
+  --font-heading: 'Outfit', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+  --font-body: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+  --font-mono: 'JetBrains Mono', monospace;
+
+  /* Radios & Sombras */
+  --radius-sm: 6px;
+  --radius-md: 10px;
+  --radius-lg: 16px;
+  --radius-xl: 20px;
+  --radius-full: 9999px;
+
+  --transition-fast: 0.2s cubic-bezier(0.4, 0, 0.2, 1);
+  --transition-smooth: 0.3s cubic-bezier(0.16, 1, 0.3, 1);
+
+  --shadow-card: 0 12px 32px -8px rgba(0, 0, 0, 0.55);
+  --shadow-glow: 0 0 24px rgba(0, 212, 255, 0.18);
+
+  /* Layout */
+  --container-max: 1200px;
+  --header-height: 74px;
+}
+
+/* --- 2. Reset & Estilos Base --- */
+*, *::before, *::after {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+html {
+  scroll-behavior: smooth;
+  scroll-padding-top: var(--header-height);
+  font-size: 16px;
+  -webkit-font-smoothing: antialiased;
+}
+
+body {
+  font-family: var(--font-body);
+  background-color: var(--bg-primary);
+  color: var(--text-primary);
+  line-height: 1.6;
+  overflow-x: hidden;
+  background-image: 
+    radial-gradient(circle at 20% 15%, rgba(0, 102, 255, 0.05) 0%, transparent 40%),
+    radial-gradient(circle at 80% 80%, rgba(0, 212, 255, 0.04) 0%, transparent 45%),
+    linear-gradient(to bottom, #07090e, #07090e);
+  background-attachment: fixed;
+}
+
+/* Cuadrícula Tecnológica Sutil */
+.tech-grid-overlay {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  pointer-events: none;
+  z-index: 0;
+  background-size: 50px 50px;
+  background-image: 
+    linear-gradient(to right, rgba(255, 255, 255, 0.012) 1px, transparent 1px),
+    linear-gradient(to bottom, rgba(255, 255, 255, 0.012) 1px, transparent 1px);
+  mask-image: radial-gradient(ellipse at center, rgba(0,0,0,1) 50%, rgba(0,0,0,0.2) 100%);
+}
+
+img {
+  max-width: 100%;
+  height: auto;
+  display: block;
+}
+
+a {
+  color: inherit;
+  text-decoration: none;
+  transition: color var(--transition-fast);
+}
+
+button {
+  font-family: inherit;
+  cursor: pointer;
+  border: none;
+  background: none;
+}
+
+ul {
+  list-style: none;
+}
+
+.container {
+  width: 100%;
+  max-width: var(--container-max);
+  margin-left: auto;
+  margin-right: auto;
+  padding-left: 1.5rem;
+  padding-right: 1.5rem;
+  position: relative;
+  z-index: 1;
+}
+
+/* Espaciados de Sección Equilibrados (Sin vacíos gigantes) */
+.section {
+  padding: 4.75rem 0;
+  position: relative;
+}
+
+.section--alt {
+  background-color: rgba(12, 16, 26, 0.45);
+  border-top: 1px solid var(--border-subtle);
+  border-bottom: 1px solid var(--border-subtle);
+}
+
+/* Encabezados de Sección Naturales (Sin etiquetas decorativas falsas) */
+.section-header {
+  text-align: center;
+  max-width: 720px;
+  margin: 0 auto 3rem auto;
+}
+
+.section-kicker {
+  font-family: var(--font-mono);
+  font-size: 0.74rem;
+  font-weight: 700;
+  color: var(--electric-cyan);
+  text-transform: uppercase;
+  letter-spacing: 0.12em;
+  margin-bottom: 0.45rem;
+  display: inline-block;
+}
+
+.section-title {
+  font-family: var(--font-heading);
+  font-size: clamp(1.85rem, 3vw, 2.5rem);
+  font-weight: 700;
+  color: var(--text-white);
+  line-height: 1.25;
+  letter-spacing: -0.02em;
+  margin-bottom: 0.75rem;
+}
+
+.text-gradient {
+  background: linear-gradient(135deg, #ffffff 40%, var(--electric-blue) 100%);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+}
+
+.section-subtitle {
+  font-size: 1.05rem;
+  color: var(--text-secondary);
+  line-height: 1.55;
+}
+
+/* --- 3. Header & Navegación --- */
+.site-header {
+  position: sticky;
+  top: 0;
+  width: 100%;
+  height: var(--header-height);
+  background: rgba(7, 9, 14, 0.92);
+  backdrop-filter: blur(14px);
+  -webkit-backdrop-filter: blur(14px);
+  border-bottom: 1px solid var(--border-subtle);
+  z-index: 100;
+  transition: all var(--transition-smooth);
+}
+
+.site-header.scrolled {
+  background: rgba(7, 9, 14, 0.98);
+  border-bottom-color: var(--border-card);
+  box-shadow: 0 8px 24px rgba(0, 0, 0, 0.5);
+}
+
+.header-container {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  height: 100%;
+}
+
+.brand-logo {
+  display: flex;
+  align-items: center;
+  gap: 0.7rem;
+  font-family: var(--font-heading);
+  font-size: 1.15rem;
+  font-weight: 800;
+  letter-spacing: 0.03em;
+  color: var(--text-white);
+}
+
+.brand-icon-box {
+  width: 36px;
+  height: 36px;
+  border-radius: var(--radius-sm);
+  background: linear-gradient(135deg, rgba(0, 212, 255, 0.15), rgba(0, 102, 255, 0.25));
+  border: 1px solid var(--electric-blue);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: var(--electric-cyan);
+  font-size: 1.1rem;
+  box-shadow: 0 0 12px var(--electric-glow);
+  transition: transform var(--transition-smooth);
+}
+
+.brand-logo:hover .brand-icon-box {
+  transform: scale(1.05);
+}
+
+.brand-text {
+  display: flex;
+  flex-direction: column;
+}
+
+.brand-title {
+  font-weight: 800;
+  line-height: 1.1;
+  color: var(--text-white);
+}
+
+.brand-subtitle {
+  font-size: 0.65rem;
+  font-weight: 600;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+  color: var(--electric-blue);
+  font-family: var(--font-mono);
+}
+
+.nav-menu {
+  display: flex;
+  align-items: center;
+  gap: 1.5rem;
+}
+
+.nav-link {
+  font-family: var(--font-heading);
+  font-size: 0.82rem;
+  font-weight: 600;
+  letter-spacing: 0.05em;
+  text-transform: uppercase;
+  color: var(--text-secondary);
+  position: relative;
+  padding: 0.35rem 0;
+  transition: color var(--transition-fast);
+}
+
+.nav-link::after {
+  content: '';
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  width: 0;
+  height: 2px;
+  background: var(--electric-blue);
+  box-shadow: 0 0 8px var(--electric-blue);
+  transition: width var(--transition-smooth);
+  border-radius: var(--radius-full);
+}
+
+.nav-link:hover,
+.nav-link.active {
+  color: var(--text-white);
+  text-shadow: 0 0 10px rgba(0, 212, 255, 0.5);
+}
+
+.nav-link:hover::after,
+.nav-link.active::after {
+  width: 100%;
+}
+
+.mobile-toggle {
+  display: none;
+  flex-direction: column;
+  justify-content: space-between;
+  width: 26px;
+  height: 18px;
+  background: transparent;
+  border: none;
+  cursor: pointer;
+  z-index: 110;
+}
+
+.mobile-toggle span {
+  display: block;
+  height: 2px;
+  width: 100%;
+  background: var(--text-white);
+  border-radius: 2px;
+  transition: all var(--transition-smooth);
+}
+
+.mobile-toggle.active span:nth-child(1) {
+  transform: translateY(8px) rotate(45deg);
+  background: var(--electric-blue);
+}
+
+.mobile-toggle.active span:nth-child(2) {
+  opacity: 0;
+}
+
+.mobile-toggle.active span:nth-child(3) {
+  transform: translateY(-8px) rotate(-45deg);
+  background: var(--electric-blue);
+}
+
+/* --- 4. Botones --- */
+.btn {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 0.6rem;
+  padding: 0.75rem 1.65rem;
+  font-family: var(--font-heading);
+  font-size: 0.88rem;
+  font-weight: 700;
+  letter-spacing: 0.04em;
+  text-transform: uppercase;
+  border-radius: var(--radius-md);
+  transition: all var(--transition-smooth);
+  position: relative;
+  cursor: pointer;
+}
+
+.btn-primary {
+  background: linear-gradient(135deg, #00d4ff, #0066ff);
+  color: #050810;
+  box-shadow: 0 4px 18px rgba(0, 212, 255, 0.35);
+  border: 1px solid rgba(255, 255, 255, 0.25);
+}
+
+.btn-primary:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 6px 25px rgba(0, 212, 255, 0.55);
+  background: linear-gradient(135deg, #00f0ff, #0052cc);
+  color: #03050a;
+}
+
+.btn-secondary {
+  background: rgba(16, 23, 37, 0.6);
+  color: var(--text-white);
+  border: 1px solid var(--border-card);
+  backdrop-filter: blur(8px);
+}
+
+.btn-secondary:hover {
+  border-color: var(--electric-blue);
+  background: rgba(0, 212, 255, 0.08);
+  color: var(--electric-blue);
+  transform: translateY(-2px);
+}
+
+.btn-icon {
+  transition: transform var(--transition-fast);
+}
+
+.btn:hover .btn-icon {
+  transform: translateX(3px);
+}
+
+/* --- 5. Hero Principal (Equilibrado, Sin Estadísticas Inventadas) --- */
+.hero-section {
+  position: relative;
+  min-height: calc(88vh - var(--header-height));
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 4rem 0 4.5rem 0;
+  overflow: hidden;
+}
+
+.hero-background-wrapper {
+  position: absolute;
+  inset: 0;
+  z-index: 0;
+  pointer-events: none;
+}
+
+.hero-bg-img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  object-position: center;
+  opacity: 0.28;
+  filter: contrast(1.15) brightness(0.85);
+  mask-image: radial-gradient(circle at center, rgba(0,0,0,1) 40%, rgba(0,0,0,0) 80%);
+}
+
+.hero-canvas {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  z-index: 1;
+}
+
+.hero-gradient-overlay {
+  position: absolute;
+  inset: 0;
+  background: radial-gradient(circle at 50% 40%, rgba(0, 102, 255, 0.1) 0%, transparent 60%),
+              linear-gradient(to bottom, transparent 65%, var(--bg-primary) 100%);
+  z-index: 2;
+}
+
+.hero-content {
+  text-align: center;
+  max-width: 840px;
+  margin: 0 auto;
+  position: relative;
+  z-index: 3;
+}
+
+.hero-title {
+  font-family: var(--font-heading);
+  font-size: clamp(2.6rem, 5.5vw, 4.75rem);
+  font-weight: 900;
+  color: var(--text-white);
+  line-height: 1.1;
+  letter-spacing: -0.03em;
+  margin-bottom: 1rem;
+  text-shadow: 0 8px 30px rgba(0, 0, 0, 0.8);
+}
+
+.hero-title .glow-electric {
+  background: linear-gradient(135deg, #ffffff 20%, #67e8f9 60%, #00d4ff 100%);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  display: block;
+}
+
+.hero-slogan {
+  font-family: var(--font-mono);
+  font-size: clamp(0.9rem, 1.8vw, 1.2rem);
+  font-weight: 500;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+  color: var(--electric-blue);
+  margin-bottom: 1.25rem;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 0.65rem;
+}
+
+.hero-slogan span.dot {
+  color: var(--text-muted);
+}
+
+.hero-description {
+  font-size: clamp(1.05rem, 1.8vw, 1.25rem);
+  color: #cbd5e1;
+  max-width: 620px;
+  margin: 0 auto 2.25rem auto;
+  line-height: 1.6;
+}
+
+.hero-actions {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 1.25rem;
+  flex-wrap: wrap;
+}
+
+/* --- 6. Sección 1 — Introducción (Composición Equilibrada) --- */
+.intro-grid {
+  display: grid;
+  grid-template-columns: 1.15fr 0.85fr;
+  gap: 3.5rem;
+  align-items: center;
+}
+
+.intro-content {
+  display: flex;
+  flex-direction: column;
+  gap: 1.25rem;
+}
+
+.intro-lead {
+  font-size: 1.12rem;
+  font-weight: 400;
+  color: #cbd5e1;
+  line-height: 1.65;
+}
+
+.intro-lead strong {
+  color: var(--text-white);
+  font-weight: 600;
+}
+
+.intro-cards-stack {
+  display: flex;
+  flex-direction: column;
+  gap: 0.85rem;
+  margin-top: 0.5rem;
+}
+
+.intro-card-mini {
+  background: rgba(16, 23, 37, 0.65);
+  border: 1px solid var(--border-subtle);
+  border-left: 3px solid var(--electric-blue);
+  border-radius: var(--radius-sm);
+  padding: 0.9rem 1.15rem;
+  transition: all var(--transition-fast);
+}
+
+.intro-card-mini:hover {
+  background: rgba(22, 32, 52, 0.85);
+  border-color: var(--border-card);
+  border-left-color: var(--electric-cyan);
+  transform: translateX(4px);
+}
+
+.intro-card-header {
+  display: flex;
+  align-items: center;
+  gap: 0.55rem;
+  margin-bottom: 0.25rem;
+}
+
+.intro-card-icon {
+  color: var(--electric-blue);
+  font-size: 1rem;
+}
+
+.intro-card-title {
+  font-family: var(--font-heading);
+  font-size: 0.95rem;
+  font-weight: 700;
+  color: var(--text-white);
+}
+
+.intro-card-desc {
+  font-size: 0.85rem;
+  color: var(--text-secondary);
+  line-height: 1.5;
+}
+
+/* Marco de Imagen de Introducción Integrado */
+.intro-visual {
+  position: relative;
+}
+
+.intro-image-frame {
+  position: relative;
+  border-radius: var(--radius-lg);
+  overflow: hidden;
+  border: 1px solid var(--border-card);
+  box-shadow: 0 16px 36px rgba(0, 0, 0, 0.6), var(--shadow-glow);
+  background: var(--bg-surface-2);
+}
+
+.intro-image-frame img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  transition: transform var(--transition-smooth);
+}
+
+.intro-image-frame:hover img {
+  transform: scale(1.02);
+}
+
+/* --- 7. Sección 2 — Pilares de Voltix Technology (Con Fondo de Circuito) --- */
+.pillars-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 1.75rem;
+}
+
+.pillar-card {
+  background: var(--bg-card);
+  border: 1px solid var(--border-card);
+  border-radius: var(--radius-lg);
+  padding: 2.25rem 1.85rem;
+  position: relative;
+  overflow: hidden;
+  transition: all var(--transition-smooth);
+  backdrop-filter: blur(10px);
+  display: flex;
+  flex-direction: column;
+}
+
+/* Detalle sutil de circuito en el fondo de la tarjeta */
+.pillar-card::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  right: 0;
+  width: 120px;
+  height: 120px;
+  background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'%3E%3Cpath d='M10 20 H50 V60 H90 M50 20 V40 H80' stroke='%2300d4ff' stroke-width='1.5' fill='none' stroke-linecap='round'/%3E%3Ccircle cx='90' cy='60' r='3' fill='%2300d4ff'/%3E%3Ccircle cx='80' cy='40' r='3' fill='%2300d4ff'/%3E%3C/svg%3E");
+  background-repeat: no-repeat;
+  background-position: top right;
+  opacity: 0.08;
+  pointer-events: none;
+  transition: opacity var(--transition-smooth);
+}
+
+.pillar-card:hover {
+  transform: translateY(-5px);
+  border-color: var(--border-glow);
+  box-shadow: var(--shadow-card), 0 0 20px rgba(0, 212, 255, 0.15);
+  background: var(--bg-card-hover);
+}
+
+.pillar-card:hover::before {
+  opacity: 0.16;
+}
+
+.pillar-icon-box {
+  width: 52px;
+  height: 52px;
+  border-radius: var(--radius-md);
+  background: rgba(0, 212, 255, 0.08);
+  border: 1px solid rgba(0, 212, 255, 0.2);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 1.6rem;
+  margin-bottom: 1.25rem;
+  color: var(--electric-cyan);
+  transition: all var(--transition-smooth);
+}
+
+.pillar-card:hover .pillar-icon-box {
+  background: var(--electric-blue);
+  color: #050810;
+  box-shadow: 0 0 16px var(--electric-glow);
+}
+
+.pillar-title {
+  font-family: var(--font-heading);
+  font-size: 1.25rem;
+  font-weight: 700;
+  color: var(--text-white);
+  margin-bottom: 0.65rem;
+}
+
+.pillar-description {
+  font-size: 0.92rem;
+  color: var(--text-secondary);
+  line-height: 1.6;
+  flex-grow: 1;
+}
+
+.pillar-footer {
+  margin-top: 1.5rem;
+  padding-top: 1rem;
+  border-top: 1px solid var(--border-subtle);
+}
+
+.pillar-link {
+  font-family: var(--font-heading);
+  font-size: 0.82rem;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 0.06em;
+  color: var(--electric-blue);
+  display: inline-flex;
+  align-items: center;
+  gap: 0.4rem;
+}
+
+.pillar-link:hover {
+  color: var(--text-white);
+}
+
+/* --- 8. Fundamentos (Compacto, Riguroso y Visual) --- */
+.fundamentals-grid {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 1.25rem;
+  margin-bottom: 2.75rem;
+}
+
+.fund-card {
+  background: var(--bg-card);
+  border: 1px solid var(--border-card);
+  border-radius: var(--radius-md);
+  padding: 1.5rem;
+  transition: all var(--transition-smooth);
+  display: flex;
+  flex-direction: column;
+}
+
+.fund-card:hover {
+  transform: translateY(-4px);
+  border-color: var(--electric-blue);
+  box-shadow: 0 10px 24px rgba(0, 0, 0, 0.4), 0 0 15px rgba(0, 212, 255, 0.12);
+}
+
+.fund-header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  margin-bottom: 0.85rem;
+}
+
+.fund-icon {
+  font-size: 1.4rem;
+  color: var(--electric-cyan);
+}
+
+.fund-unit-badge {
+  font-family: var(--font-mono);
+  font-size: 0.75rem;
+  font-weight: 600;
+  color: var(--electric-cyan);
+  background: rgba(0, 212, 255, 0.08);
+  padding: 0.2rem 0.55rem;
+  border-radius: var(--radius-sm);
+  border: 1px solid rgba(0, 212, 255, 0.2);
+}
+
+.fund-name {
+  font-family: var(--font-heading);
+  font-size: 1.15rem;
+  font-weight: 700;
+  color: var(--text-white);
+  margin-bottom: 0.45rem;
+}
+
+.fund-desc {
+  font-size: 0.85rem;
+  color: var(--text-secondary);
+  line-height: 1.5;
+  flex-grow: 1;
+}
+
+.fund-formula-tag {
+  margin-top: 1rem;
+  padding-top: 0.65rem;
+  border-top: 1px solid var(--border-subtle);
+  font-family: var(--font-mono);
+  font-size: 0.82rem;
+  font-weight: 600;
+  color: var(--text-white);
+}
+
+/* Banner de la Ley de Ohm Compacto */
+.ohm-compact-banner {
+  background: linear-gradient(135deg, rgba(16, 23, 37, 0.95), rgba(12, 16, 26, 0.95));
+  border: 1px solid var(--border-glow);
+  border-radius: var(--radius-lg);
+  padding: 2rem 2.25rem;
+  display: grid;
+  grid-template-columns: auto 1fr;
+  gap: 2.25rem;
+  align-items: center;
+}
+
+.ohm-formula-display {
+  background: rgba(7, 9, 14, 0.85);
+  border: 1px solid var(--border-card);
+  padding: 1.25rem 2rem;
+  border-radius: var(--radius-md);
+  text-align: center;
+}
+
+.ohm-formula-text {
+  font-family: var(--font-mono);
+  font-size: 2.2rem;
+  font-weight: 900;
+  color: var(--electric-cyan);
+  text-shadow: 0 0 15px rgba(0, 212, 255, 0.4);
+  letter-spacing: 0.05em;
+}
+
+.ohm-formula-label {
+  font-size: 0.72rem;
+  text-transform: uppercase;
+  color: var(--text-muted);
+  letter-spacing: 0.06em;
+  margin-top: 0.25rem;
+}
+
+.ohm-explanation-text h4 {
+  font-family: var(--font-heading);
+  font-size: 1.15rem;
+  font-weight: 700;
+  color: var(--text-white);
+  margin-bottom: 0.4rem;
+}
+
+.ohm-explanation-text p {
+  font-size: 0.88rem;
+  color: var(--text-secondary);
+  line-height: 1.6;
+}
+
+/* ==========================================================================
+   8.1 PÁGINA ELECTRICIDAD — DISEÑO EDITORIAL Y TECNOLÓGICO
+   Estilo: Revista de Ingeniería, Infográfico, Visual, Dinámico, Dark Mode
+   ========================================================================== */
+
+/* --- HERO EDITORIAL DE ELECTRICIDAD --- */
+.elec-hero-section {
+  padding: 4.5rem 0 3rem 0;
+  position: relative;
+  overflow: hidden;
+}
+
+.elec-hero-grid {
+  display: grid;
+  grid-template-columns: 1.15fr 0.85fr;
+  gap: 3.5rem;
+  align-items: center;
+}
+
+.elec-hero-content {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+}
+
+.elec-eyebrow {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.5rem;
+  font-family: var(--font-mono);
+  font-size: 0.78rem;
+  font-weight: 600;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+  color: var(--electric-cyan);
+  background: rgba(0, 212, 255, 0.08);
+  border: 1px solid rgba(0, 212, 255, 0.2);
+  padding: 0.35rem 0.85rem;
+  border-radius: var(--radius-full);
+  margin-bottom: 1.25rem;
+}
+
+.elec-hero-title {
+  font-family: var(--font-heading);
+  font-size: clamp(2.3rem, 4.5vw, 3.5rem);
+  font-weight: 900;
+  line-height: 1.15;
+  color: var(--text-white);
+  letter-spacing: -0.02em;
+  margin-bottom: 1.25rem;
+}
+
+.elec-hero-subtitle {
+  font-size: clamp(1.05rem, 1.8vw, 1.2rem);
+  color: #cbd5e1;
+  line-height: 1.65;
+  margin-bottom: 2rem;
+  max-width: 560px;
+}
+
+.hero-explore-link {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.6rem;
+  font-family: var(--font-mono);
+  font-size: 0.85rem;
+  font-weight: 600;
+  color: var(--electric-blue);
+  text-transform: uppercase;
+  letter-spacing: 0.08em;
+  padding: 0.6rem 1.2rem;
+  border-radius: var(--radius-sm);
+  background: rgba(0, 212, 255, 0.06);
+  border: 1px solid rgba(0, 212, 255, 0.25);
+  transition: all var(--transition-fast);
+}
+
+.hero-explore-link:hover {
+  background: rgba(0, 212, 255, 0.16);
+  border-color: var(--electric-cyan);
+  color: #ffffff;
+  transform: translateY(2px);
+}
+
+.hero-explore-link .explore-arrow {
+  display: inline-block;
+  transition: transform var(--transition-fast);
+  color: var(--electric-cyan);
+}
+
+.hero-explore-link:hover .explore-arrow {
+  transform: translateY(3px);
+}
+
+.elec-hero-visual {
+  position: relative;
+}
+
+.elec-hero-img-frame {
+  position: relative;
+  height: 380px;
+  border-radius: var(--radius-xl);
+  overflow: hidden;
+  border: 1px solid rgba(0, 212, 255, 0.3);
+  box-shadow: 0 20px 50px rgba(0, 0, 0, 0.7), 0 0 30px rgba(0, 212, 255, 0.15);
+}
+
+.elec-hero-img-frame img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  opacity: 0.9;
+  filter: contrast(1.08) brightness(0.95);
+  transition: transform var(--transition-smooth);
+}
+
+.elec-hero-img-frame:hover img {
+  transform: scale(1.03);
+}
+
+.elec-hero-img-frame::after {
+  content: '';
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(180deg, rgba(7, 9, 14, 0.1) 0%, rgba(7, 9, 14, 0.75) 100%);
+  pointer-events: none;
+}
+
+.elec-hero-tag-badge {
+  position: absolute;
+  bottom: 1.25rem;
+  left: 1.25rem;
+  z-index: 2;
+  background: rgba(7, 9, 14, 0.88);
+  backdrop-filter: blur(10px);
+  border: 1px solid var(--border-card);
+  padding: 0.45rem 0.95rem;
+  border-radius: var(--radius-sm);
+  font-family: var(--font-mono);
+  font-size: 0.75rem;
+  color: var(--electric-cyan);
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+}
+
+.elec-hero-tag-badge .dot {
+  width: 7px;
+  height: 7px;
+  background: #00f0ff;
+  border-radius: 50%;
+  box-shadow: 0 0 8px #00f0ff;
+}
+
+/* --- SECCIÓN 2: INTRODUCCIÓN EDITORIAL --- */
+.editorial-layout {
+  display: grid;
+  grid-template-columns: 1.15fr 0.85fr;
+  gap: 3.5rem;
+  align-items: center;
+}
+
+.editorial-layout.reverse {
+  grid-template-columns: 0.85fr 1.15fr;
+}
+
+.section-kicker {
+  font-family: var(--font-mono);
+  font-size: 0.75rem;
+  font-weight: 700;
+  text-transform: uppercase;
+  color: var(--electric-blue);
+  letter-spacing: 0.1em;
+  margin-bottom: 0.45rem;
+}
+
+.editorial-lead {
+  font-size: 1.08rem;
+  color: #f1f5f9;
+  line-height: 1.7;
+  margin-bottom: 1rem;
+}
+
+.editorial-text {
+  font-size: 0.95rem;
+  color: #94a3b8;
+  line-height: 1.65;
+  margin-bottom: 1.25rem;
+}
+
+.editorial-quote-box {
+  background: rgba(0, 212, 255, 0.04);
+  border-left: 3px solid var(--electric-cyan);
+  padding: 0.9rem 1.2rem;
+  border-radius: 0 var(--radius-sm) var(--radius-sm) 0;
+  font-style: italic;
+  font-size: 0.88rem;
+  color: #cbd5e1;
+  line-height: 1.55;
+}
+
+/* Gráfico / Infografía SVG de Conducción */
+.infographic-panel {
+  background: linear-gradient(145deg, rgba(14, 20, 32, 0.85), rgba(7, 9, 14, 0.95));
+  border: 1px solid var(--border-card);
+  border-radius: var(--radius-lg);
+  padding: 1.75rem;
+  position: relative;
+  box-shadow: 0 16px 36px rgba(0, 0, 0, 0.5);
+}
+
+.infographic-header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  margin-bottom: 1.25rem;
+  padding-bottom: 0.75rem;
+  border-bottom: 1px solid var(--border-subtle);
+}
+
+.infographic-title {
+  font-family: var(--font-heading);
+  font-size: 0.95rem;
+  font-weight: 700;
+  color: #ffffff;
+}
+
+.infographic-code {
+  font-family: var(--font-mono);
+  font-size: 0.72rem;
+  color: var(--electric-cyan);
+}
+
+.infographic-canvas-wrap {
+  width: 100%;
+  margin-bottom: 1rem;
+}
+
+.infographic-canvas-wrap svg {
+  width: 100%;
+  height: auto;
+  display: block;
+}
+
+.infographic-caption {
+  font-size: 0.8rem;
+  color: var(--text-secondary);
+  line-height: 1.5;
+  background: rgba(7, 9, 14, 0.5);
+  padding: 0.65rem 0.85rem;
+  border-radius: var(--radius-sm);
+  border: 1px solid var(--border-subtle);
+}
+
+/* --- SECCIÓN 3: MAGNITUDES ASIMÉTRICAS --- */
+.magnitudes-composition {
+  display: grid;
+  grid-template-columns: 1.15fr 1fr;
+  gap: 2rem;
+  align-items: stretch;
+  margin-top: 2rem;
+}
+
+.magnitude-feature-box {
+  background: linear-gradient(145deg, rgba(16, 25, 42, 0.85), rgba(10, 14, 24, 0.95));
+  border: 1px solid rgba(0, 212, 255, 0.3);
+  border-radius: var(--radius-lg);
+  padding: 2.25rem;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  position: relative;
+  overflow: hidden;
+  box-shadow: 0 16px 40px rgba(0, 0, 0, 0.6), 0 0 25px rgba(0, 212, 255, 0.1);
+  transition: all var(--transition-smooth);
+}
+
+.magnitude-feature-box:hover {
+  border-color: var(--electric-cyan);
+  box-shadow: 0 20px 48px rgba(0, 0, 0, 0.7), 0 0 35px rgba(0, 212, 255, 0.2);
+}
+
+.magnitude-feature-watermark {
+  position: absolute;
+  right: -10px;
+  bottom: -20px;
+  font-family: var(--font-heading);
+  font-size: 11rem;
+  font-weight: 900;
+  color: rgba(0, 212, 255, 0.035);
+  line-height: 1;
+  pointer-events: none;
+  user-select: none;
+}
+
+.mag-feature-top {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  margin-bottom: 1.5rem;
+}
+
+.mag-index {
+  font-family: var(--font-mono);
+  font-size: 0.78rem;
+  color: var(--electric-blue);
+  font-weight: 700;
+  letter-spacing: 0.08em;
+}
+
+.mag-symbol-huge {
+  font-family: var(--font-mono);
+  font-size: 4rem;
+  font-weight: 900;
+  color: #ffffff;
+  line-height: 1;
+  text-shadow: 0 0 20px rgba(0, 212, 255, 0.5);
+  margin-bottom: 0.5rem;
+}
+
+.mag-name-huge {
+  font-family: var(--font-heading);
+  font-size: 1.75rem;
+  font-weight: 800;
+  color: var(--text-white);
+  letter-spacing: 0.04em;
+  margin-bottom: 0.35rem;
+}
+
+.mag-unit-pill {
+  display: inline-block;
+  font-family: var(--font-mono);
+  font-size: 0.8rem;
+  font-weight: 600;
+  color: var(--electric-cyan);
+  background: rgba(0, 212, 255, 0.08);
+  padding: 0.25rem 0.75rem;
+  border-radius: var(--radius-full);
+  border: 1px solid rgba(0, 212, 255, 0.22);
+  margin-bottom: 1.25rem;
+}
+
+.mag-feature-desc {
+  font-size: 1rem;
+  color: #cbd5e1;
+  line-height: 1.65;
+  margin-bottom: 1.5rem;
+}
+
+.mag-analogy-box {
+  background: rgba(7, 9, 14, 0.75);
+  border: 1px solid var(--border-subtle);
+  border-radius: var(--radius-sm);
+  padding: 0.85rem 1.15rem;
+  font-size: 0.84rem;
+  color: var(--text-secondary);
+}
+
+.mag-analogy-box strong {
+  color: #ffffff;
+}
+
+/* Cuadrícula de 4 Magnitudes Secundarias */
+.magnitudes-sub-grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 1.25rem;
+}
+
+.mag-sub-item {
+  background: rgba(14, 20, 32, 0.75);
+  border: 1px solid var(--border-card);
+  border-radius: var(--radius-md);
+  padding: 1.35rem 1.25rem;
+  display: flex;
+  flex-direction: column;
+  transition: all var(--transition-fast);
+  position: relative;
+}
+
+.mag-sub-item:hover {
+  background: rgba(19, 29, 48, 0.9);
+  border-color: var(--electric-blue);
+  transform: translateY(-3px);
+  box-shadow: 0 10px 24px rgba(0, 0, 0, 0.4), 0 0 18px rgba(0, 212, 255, 0.12);
+}
+
+.mag-sub-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: baseline;
+  margin-bottom: 0.6rem;
+}
+
+.mag-sub-symbol {
+  font-family: var(--font-mono);
+  font-size: 1.85rem;
+  font-weight: 800;
+  color: var(--electric-cyan);
+  line-height: 1;
+}
+
+.mag-sub-unit {
+  font-family: var(--font-mono);
+  font-size: 0.72rem;
+  color: var(--text-muted);
+}
+
+.mag-sub-name {
+  font-family: var(--font-heading);
+  font-size: 1.1rem;
+  font-weight: 700;
+  color: #ffffff;
+  margin-bottom: 0.4rem;
+}
+
+.mag-sub-desc {
+  font-size: 0.82rem;
+  color: var(--text-secondary);
+  line-height: 1.5;
+  flex-grow: 1;
+  margin-bottom: 0.75rem;
+}
+
+.mag-sub-code {
+  font-family: var(--font-mono);
+  font-size: 0.76rem;
+  font-weight: 700;
+  color: var(--electric-cyan);
+  background: rgba(7, 9, 14, 0.8);
+  padding: 0.3rem 0.6rem;
+  border-radius: var(--radius-sm);
+  border: 1px solid rgba(0, 212, 255, 0.15);
+  display: inline-block;
+  align-self: flex-start;
+}
+
+/* --- SECCIÓN 4: RELACIÓN DE MAGNITUDES Y CIRCUITO INFOGRÁFICO --- */
+.relationship-panel {
+  background: linear-gradient(135deg, rgba(14, 21, 35, 0.95), rgba(7, 9, 14, 0.95));
+  border: 1px solid var(--border-glow);
+  border-radius: var(--radius-xl);
+  padding: 2.75rem 2.25rem;
+  box-shadow: 0 20px 50px rgba(0, 0, 0, 0.7), 0 0 30px rgba(0, 212, 255, 0.12);
+  margin-top: 2rem;
+}
+
+.rel-center-equation {
+  text-align: center;
+  margin-bottom: 2.25rem;
+}
+
+.rel-math-super {
+  font-family: var(--font-mono);
+  font-size: clamp(2.5rem, 5.5vw, 4.2rem);
+  font-weight: 900;
+  color: #ffffff;
+  letter-spacing: 0.06em;
+  text-shadow: 0 0 25px rgba(0, 212, 255, 0.5);
+  margin-bottom: 0.5rem;
+}
+
+.rel-math-subtitle {
+  font-size: 0.95rem;
+  color: var(--text-secondary);
+  max-width: 600px;
+  margin: 0 auto;
+}
+
+.rel-infographic-grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 2.5rem;
+  align-items: center;
+  padding-top: 1.5rem;
+  border-top: 1px solid var(--border-subtle);
+}
+
+.rel-variations-stack {
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
+}
+
+.rel-var-card {
+  background: rgba(7, 9, 14, 0.7);
+  border: 1px solid var(--border-card);
+  border-left: 3px solid var(--electric-cyan);
+  border-radius: var(--radius-sm);
+  padding: 0.95rem 1.25rem;
+  display: flex;
+  align-items: center;
+  gap: 1.25rem;
+  transition: all var(--transition-fast);
+}
+
+.rel-var-card:hover {
+  background: rgba(14, 21, 35, 0.85);
+  border-left-color: #ffffff;
+  transform: translateX(4px);
+}
+
+.rel-var-math {
+  font-family: var(--font-mono);
+  font-size: 1.3rem;
+  font-weight: 800;
+  color: var(--electric-cyan);
+  min-width: 110px;
+}
+
+.rel-var-desc {
+  font-size: 0.84rem;
+  color: #cbd5e1;
+  line-height: 1.45;
+}
+
+.rel-circuit-diagram-wrap {
+  background: #060910;
+  border: 1px solid var(--border-card);
+  border-radius: var(--radius-md);
+  padding: 1.5rem;
+  text-align: center;
+}
+
+.rel-circuit-diagram-wrap svg {
+  width: 100%;
+  max-width: 380px;
+  height: auto;
+  margin: 0 auto;
+  display: block;
+}
+
+.rel-circuit-caption {
+  font-family: var(--font-mono);
+  font-size: 0.75rem;
+  color: var(--text-muted);
+  margin-top: 0.85rem;
+  letter-spacing: 0.04em;
+}
+
+/* --- SECCIÓN 5: LEY DE OHM (EXPERIENCIA DE CÁLCULO) --- */
+.ohm-lab-experience {
+  display: grid;
+  grid-template-columns: 1.05fr 0.95fr;
+  gap: 3rem;
+  align-items: center;
+  margin-top: 2rem;
+}
+
+.ohm-theory-side h3 {
+  font-family: var(--font-heading);
+  font-size: 1.85rem;
+  font-weight: 800;
+  color: #ffffff;
+  margin-bottom: 0.85rem;
+}
+
+.ohm-theory-side p {
+  font-size: 1rem;
+  color: #cbd5e1;
+  line-height: 1.65;
+  margin-bottom: 1.25rem;
+}
+
+.ohm-calc-interactive-box {
+  background: linear-gradient(145deg, rgba(15, 23, 38, 0.95), rgba(7, 10, 16, 0.95));
+  border: 1px solid var(--border-glow);
+  border-radius: var(--radius-lg);
+  padding: 2rem;
+  box-shadow: 0 16px 40px rgba(0, 0, 0, 0.6);
+}
+
+.calc-box-title {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  margin-bottom: 1.25rem;
+  padding-bottom: 0.75rem;
+  border-bottom: 1px solid var(--border-subtle);
+}
+
+.calc-box-title span.label {
+  font-family: var(--font-heading);
+  font-size: 1.05rem;
+  font-weight: 700;
+  color: #ffffff;
+}
+
+.calc-box-title span.badge {
+  font-family: var(--font-mono);
+  font-size: 0.72rem;
+  color: var(--electric-cyan);
+  background: rgba(0, 212, 255, 0.1);
+  padding: 0.2rem 0.55rem;
+  border-radius: var(--radius-sm);
+  border: 1px solid rgba(0, 212, 255, 0.2);
+}
+
+.calc-inputs-row {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 1rem;
+  margin-bottom: 1.25rem;
+}
+
+.calc-input-block {
+  background: rgba(7, 9, 14, 0.8);
+  border: 1px solid var(--border-subtle);
+  border-radius: var(--radius-sm);
+  padding: 0.85rem 1rem;
+}
+
+.calc-input-label {
+  font-size: 0.72rem;
+  color: var(--text-muted);
+  text-transform: uppercase;
+  font-family: var(--font-mono);
+  margin-bottom: 0.2rem;
+}
+
+.calc-input-val {
+  font-family: var(--font-mono);
+  font-size: 1.25rem;
+  font-weight: 800;
+  color: #ffffff;
+}
+
+.calc-step-flow {
+  background: rgba(0, 212, 255, 0.04);
+  border: 1px dashed rgba(0, 212, 255, 0.25);
+  border-radius: var(--radius-sm);
+  padding: 1rem 1.25rem;
+  margin-bottom: 1.25rem;
+  display: flex;
+  align-items: center;
+  justify-content: space-around;
+  font-family: var(--font-mono);
+}
+
+.calc-flow-item {
+  text-align: center;
+}
+
+.calc-flow-label {
+  font-size: 0.68rem;
+  color: var(--text-muted);
+  display: block;
+  margin-bottom: 0.25rem;
+}
+
+.calc-flow-math {
+  font-size: 1.15rem;
+  color: #cbd5e1;
+  font-weight: 600;
+}
+
+.calc-flow-arrow {
+  color: var(--electric-cyan);
+  font-size: 1.2rem;
+}
+
+.calc-result-box {
+  background: rgba(0, 212, 255, 0.1);
+  border: 1px solid var(--electric-cyan);
+  border-radius: var(--radius-sm);
+  padding: 0.95rem 1.25rem;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.calc-result-label {
+  font-size: 0.85rem;
+  color: #ffffff;
+  font-weight: 600;
+}
+
+.calc-result-number {
+  font-family: var(--font-mono);
+  font-size: 1.75rem;
+  font-weight: 900;
+  color: #00f0ff;
+  text-shadow: 0 0 12px rgba(0, 240, 255, 0.5);
+}
+
+/* --- SECCIÓN 6: POTENCIA Y ENERGÍA EN PARALELO --- */
+.power-energy-duo {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 2.5rem;
+  margin-top: 2rem;
+}
+
+.power-energy-column {
+  background: linear-gradient(145deg, rgba(14, 21, 35, 0.8), rgba(8, 11, 18, 0.9));
+  border: 1px solid var(--border-card);
+  border-radius: var(--radius-lg);
+  padding: 2.25rem 2rem;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  transition: all var(--transition-fast);
+}
+
+.power-energy-column:hover {
+  border-color: var(--electric-blue);
+  box-shadow: 0 14px 32px rgba(0, 0, 0, 0.5);
+}
+
+.pe-col-header {
+  margin-bottom: 1.5rem;
+}
+
+.pe-category {
+  font-family: var(--font-mono);
+  font-size: 0.72rem;
+  font-weight: 700;
+  text-transform: uppercase;
+  color: var(--electric-blue);
+  letter-spacing: 0.1em;
+  margin-bottom: 0.35rem;
+}
+
+.pe-title {
+  font-family: var(--font-heading);
+  font-size: 1.65rem;
+  font-weight: 800;
+  color: #ffffff;
+  margin-bottom: 0.85rem;
+}
+
+.pe-formula-giant {
+  font-family: var(--font-mono);
+  font-size: 2.5rem;
+  font-weight: 900;
+  color: var(--electric-cyan);
+  text-shadow: 0 0 16px rgba(0, 212, 255, 0.35);
+  letter-spacing: 0.05em;
+  margin-bottom: 1rem;
+}
+
+.pe-desc {
+  font-size: 0.92rem;
+  color: #cbd5e1;
+  line-height: 1.65;
+  margin-bottom: 1.5rem;
+}
+
+.pe-visual-infobox {
+  background: rgba(7, 9, 14, 0.75);
+  border: 1px solid var(--border-subtle);
+  border-radius: var(--radius-sm);
+  padding: 1rem 1.25rem;
+  display: flex;
+  align-items: center;
+  gap: 1rem;
+}
+
+.pe-icon {
+  font-size: 1.75rem;
+}
+
+.pe-infobox-text {
+  font-size: 0.82rem;
+  color: var(--text-secondary);
+  line-height: 1.45;
+}
+
+.pe-infobox-text strong {
+  color: #ffffff;
+}
+
+/* --- SECCIÓN 7: ELECTRICIDAD EN ACCIÓN --- */
+.action-showcase {
+  background: linear-gradient(135deg, rgba(16, 25, 42, 0.9), rgba(9, 13, 22, 0.95));
+  border: 1px solid var(--border-glow);
+  border-radius: var(--radius-xl);
+  padding: 2.75rem;
+  margin-top: 2rem;
+  display: grid;
+  grid-template-columns: 1.15fr 0.85fr;
+  gap: 3rem;
+  align-items: center;
+}
+
+.action-data-summary {
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
+  margin-bottom: 1.5rem;
+}
+
+.action-row {
+  display: flex;
+  align-items: baseline;
+  justify-content: space-between;
+  padding-bottom: 0.6rem;
+  border-bottom: 1px solid var(--border-subtle);
+  font-family: var(--font-mono);
+}
+
+.action-label {
+  font-size: 0.82rem;
+  color: var(--text-secondary);
+}
+
+.action-val {
+  font-size: 1.1rem;
+  font-weight: 700;
+  color: #ffffff;
+}
+
+.action-calculation-highlight {
+  background: rgba(0, 212, 255, 0.08);
+  border: 1px solid var(--border-glow);
+  border-radius: var(--radius-md);
+  padding: 1.25rem 1.5rem;
+  margin-bottom: 1.25rem;
+  text-align: center;
+}
+
+.action-calc-formula {
+  font-family: var(--font-mono);
+  font-size: 1.15rem;
+  color: #cbd5e1;
+  margin-bottom: 0.35rem;
+}
+
+.action-calc-result {
+  font-family: var(--font-mono);
+  font-size: 2.2rem;
+  font-weight: 900;
+  color: var(--electric-cyan);
+  text-shadow: 0 0 16px rgba(0, 212, 255, 0.4);
+}
+
+.action-explanation {
+  font-size: 0.88rem;
+  color: #cbd5e1;
+  line-height: 1.6;
+}
+
+.action-media-wrap {
+  height: 100%;
+  min-height: 280px;
+  position: relative;
+  border-radius: var(--radius-lg);
+  overflow: hidden;
+  border: 1px solid var(--border-card);
+}
+
+.action-media-wrap img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  opacity: 0.9;
+}
+
+.action-media-badge {
+  position: absolute;
+  top: 1rem;
+  left: 1rem;
+  background: rgba(7, 9, 14, 0.85);
+  backdrop-filter: blur(8px);
+  padding: 0.35rem 0.85rem;
+  border-radius: var(--radius-sm);
+  border: 1px solid var(--border-card);
+  font-family: var(--font-mono);
+  font-size: 0.72rem;
+  color: var(--electric-cyan);
+}
+
+/* --- SECCIÓN 8: CIERRE EDITORIAL --- */
+.elec-closing-banner {
+  background: linear-gradient(180deg, transparent, rgba(14, 21, 35, 0.5) 50%, transparent 100%);
+  padding: 4.5rem 0 3.5rem 0;
+  text-align: center;
+  position: relative;
+}
+
+.elec-closing-title {
+  font-family: var(--font-heading);
+  font-size: clamp(1.8rem, 3.2vw, 2.6rem);
+  font-weight: 800;
+  color: #ffffff;
+  max-width: 780px;
+  margin: 0 auto 1.25rem auto;
+  line-height: 1.25;
+}
+
+.elec-closing-desc {
+  font-size: 1.05rem;
+  color: #cbd5e1;
+  max-width: 650px;
+  margin: 0 auto 2.25rem auto;
+  line-height: 1.65;
+}
+
+/* --- 9. Aplicaciones de la Electricidad --- */
+.apps-grid-compact {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 1.5rem;
+}
+
+.app-card-item {
+  background: var(--bg-card);
+  border: 1px solid var(--border-card);
+  border-radius: var(--radius-md);
+  overflow: hidden;
+  transition: all var(--transition-smooth);
+  display: flex;
+  flex-direction: column;
+}
+
+.app-card-item:hover {
+  transform: translateY(-4px);
+  border-color: var(--electric-blue);
+  box-shadow: 0 12px 28px rgba(0, 0, 0, 0.5), 0 0 15px rgba(0, 212, 255, 0.12);
+}
+
+.app-card-img-wrap {
+  height: 170px;
+  position: relative;
+  overflow: hidden;
+  background: #0d121d;
+}
+
+.app-card-img-wrap img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  transition: transform var(--transition-smooth);
+}
+
+.app-card-item:hover .app-card-img-wrap img {
+  transform: scale(1.05);
+}
+
+.app-card-badge {
+  position: absolute;
+  top: 0.75rem;
+  left: 0.75rem;
+  background: rgba(7, 9, 14, 0.85);
+  backdrop-filter: blur(6px);
+  padding: 0.25rem 0.65rem;
+  border-radius: var(--radius-sm);
+  font-size: 0.75rem;
+  font-weight: 700;
+  color: var(--text-white);
+  border: 1px solid var(--border-card);
+}
+
+.app-card-body {
+  padding: 1.25rem;
+  display: flex;
+  flex-direction: column;
+  flex-grow: 1;
+}
+
+.app-card-title {
+  font-family: var(--font-heading);
+  font-size: 1.1rem;
+  font-weight: 700;
+  color: var(--text-white);
+  margin-bottom: 0.45rem;
+}
+
+.app-card-desc {
+  font-size: 0.85rem;
+  color: var(--text-secondary);
+  line-height: 1.55;
+}
+
+/* --- 10. Energías Renovables --- */
+.renew-grid-compact {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 1.75rem;
+}
+
+.renew-card-item {
+  background: var(--bg-card);
+  border: 1px solid var(--border-card);
+  border-radius: var(--radius-lg);
+  overflow: hidden;
+  transition: all var(--transition-smooth);
+  display: flex;
+  flex-direction: column;
+}
+
+.renew-card-item:hover {
+  transform: translateY(-4px);
+  border-color: var(--electric-blue);
+  box-shadow: 0 12px 30px rgba(0, 0, 0, 0.5), 0 0 18px rgba(0, 212, 255, 0.15);
+}
+
+.renew-card-media {
+  height: 200px;
+  position: relative;
+  overflow: hidden;
+  background: #0d121d;
+}
+
+.renew-card-media img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  transition: transform var(--transition-smooth);
+}
+
+.renew-card-item:hover .renew-card-media img {
+  transform: scale(1.04);
+}
+
+.renew-card-body {
+  padding: 1.5rem;
+  display: flex;
+  flex-direction: column;
+  flex-grow: 1;
+}
+
+.renew-card-title {
+  font-family: var(--font-heading);
+  font-size: 1.25rem;
+  font-weight: 700;
+  color: var(--text-white);
+  margin-bottom: 0.5rem;
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+}
+
+.renew-card-desc {
+  font-size: 0.88rem;
+  color: var(--text-secondary);
+  line-height: 1.6;
+}
+
+/* --- 11. Sección Multimedia --- */
+.multimedia-layout {
+  display: grid;
+  grid-template-columns: 1.25fr 0.75fr;
+  gap: 2rem;
+  align-items: stretch;
+}
+
+.multimedia-main-card {
+  background: var(--bg-card);
+  border: 1px solid var(--border-card);
+  border-radius: var(--radius-lg);
+  overflow: hidden;
+  display: flex;
+  flex-direction: column;
+}
+
+.multimedia-player-preview {
+  position: relative;
+  aspect-ratio: 16/9;
+  background: #000;
+  overflow: hidden;
+}
+
+.multimedia-player-preview img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+.multimedia-play-badge {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  width: 58px;
+  height: 58px;
+  border-radius: 50%;
+  background: rgba(0, 212, 255, 0.9);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: #060910;
+  font-size: 1.2rem;
+  box-shadow: 0 0 20px var(--electric-glow-strong);
+}
+
+.multimedia-main-info {
+  padding: 1.25rem 1.5rem;
+}
+
+.multimedia-main-info h4 {
+  font-family: var(--font-heading);
+  font-size: 1.1rem;
+  font-weight: 700;
+  color: var(--text-white);
+  margin-bottom: 0.35rem;
+}
+
+.multimedia-main-info p {
+  font-size: 0.85rem;
+  color: var(--text-secondary);
+}
+
+.multimedia-side-list {
+  display: flex;
+  flex-direction: column;
+  gap: 1.25rem;
+}
+
+.multimedia-side-item {
+  background: var(--bg-card);
+  border: 1px solid var(--border-card);
+  border-radius: var(--radius-md);
+  padding: 1.25rem;
+  display: flex;
+  gap: 1rem;
+  align-items: center;
+  transition: all var(--transition-smooth);
+}
+
+.multimedia-side-item:hover {
+  transform: translateX(4px);
+  border-color: var(--electric-blue);
+}
+
+.multimedia-side-icon {
+  width: 44px;
+  height: 44px;
+  border-radius: var(--radius-sm);
+  background: rgba(0, 212, 255, 0.08);
+  border: 1px solid rgba(0, 212, 255, 0.2);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 1.3rem;
+  color: var(--electric-cyan);
+  flex-shrink: 0;
+}
+
+.multimedia-side-text h5 {
+  font-family: var(--font-heading);
+  font-size: 0.95rem;
+  font-weight: 700;
+  color: var(--text-white);
+  margin-bottom: 0.2rem;
+}
+
+.multimedia-side-text p {
+  font-size: 0.8rem;
+  color: var(--text-secondary);
+  line-height: 1.4;
+}
+
+/* --- 12. Sección Final (CTA Rediseñada, Compacta: 65-70% ancho) --- */
+.cta-compact-wrapper {
+  max-width: 860px;
+  margin: 0 auto;
+  background: linear-gradient(135deg, rgba(16, 23, 37, 0.95), rgba(12, 16, 26, 0.95));
+  border: 1px solid var(--border-glow);
+  border-radius: var(--radius-xl);
+  overflow: hidden;
+  box-shadow: 0 16px 40px rgba(0, 0, 0, 0.6), var(--shadow-glow);
+  display: grid;
+  grid-template-columns: 1.15fr 0.85fr;
+  align-items: center;
+}
+
+.cta-text-side {
+  padding: 2.75rem 2.5rem;
+}
+
+.cta-compact-title {
+  font-family: var(--font-heading);
+  font-size: clamp(1.6rem, 2.5vw, 2.1rem);
+  font-weight: 800;
+  color: var(--text-white);
+  line-height: 1.25;
+  margin-bottom: 0.75rem;
+}
+
+.cta-compact-desc {
+  font-size: 0.95rem;
+  color: #cbd5e1;
+  line-height: 1.6;
+  margin-bottom: 1.75rem;
+}
+
+.cta-art-side {
+  height: 100%;
+  min-height: 240px;
+  position: relative;
+  overflow: hidden;
+  border-left: 1px solid var(--border-card);
+  background: #090e18;
+}
+
+.cta-art-side img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  opacity: 0.85;
+}
+
+/* ==========================================================================
+   13. FOOTER TECNOLÓGICO PREMIUM (3 NIVELES)
+   ========================================================================== */
+
+.site-footer-premium {
+  background-color: #04060a;
+  position: relative;
+  overflow: hidden;
+  border-top: 1px solid rgba(0, 212, 255, 0.16);
+}
+
+/* Fondo decorativo abstracto con circuito sutil (baja opacidad) */
+.site-footer-premium::before {
+  content: '';
+  position: absolute;
+  inset: 0;
+  background-image: 
+    radial-gradient(circle at 10% 25%, rgba(0, 212, 255, 0.05) 0%, transparent 40%),
+    radial-gradient(circle at 90% 75%, rgba(0, 102, 255, 0.04) 0%, transparent 45%),
+    url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='400' height='300' viewBox='0 0 400 300'%3E%3Cpath d='M0 60 H120 L160 100 H280 M160 100 V190 L200 230 H400 M70 60 V140 L110 180 H250 M320 0 V80 L290 110' stroke='%2300d4ff' stroke-width='1.2' stroke-linecap='round' stroke-linejoin='round' fill='none' opacity='0.07'/%3E%3Ccircle cx='120' cy='60' r='3.5' fill='%2300f0ff' opacity='0.16'/%3E%3Ccircle cx='280' cy='100' r='3' fill='%2300f0ff' opacity='0.18'/%3E%3Ccircle cx='110' cy='180' r='3.5' fill='%2300f0ff' opacity='0.14'/%3E%3Ccircle cx='200' cy='230' r='3' fill='%2300d4ff' opacity='0.15'/%3E%3C/svg%3E");
+  background-repeat: repeat;
+  background-size: 400px 300px;
+  pointer-events: none;
+  opacity: 0.9;
+}
+
+/* --------------------------------------------------------------------------
+   NIVEL 1 — CIERRE VISUAL / TRANSICIÓN
+   -------------------------------------------------------------------------- */
+.footer-transition-level {
+  padding: 3rem 0 2.5rem 0;
+  position: relative;
+  z-index: 1;
+  text-align: center;
+  border-bottom: 1px solid rgba(255, 255, 255, 0.06);
+  background: linear-gradient(180deg, rgba(7, 9, 14, 0.6) 0%, rgba(10, 14, 24, 0.4) 100%);
+}
+
+.footer-transition-pretitle {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.45rem;
+  font-family: var(--font-mono);
+  font-size: 0.72rem;
+  font-weight: 700;
+  text-transform: uppercase;
+  color: var(--electric-cyan);
+  letter-spacing: 0.12em;
+  margin-bottom: 0.65rem;
+}
+
+.footer-transition-title {
+  font-family: var(--font-heading);
+  font-size: clamp(1.6rem, 3.2vw, 2.25rem);
+  font-weight: 900;
+  color: #ffffff;
+  letter-spacing: 0.02em;
+  line-height: 1.2;
+  margin-bottom: 0.65rem;
+  text-shadow: 0 4px 20px rgba(0, 0, 0, 0.6);
+}
+
+.footer-transition-subtitle {
+  font-size: clamp(0.9rem, 1.6vw, 1.05rem);
+  color: #94a3b8;
+  max-width: 580px;
+  margin: 0 auto 1.5rem auto;
+  line-height: 1.55;
+}
+
+.btn-footer-explore {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.65rem;
+  font-family: var(--font-heading);
+  font-size: 0.86rem;
+  font-weight: 700;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  color: #ffffff;
+  background: rgba(14, 21, 35, 0.85);
+  border: 1px solid var(--electric-blue);
+  padding: 0.75rem 1.6rem;
+  border-radius: var(--radius-sm);
+  box-shadow: 0 6px 18px rgba(0, 0, 0, 0.4), 0 0 15px rgba(0, 212, 255, 0.18);
+  transition: all var(--transition-fast);
+}
+
+.btn-footer-explore:hover {
+  background: var(--electric-blue);
+  color: #04060a;
+  box-shadow: 0 8px 24px rgba(0, 212, 255, 0.4), 0 0 25px rgba(0, 240, 255, 0.35);
+  transform: translateY(-2px);
+}
+
+.btn-footer-explore .explore-arrow {
+  color: var(--electric-cyan);
+  transition: transform var(--transition-fast);
+  font-size: 1.05rem;
+}
+
+.btn-footer-explore:hover .explore-arrow {
+  color: #04060a;
+  transform: translateX(4px);
+}
+
+/* --------------------------------------------------------------------------
+   NIVEL 2 — FOOTER PRINCIPAL (3 COLUMNAS)
+   -------------------------------------------------------------------------- */
+.footer-main-level {
+  padding: 3rem 0 2.25rem 0;
+  position: relative;
+  z-index: 1;
+}
+
+.premium-footer-grid {
+  display: grid;
+  grid-template-columns: 1.35fr 1fr 1.15fr;
+  gap: 3.25rem;
+  align-items: start;
+}
+
+/* Columna 1: Identidad */
+.footer-logo-wrap {
+  display: flex;
+  align-items: center;
+  gap: 0.65rem;
+  margin-bottom: 0.4rem;
+}
+
+.footer-logo-icon {
+  width: 36px;
+  height: 36px;
+  border-radius: var(--radius-sm);
+  background: rgba(0, 212, 255, 0.08);
+  border: 1px solid rgba(0, 212, 255, 0.3);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 1.15rem;
+  color: #00f0ff;
+  box-shadow: 0 0 12px rgba(0, 212, 255, 0.2);
+  transition: all var(--transition-fast);
+}
+
+.footer-logo-wrap:hover .footer-logo-icon {
+  background: rgba(0, 212, 255, 0.18);
+  box-shadow: 0 0 18px rgba(0, 212, 255, 0.4);
+}
+
+.footer-logo-text {
+  font-family: var(--font-heading);
+  font-size: 1.22rem;
+  font-weight: 800;
+  color: var(--text-white);
+  letter-spacing: 0.02em;
+}
+
+.footer-brand-slogan {
+  font-family: var(--font-mono);
+  font-size: 0.72rem;
+  color: var(--electric-cyan);
+  text-transform: uppercase;
+  letter-spacing: 0.09em;
+  margin-bottom: 0.95rem;
+}
+
+.footer-brand-summary {
+  font-size: 0.84rem;
+  color: #94a3b8;
+  line-height: 1.6;
+  margin-bottom: 1.35rem;
+  max-width: 360px;
+}
+
+.footer-academic-block {
+  border-left: 2px solid rgba(0, 212, 255, 0.35);
+  padding-left: 0.9rem;
+  display: flex;
+  flex-direction: column;
+  gap: 0.35rem;
+  font-size: 0.82rem;
+}
+
+.footer-academic-block .acad-line {
+  color: #94a3b8;
+}
+
+.footer-academic-block .acad-line strong {
+  color: #ffffff;
+  font-weight: 600;
+}
+
+.footer-academic-block .student-line {
+  margin-top: 0.25rem;
+  line-height: 1.45;
+}
+
+.footer-academic-block .student-label {
+  font-family: var(--font-mono);
+  font-size: 0.76rem;
+  color: var(--electric-cyan);
+  font-weight: 700;
+  display: block;
+}
+
+.footer-academic-block .student-name {
+  color: #ffffff;
+  font-weight: 700;
+  font-size: 0.84rem;
+  display: block;
+}
+
+/* Columna 2: Explorar */
+.premium-footer-title {
+  font-family: var(--font-heading);
+  font-size: 0.88rem;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 0.08em;
+  color: #ffffff;
+  margin-bottom: 1rem;
+}
+
+.footer-nav-premium {
+  display: flex;
+  flex-direction: column;
+  gap: 0.35rem;
+}
+
+.footer-nav-link {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.4rem;
+  font-size: 0.84rem;
+  color: #94a3b8;
+  padding: 0.2rem 0;
+  transition: all var(--transition-fast);
+}
+
+.footer-nav-link .nav-arrow {
+  color: var(--electric-cyan);
+  font-size: 0.75rem;
+  opacity: 0;
+  transform: translateX(-6px);
+  transition: all var(--transition-fast);
+}
+
+.footer-nav-link:hover {
+  color: var(--electric-cyan);
+  transform: translateX(4px);
+}
+
+.footer-nav-link:hover .nav-arrow {
+  opacity: 1;
+  transform: translateX(0);
+}
+
+/* Columna 3: Sobre Voltix */
+.footer-about-text {
+  font-size: 0.84rem;
+  color: #94a3b8;
+  line-height: 1.6;
+  margin-bottom: 1.35rem;
+}
+
+.footer-triad-badge {
+  background: rgba(14, 21, 35, 0.7);
+  border: 1px solid var(--border-card);
+  border-radius: var(--radius-sm);
+  padding: 0.85rem 1rem;
+  display: flex;
+  align-items: center;
+  gap: 0.75rem;
+}
+
+.triad-icon {
+  width: 28px;
+  height: 28px;
+  border-radius: 4px;
+  background: rgba(0, 212, 255, 0.1);
+  border: 1px solid rgba(0, 212, 255, 0.25);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 0.9rem;
+  color: #00f0ff;
+  flex-shrink: 0;
+}
+
+.triad-items {
+  font-family: var(--font-mono);
+  font-size: 0.68rem;
+  font-weight: 600;
+  color: #cbd5e1;
+  letter-spacing: 0.06em;
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: 0.35rem;
+}
+
+.triad-items span:not(.triad-dot) {
+  color: #ffffff;
+}
+
+.triad-items .triad-dot {
+  color: var(--electric-cyan);
+}
+
+/* --------------------------------------------------------------------------
+   SEPARADOR PISTA DE CIRCUITO
+   -------------------------------------------------------------------------- */
+.footer-circuit-divider {
+  position: relative;
+  z-index: 1;
+  padding: 0.5rem 0;
+}
+
+.pcb-trace-line {
+  position: relative;
+  height: 2px;
+  background: linear-gradient(90deg, 
+    transparent 0%, 
+    rgba(0, 212, 255, 0.4) 15%, 
+    rgba(255, 255, 255, 0.12) 60%, 
+    rgba(0, 212, 255, 0.6) 88%, 
+    transparent 100%
+  );
+  display: flex;
+  align-items: center;
+}
+
+.pcb-node {
+  position: absolute;
+  width: 7px;
+  height: 7px;
+  border-radius: 50%;
+  background: #00f0ff;
+  box-shadow: 0 0 10px #00f0ff;
+}
+
+.pcb-node.start {
+  left: 14%;
+}
+
+.pcb-node.end {
+  right: 12%;
+  width: 8px;
+  height: 8px;
+}
+
+/* --------------------------------------------------------------------------
+   NIVEL 3 — COPYRIGHT
+   -------------------------------------------------------------------------- */
+.footer-bottom-level {
+  padding: 1.15rem 0 1.5rem 0;
+  position: relative;
+  z-index: 1;
+}
+
+.footer-bottom-flex {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  flex-wrap: wrap;
+  gap: 0.85rem;
+  font-size: 0.75rem;
+  color: var(--text-muted);
+}
+
+.footer-bottom-left {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+}
+
+.footer-bottom-left strong {
+  color: #ffffff;
+  font-weight: 600;
+}
+
+.footer-bottom-right {
+  font-family: var(--font-mono);
+  color: var(--text-muted);
+}
+
+/* --- 14. Responsive Queries (Desktop, Tablet, Mobile) --- */
+@media (max-width: 1024px) {
+  .intro-grid {
+    grid-template-columns: 1fr;
+    gap: 2.5rem;
+  }
+  .pillars-grid {
+    grid-template-columns: 1fr;
+    gap: 1.5rem;
+  }
+  .fundamentals-grid {
+    grid-template-columns: repeat(2, 1fr);
+  }
+  .apps-grid-compact {
+    grid-template-columns: repeat(2, 1fr);
+  }
+  .renew-grid-compact {
+    grid-template-columns: 1fr;
+  }
+  .multimedia-layout {
+    grid-template-columns: 1fr;
+  }
+  .cta-compact-wrapper {
+    grid-template-columns: 1fr;
+  }
+  .cta-art-side {
+    height: 180px;
+    border-left: none;
+    border-top: 1px solid var(--border-card);
+  }
+  .premium-footer-grid {
+    grid-template-columns: 1fr 1fr;
+    gap: 2.5rem;
+  }
+  .premium-footer-col-brand {
+    grid-column: span 2;
+  }
+
+  /* Responsive Editorial Electricity Page (1024px) */
+  .elec-hero-grid,
+  .editorial-layout,
+  .editorial-layout.reverse,
+  .magnitudes-composition,
+  .rel-infographic-grid,
+  .ohm-lab-experience,
+  .power-energy-duo,
+  .action-showcase {
+    grid-template-columns: 1fr;
+    gap: 2.25rem;
+  }
+}
+
+@media (max-width: 768px) {
+  :root {
+    --header-height: 66px;
+  }
+
+  .mobile-toggle {
+    display: flex;
+  }
+
+  .nav-menu {
+    position: fixed;
+    top: var(--header-height);
+    left: 0;
+    width: 100%;
+    background: rgba(7, 9, 14, 0.98);
+    backdrop-filter: blur(20px);
+    border-bottom: 1px solid var(--border-card);
+    flex-direction: column;
+    padding: 1.75rem 1.5rem;
+    gap: 1.15rem;
+    transform: translateY(-120%);
+    opacity: 0;
+    visibility: hidden;
+    transition: all var(--transition-smooth);
+    box-shadow: 0 15px 35px rgba(0, 0, 0, 0.8);
+  }
+
+  .nav-menu.open {
+    transform: translateY(0);
+    opacity: 1;
+    visibility: visible;
+  }
+
+  .nav-link {
+    font-size: 0.95rem;
+    width: 100%;
+    text-align: center;
+  }
+
+  .hero-section {
+    padding: 3rem 0 3.5rem 0;
+    min-height: auto;
+  }
+
+  .hero-actions {
+    flex-direction: column;
+    width: 100%;
+  }
+
+  .hero-actions .btn {
+    width: 100%;
+  }
+
+  .fundamentals-grid {
+    grid-template-columns: 1fr;
+  }
+
+  .ohm-compact-banner {
+    grid-template-columns: 1fr;
+    gap: 1.5rem;
+    text-align: center;
+  }
+
+  .apps-grid-compact {
+    grid-template-columns: 1fr;
+  }
+
+  .cta-text-side {
+    padding: 2rem 1.5rem;
+    text-align: center;
+  }
+
+  .cta-compact-desc {
+    margin-bottom: 1.5rem;
+  }
+
+  /* Responsive Editorial Electricity Page (768px) */
+  .elec-hero-section {
+    padding: 3rem 0 2rem 0;
+  }
+
+  .elec-hero-img-frame {
+    height: 260px;
+  }
+
+  .magnitudes-sub-grid {
+    grid-template-columns: 1fr;
+  }
+
+  .calc-inputs-row {
+    grid-template-columns: 1fr;
+  }
+
+  .calc-step-flow {
+    flex-direction: column;
+    gap: 0.5rem;
+  }
+
+  .rel-var-card {
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 0.4rem;
+  }
+
+  .action-showcase,
+  .relationship-panel {
+    padding: 1.75rem 1.25rem;
+  }
+
+  /* Responsive Premium Footer (768px) */
+  .premium-footer-grid {
+    grid-template-columns: 1fr;
+    gap: 2.25rem;
+  }
+  .premium-footer-col-brand {
+    order: 1;
+    grid-column: span 1;
+  }
+  .premium-footer-col-about {
+    order: 2;
+  }
+  .premium-footer-col-nav {
+    order: 3;
+  }
+
+  .footer-nav-link {
+    padding: 0.35rem 0;
+  }
+
+  .footer-bottom-flex {
+    flex-direction: column;
+    text-align: center;
+    gap: 0.6rem;
+  }
+}
+
+/* ==========================================================================
+   15. REDISEÑO EDITORIAL: COMPONENTES, APLICACIONES, ENERGÍAS, MULTIMEDIA, CONTACTO
+   Estética: Oscura, elegante, tecnológica, académica, minimalista, alta jerarquía
+   ========================================================================== */
+
+/* --- VARIANTES DE HERO EDITORIAL --- */
+.hero-editorial {
+  padding: 4.5rem 0 3.5rem 0;
+  position: relative;
+  overflow: hidden;
+  border-bottom: 1px solid var(--border-subtle);
+}
+
+.hero-editorial-grid {
+  display: grid;
+  grid-template-columns: 1.15fr 0.85fr;
+  gap: 3.5rem;
+  align-items: center;
+}
+
+.hero-editorial-badge {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.5rem;
+  font-family: var(--font-mono);
+  font-size: 0.74rem;
+  font-weight: 700;
+  color: var(--electric-cyan);
+  text-transform: uppercase;
+  letter-spacing: 0.12em;
+  margin-bottom: 0.85rem;
+}
+
+.hero-editorial-title {
+  font-family: var(--font-heading);
+  font-size: clamp(2.2rem, 4vw, 3.4rem);
+  font-weight: 900;
+  color: #ffffff;
+  line-height: 1.15;
+  letter-spacing: -0.02em;
+  margin-bottom: 1.1rem;
+}
+
+.hero-editorial-desc {
+  font-size: 1.05rem;
+  color: #cbd5e1;
+  line-height: 1.65;
+  margin-bottom: 1.75rem;
+}
+
+.hero-editorial-frame {
+  position: relative;
+  border-radius: var(--radius-lg);
+  overflow: hidden;
+  border: 1px solid var(--border-glow);
+  box-shadow: 0 16px 40px rgba(0, 0, 0, 0.7), var(--shadow-glow);
+  aspect-ratio: 16/10;
+  background: #090e18;
+}
+
+.hero-editorial-frame img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  transition: transform var(--transition-smooth);
+}
+
+.hero-editorial-frame:hover img {
+  transform: scale(1.03);
+}
+
+.hero-frame-tag {
+  position: absolute;
+  bottom: 1rem;
+  left: 1rem;
+  background: rgba(7, 9, 14, 0.85);
+  backdrop-filter: blur(8px);
+  padding: 0.4rem 0.9rem;
+  border-radius: var(--radius-sm);
+  border: 1px solid var(--border-card);
+  font-family: var(--font-mono);
+  font-size: 0.72rem;
+  color: var(--electric-cyan);
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+}
+
+/* --- HERO PANORÁMICO INMERSIVO (APLICACIONES & ENERGÍAS) --- */
+.hero-panoramic {
+  position: relative;
+  padding: 6.5rem 0 5.5rem 0;
+  overflow: hidden;
+  border-bottom: 1px solid var(--border-subtle);
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
+}
+
+.hero-panoramic-overlay {
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(180deg, rgba(7, 9, 14, 0.88) 0%, rgba(7, 9, 14, 0.97) 100%),
+              radial-gradient(circle at 50% 30%, rgba(0, 212, 255, 0.09) 0%, transparent 60%);
+  pointer-events: none;
+}
+
+.hero-panoramic-content {
+  position: relative;
+  z-index: 1;
+  max-width: 840px;
+  margin: 0 auto;
+  text-align: center;
+}
+
+/* --- COMPONENTES: CATÁLOGO EDITORIAL INTERACTIVO --- */
+.comp-editorial-duo {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 2.25rem;
+  margin-bottom: 3rem;
+}
+
+.comp-editorial-card {
+  background: linear-gradient(145deg, rgba(14, 21, 35, 0.75), rgba(8, 11, 18, 0.9));
+  border: 1px solid var(--border-card);
+  border-radius: var(--radius-lg);
+  padding: 2.25rem 2rem;
+  transition: all var(--transition-smooth);
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+}
+
+.comp-editorial-card:hover {
+  border-color: var(--electric-blue);
+  box-shadow: 0 14px 34px rgba(0, 0, 0, 0.6), 0 0 20px rgba(0, 212, 255, 0.12);
+  transform: translateY(-3px);
+}
+
+.comp-header-flex {
+  display: flex;
+  align-items: flex-start;
+  justify-content: space-between;
+  gap: 1.5rem;
+  margin-bottom: 1.25rem;
+}
+
+.comp-title-group h3 {
+  font-family: var(--font-heading);
+  font-size: 1.5rem;
+  font-weight: 800;
+  color: #ffffff;
+  margin-bottom: 0.25rem;
+}
+
+.comp-symbol-tag {
+  font-family: var(--font-mono);
+  font-size: 0.76rem;
+  font-weight: 700;
+  color: var(--electric-cyan);
+  background: rgba(0, 212, 255, 0.1);
+  padding: 0.2rem 0.65rem;
+  border-radius: var(--radius-sm);
+  border: 1px solid rgba(0, 212, 255, 0.25);
+  display: inline-block;
+}
+
+.comp-schematic-wrap {
+  width: 72px;
+  height: 52px;
+  background: rgba(7, 9, 14, 0.9);
+  border: 1px solid var(--border-card);
+  border-radius: var(--radius-sm);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-shrink: 0;
+  padding: 6px;
+}
+
+.comp-schematic-wrap svg {
+  width: 100%;
+  height: 100%;
+  stroke: var(--electric-cyan);
+  fill: none;
+  stroke-width: 1.8;
+  stroke-linecap: round;
+  stroke-linejoin: round;
+}
+
+.comp-field {
+  margin-bottom: 1rem;
+}
+
+.comp-field-label {
+  font-family: var(--font-mono);
+  font-size: 0.72rem;
+  text-transform: uppercase;
+  letter-spacing: 0.08em;
+  color: var(--text-muted);
+  display: block;
+  margin-bottom: 0.25rem;
+}
+
+.comp-field-text {
+  font-size: 0.88rem;
+  color: #cbd5e1;
+  line-height: 1.6;
+}
+
+/* Fila ancha horizontal para componentes */
+.comp-editorial-wide {
+  background: linear-gradient(135deg, rgba(14, 21, 35, 0.75), rgba(8, 11, 18, 0.9));
+  border: 1px solid var(--border-card);
+  border-radius: var(--radius-lg);
+  padding: 2.25rem 2.5rem;
+  display: grid;
+  grid-template-columns: 0.85fr 1.15fr;
+  gap: 2.5rem;
+  align-items: center;
+  margin-bottom: 2.5rem;
+  transition: all var(--transition-smooth);
+}
+
+.comp-editorial-wide:hover {
+  border-color: var(--electric-blue);
+  box-shadow: 0 14px 34px rgba(0, 0, 0, 0.6), 0 0 20px rgba(0, 212, 255, 0.12);
+}
+
+/* --- APLICACIONES: HISTORIAS VISUALES GRANDES --- */
+.app-feature-row {
+  display: grid;
+  grid-template-columns: 1.15fr 0.85fr;
+  gap: 3.5rem;
+  align-items: center;
+  margin-bottom: 4.5rem;
+}
+
+.app-feature-row.reverse {
+  grid-template-columns: 0.85fr 1.15fr;
+}
+
+.app-feature-row.reverse .app-feature-visual {
+  order: 1;
+}
+
+.app-feature-row.reverse .app-feature-content {
+  order: 2;
+}
+
+.app-feature-visual {
+  position: relative;
+  border-radius: var(--radius-xl);
+  overflow: hidden;
+  border: 1px solid var(--border-card);
+  box-shadow: 0 18px 45px rgba(0, 0, 0, 0.65);
+  height: 380px;
+  background: #090e18;
+}
+
+.app-feature-visual img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  transition: transform var(--transition-smooth);
+}
+
+.app-feature-visual:hover img {
+  transform: scale(1.04);
+}
+
+.app-feature-badge {
+  position: absolute;
+  top: 1.25rem;
+  left: 1.25rem;
+  background: rgba(7, 9, 14, 0.88);
+  backdrop-filter: blur(8px);
+  padding: 0.35rem 0.95rem;
+  border-radius: var(--radius-sm);
+  border: 1px solid var(--border-card);
+  font-family: var(--font-mono);
+  font-size: 0.74rem;
+  font-weight: 700;
+  color: var(--electric-cyan);
+}
+
+.app-feature-category {
+  font-family: var(--font-mono);
+  font-size: 0.74rem;
+  font-weight: 700;
+  color: var(--electric-blue);
+  text-transform: uppercase;
+  letter-spacing: 0.12em;
+  margin-bottom: 0.4rem;
+}
+
+.app-feature-title {
+  font-family: var(--font-heading);
+  font-size: clamp(1.75rem, 2.8vw, 2.3rem);
+  font-weight: 800;
+  color: #ffffff;
+  line-height: 1.2;
+  margin-bottom: 1rem;
+}
+
+.app-feature-desc {
+  font-size: 0.98rem;
+  color: #cbd5e1;
+  line-height: 1.7;
+  margin-bottom: 1.5rem;
+}
+
+.app-feature-tags {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.65rem;
+}
+
+.app-tag-pill {
+  font-family: var(--font-mono);
+  font-size: 0.74rem;
+  color: #94a3b8;
+  background: rgba(255, 255, 255, 0.04);
+  border: 1px solid var(--border-subtle);
+  padding: 0.25rem 0.75rem;
+  border-radius: var(--radius-full);
+}
+
+/* Electricidad en Acción: Vitrina de Cierre */
+.action-connect-box {
+  background: linear-gradient(135deg, rgba(16, 25, 42, 0.95), rgba(9, 13, 22, 0.98));
+  border: 1px solid var(--border-glow);
+  border-radius: var(--radius-xl);
+  padding: 3.5rem 3rem;
+  text-align: center;
+  position: relative;
+  overflow: hidden;
+  box-shadow: 0 20px 50px rgba(0, 0, 0, 0.7), var(--shadow-glow);
+}
+
+.action-connect-title {
+  font-family: var(--font-heading);
+  font-size: clamp(2rem, 3.5vw, 2.8rem);
+  font-weight: 900;
+  color: #ffffff;
+  margin-bottom: 1rem;
+}
+
+.action-connect-desc {
+  font-size: 1.05rem;
+  color: #cbd5e1;
+  max-width: 720px;
+  margin: 0 auto 2rem auto;
+  line-height: 1.7;
+}
+
+/* --- ENERGÍAS: PRESENTACIÓN EDITORIAL ALTERNADA --- */
+.energy-story-row {
+  display: grid;
+  grid-template-columns: 1.15fr 0.85fr;
+  gap: 3.5rem;
+  align-items: center;
+  margin-bottom: 5rem;
+}
+
+.energy-story-row.reverse {
+  grid-template-columns: 0.85fr 1.15fr;
+}
+
+.energy-story-row.reverse .energy-story-visual {
+  order: 1;
+}
+
+.energy-story-row.reverse .energy-story-content {
+  order: 2;
+}
+
+.energy-story-visual {
+  position: relative;
+  border-radius: var(--radius-xl);
+  overflow: hidden;
+  border: 1px solid var(--border-card);
+  box-shadow: 0 18px 45px rgba(0, 0, 0, 0.65);
+  height: 400px;
+  background: #090e18;
+}
+
+.energy-story-visual img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  transition: transform var(--transition-smooth);
+}
+
+.energy-story-visual:hover img {
+  transform: scale(1.04);
+}
+
+.energy-data-callout {
+  background: rgba(0, 212, 255, 0.06);
+  border-left: 3px solid var(--electric-cyan);
+  border-radius: 0 var(--radius-sm) var(--radius-sm) 0;
+  padding: 1rem 1.25rem;
+  margin-top: 1.5rem;
+}
+
+.energy-callout-label {
+  font-family: var(--font-mono);
+  font-size: 0.72rem;
+  font-weight: 700;
+  color: var(--electric-cyan);
+  text-transform: uppercase;
+  letter-spacing: 0.1em;
+  margin-bottom: 0.25rem;
+  display: block;
+}
+
+.energy-callout-text {
+  font-size: 0.88rem;
+  color: #cbd5e1;
+  line-height: 1.55;
+}
+
+/* Energía y Futuro Banner */
+.energy-future-banner {
+  position: relative;
+  border-radius: var(--radius-xl);
+  overflow: hidden;
+  border: 1px solid var(--border-glow);
+  padding: 4.5rem 3rem;
+  text-align: center;
+  background: linear-gradient(135deg, rgba(16, 25, 42, 0.95), rgba(7, 9, 14, 0.98));
+  box-shadow: 0 20px 50px rgba(0, 0, 0, 0.7);
+}
+
+/* ==========================================================================
+   16. REDISEÑO PREMIUM: MULTIMEDIA & CONTACTO (ESTÉTICA EDITORIAL)
+   Referencia visual directa: INICIO & ELECTRICIDAD
+   ========================================================================== */
+
+/* --- HERO EDITORIAL INTEGRADO CON DEGRADADO (MULTIMEDIA & CONTACTO) --- */
+.editorial-hero-section {
+  padding: 5rem 0 4rem 0;
+  position: relative;
+  overflow: hidden;
+  border-bottom: 1px solid var(--border-subtle);
+}
+
+.editorial-hero-grid {
+  display: grid;
+  grid-template-columns: 1.15fr 0.85fr;
+  gap: 3.5rem;
+  align-items: center;
+}
+
+.editorial-hero-content {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+}
+
+.editorial-hero-eyebrow {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.5rem;
+  font-family: var(--font-mono);
+  font-size: 0.78rem;
+  font-weight: 600;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+  color: var(--electric-cyan);
+  background: rgba(0, 212, 255, 0.08);
+  border: 1px solid rgba(0, 212, 255, 0.2);
+  padding: 0.35rem 0.85rem;
+  border-radius: var(--radius-full);
+  margin-bottom: 1.25rem;
+}
+
+.editorial-hero-title {
+  font-family: var(--font-heading);
+  font-size: clamp(2.3rem, 4.5vw, 3.5rem);
+  font-weight: 900;
+  line-height: 1.15;
+  color: var(--text-white);
+  letter-spacing: -0.02em;
+  margin-bottom: 1.25rem;
+}
+
+.editorial-hero-subtitle {
+  font-size: clamp(1.05rem, 1.8vw, 1.2rem);
+  color: #cbd5e1;
+  line-height: 1.65;
+  margin-bottom: 2rem;
+  max-width: 580px;
+}
+
+.editorial-hero-visual {
+  position: relative;
+}
+
+.editorial-hero-frame {
+  position: relative;
+  height: 380px;
+  border-radius: var(--radius-xl);
+  overflow: hidden;
+  border: 1px solid rgba(0, 212, 255, 0.28);
+  box-shadow: 0 20px 50px rgba(0, 0, 0, 0.7), 0 0 30px rgba(0, 212, 255, 0.12);
+  background: #080c14;
+}
+
+.editorial-hero-frame img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  opacity: 0.88;
+  filter: contrast(1.06) brightness(0.95);
+  transition: transform var(--transition-smooth);
+}
+
+.editorial-hero-frame:hover img {
+  transform: scale(1.03);
+}
+
+.editorial-hero-frame::after {
+  content: '';
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(180deg, rgba(7, 9, 14, 0.08) 0%, rgba(7, 9, 14, 0.45) 50%, rgba(7, 9, 14, 0.88) 100%);
+  pointer-events: none;
+}
+
+.editorial-hero-badge {
+  position: absolute;
+  bottom: 1.25rem;
+  left: 1.25rem;
+  z-index: 2;
+  background: rgba(7, 9, 14, 0.88);
+  backdrop-filter: blur(10px);
+  border: 1px solid var(--border-card);
+  padding: 0.45rem 0.95rem;
+  border-radius: var(--radius-sm);
+  font-family: var(--font-mono);
+  font-size: 0.74rem;
+  color: var(--electric-cyan);
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+}
+
+.editorial-hero-badge .dot {
+  width: 7px;
+  height: 7px;
+  background: #00f0ff;
+  border-radius: 50%;
+  box-shadow: 0 0 8px #00f0ff;
+}
+
+/* --- MULTIMEDIA: GALERÍA EDITORIAL ASIMÉTRICA --- */
+.media-editorial-showcase {
+  display: grid;
+  grid-template-columns: 1.35fr 1fr;
+  gap: 1.5rem;
+  margin-top: 2rem;
+  margin-bottom: 4rem;
+}
+
+.media-showcase-primary {
+  position: relative;
+  border-radius: var(--radius-xl);
+  overflow: hidden;
+  border: 1px solid rgba(0, 212, 255, 0.18);
+  min-height: 480px;
+  background: #070a12;
+  box-shadow: 0 16px 40px rgba(0, 0, 0, 0.6);
+  transition: all var(--transition-smooth);
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-end;
+}
+
+.media-showcase-primary:hover {
+  border-color: rgba(0, 212, 255, 0.45);
+  box-shadow: 0 20px 48px rgba(0, 0, 0, 0.7), 0 0 24px rgba(0, 212, 255, 0.14);
+  transform: translateY(-2px);
+}
+
+.media-showcase-primary img {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  opacity: 0.84;
+  transition: transform var(--transition-smooth);
+}
+
+.media-showcase-primary:hover img {
+  transform: scale(1.025);
+}
+
+.media-showcase-primary::after {
+  content: '';
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(180deg, rgba(7, 9, 14, 0.05) 0%, rgba(7, 9, 14, 0.4) 40%, rgba(7, 9, 14, 0.95) 100%);
+  pointer-events: none;
+}
+
+.media-showcase-caption {
+  position: relative;
+  z-index: 2;
+  padding: 2.25rem;
+}
+
+.media-showcase-kicker {
+  font-family: var(--font-mono);
+  font-size: 0.72rem;
+  font-weight: 700;
+  color: var(--electric-cyan);
+  text-transform: uppercase;
+  letter-spacing: 0.12em;
+  margin-bottom: 0.4rem;
+}
+
+.media-showcase-title {
+  font-family: var(--font-heading);
+  font-size: 1.55rem;
+  font-weight: 800;
+  color: #ffffff;
+  margin-bottom: 0.5rem;
+  line-height: 1.25;
+}
+
+.media-showcase-desc {
+  font-size: 0.92rem;
+  color: #cbd5e1;
+  line-height: 1.6;
+  max-width: 580px;
+}
+
+.media-showcase-stack {
+  display: flex;
+  flex-direction: column;
+  gap: 1.5rem;
+}
+
+.media-showcase-secondary {
+  position: relative;
+  border-radius: var(--radius-lg);
+  overflow: hidden;
+  border: 1px solid rgba(0, 212, 255, 0.16);
+  flex: 1;
+  min-height: 228px;
+  background: #070a12;
+  box-shadow: 0 12px 30px rgba(0, 0, 0, 0.5);
+  transition: all var(--transition-smooth);
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-end;
+}
+
+.media-showcase-secondary:hover {
+  border-color: rgba(0, 212, 255, 0.4);
+  box-shadow: 0 16px 36px rgba(0, 0, 0, 0.6), 0 0 20px rgba(0, 212, 255, 0.12);
+  transform: translateY(-2px);
+}
+
+.media-showcase-secondary img {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  opacity: 0.84;
+  transition: transform var(--transition-smooth);
+}
+
+.media-showcase-secondary:hover img {
+  transform: scale(1.025);
+}
+
+.media-showcase-secondary::after {
+  content: '';
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(180deg, rgba(7, 9, 14, 0.08) 0%, rgba(7, 9, 14, 0.4) 30%, rgba(7, 9, 14, 0.92) 100%);
+  pointer-events: none;
+}
+
+.media-showcase-secondary-caption {
+  position: relative;
+  z-index: 2;
+  padding: 1.4rem 1.6rem;
+}
+
+.media-showcase-secondary-title {
+  font-family: var(--font-heading);
+  font-size: 1.15rem;
+  font-weight: 700;
+  color: #ffffff;
+  margin-bottom: 0.25rem;
+}
+
+.media-showcase-secondary-desc {
+  font-size: 0.82rem;
+  color: #cbd5e1;
+  line-height: 1.5;
+}
+
+/* --- MULTIMEDIA: CATEGORÍAS VISUALES --- */
+.media-categories-section {
+  margin-bottom: 4.5rem;
+}
+
+.media-categories-heading {
+  font-family: var(--font-mono);
+  font-size: 0.76rem;
+  font-weight: 700;
+  color: var(--text-muted);
+  text-transform: uppercase;
+  letter-spacing: 0.14em;
+  margin-bottom: 1.25rem;
+  display: flex;
+  align-items: center;
+  gap: 0.75rem;
+}
+
+.media-categories-heading::after {
+  content: '';
+  flex: 1;
+  height: 1px;
+  background: var(--border-subtle);
+}
+
+.media-categories-grid {
+  display: grid;
+  grid-template-columns: repeat(5, 1fr);
+  gap: 1.25rem;
+}
+
+.media-category-card {
+  position: relative;
+  border-radius: var(--radius-md);
+  overflow: hidden;
+  border: 1px solid var(--border-card);
+  background: #090e18;
+  height: 130px;
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-end;
+  padding: 1.1rem 1rem;
+  transition: all var(--transition-smooth);
+  cursor: pointer;
+  text-decoration: none;
+}
+
+.media-category-card img {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  opacity: 0.5;
+  transition: all var(--transition-smooth);
+}
+
+.media-category-card::after {
+  content: '';
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(180deg, rgba(7, 9, 14, 0.15) 0%, rgba(7, 9, 14, 0.88) 100%);
+  transition: all var(--transition-smooth);
+}
+
+.media-category-card:hover {
+  border-color: var(--electric-cyan);
+  box-shadow: 0 10px 24px rgba(0, 0, 0, 0.6), 0 0 18px rgba(0, 212, 255, 0.15);
+  transform: translateY(-3px);
+}
+
+.media-category-card:hover img {
+  opacity: 0.75;
+  transform: scale(1.05);
+}
+
+.media-category-card:hover::after {
+  background: linear-gradient(180deg, rgba(7, 9, 14, 0.05) 0%, rgba(7, 9, 14, 0.78) 100%);
+}
+
+.media-category-name {
+  position: relative;
+  z-index: 2;
+  font-family: var(--font-heading);
+  font-size: 0.88rem;
+  font-weight: 700;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  color: #ffffff;
+  transition: color var(--transition-fast);
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.media-category-card:hover .media-category-name {
+  color: var(--electric-cyan);
+}
+
+/* --- MULTIMEDIA: SECCIÓN CINEMATOGRÁFICA DE VIDEO --- */
+.media-cinematic-section {
+  margin-bottom: 4.5rem;
+}
+
+.media-cinematic-wrap {
+  background: linear-gradient(135deg, rgba(16, 24, 40, 0.85), rgba(8, 12, 20, 0.95));
+  border: 1px solid rgba(0, 212, 255, 0.22);
+  border-radius: var(--radius-xl);
+  padding: 3.5rem;
+  display: grid;
+  grid-template-columns: 1.15fr 0.85fr;
+  gap: 3.5rem;
+  align-items: center;
+  box-shadow: 0 20px 50px rgba(0, 0, 0, 0.65), var(--shadow-glow);
+}
+
+.media-cinematic-frame {
+  position: relative;
+  aspect-ratio: 16/10;
+  border-radius: var(--radius-lg);
+  overflow: hidden;
+  border: 1px solid rgba(0, 212, 255, 0.28);
+  box-shadow: 0 16px 40px rgba(0, 0, 0, 0.7);
+  cursor: pointer;
+  background: #000;
+}
+
+.media-cinematic-frame img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  opacity: 0.88;
+  transition: transform var(--transition-smooth);
+}
+
+.media-cinematic-frame:hover img {
+  transform: scale(1.03);
+}
+
+.media-cinematic-play-btn {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  width: 72px;
+  height: 72px;
+  border-radius: 50%;
+  background: rgba(0, 212, 255, 0.92);
+  color: #04060a;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 1.5rem;
+  box-shadow: 0 0 28px rgba(0, 212, 255, 0.6);
+  transition: all var(--transition-fast);
+}
+
+.media-cinematic-frame:hover .media-cinematic-play-btn {
+  transform: translate(-50%, -50%) scale(1.08);
+  background: #00f0ff;
+  box-shadow: 0 0 40px rgba(0, 240, 255, 0.85);
+}
+
+.media-cinematic-content .cinematic-pre {
+  font-family: var(--font-mono);
+  font-size: 0.74rem;
+  font-weight: 700;
+  color: var(--electric-cyan);
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+  margin-bottom: 0.5rem;
+}
+
+.media-cinematic-content .cinematic-title {
+  font-family: var(--font-heading);
+  font-size: clamp(1.8rem, 2.8vw, 2.4rem);
+  font-weight: 800;
+  color: #ffffff;
+  line-height: 1.2;
+  margin-bottom: 1.25rem;
+}
+
+.media-cinematic-content .cinematic-desc {
+  font-size: 0.98rem;
+  color: #cbd5e1;
+  line-height: 1.7;
+  margin-bottom: 2rem;
+}
+
+/* --- MULTIMEDIA: CIERRE DE ANCHO COMPLETO --- */
+.media-full-closing {
+  position: relative;
+  padding: 5.5rem 0 5rem 0;
+  background: linear-gradient(180deg, transparent, rgba(14, 21, 35, 0.55) 50%, transparent 100%);
+  border-top: 1px solid var(--border-subtle);
+  border-bottom: 1px solid var(--border-subtle);
+  text-align: center;
+  overflow: hidden;
+}
+
+.media-full-closing::before {
+  content: '';
+  position: absolute;
+  inset: 0;
+  background: radial-gradient(circle at 50% 50%, rgba(0, 212, 255, 0.05) 0%, transparent 70%);
+  pointer-events: none;
+}
+
+.media-closing-kicker {
+  font-family: var(--font-mono);
+  font-size: 0.75rem;
+  font-weight: 700;
+  color: var(--electric-cyan);
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
+  margin-bottom: 1rem;
+}
+
+.media-closing-title {
+  font-family: var(--font-heading);
+  font-size: clamp(1.8rem, 3.2vw, 2.7rem);
+  font-weight: 900;
+  color: #ffffff;
+  letter-spacing: -0.01em;
+  line-height: 1.25;
+  max-width: 820px;
+  margin: 0 auto 1.25rem auto;
+}
+
+.media-closing-text {
+  font-size: 1.05rem;
+  color: #cbd5e1;
+  max-width: 660px;
+  margin: 0 auto 2.5rem auto;
+  line-height: 1.7;
+}
+
+/* --- CONTACTO: COMPOSICIÓN DE DOS ZONAS --- */
+.contact-two-zone-grid {
+  display: grid;
+  grid-template-columns: 1.15fr 0.85fr;
+  gap: 3.5rem;
+  align-items: start;
+  margin-top: 1.5rem;
+  margin-bottom: 4rem;
+}
+
+.contact-left-zone {
+  display: flex;
+  flex-direction: column;
+}
+
+.contact-zone-kicker {
+  font-family: var(--font-mono);
+  font-size: 0.74rem;
+  font-weight: 700;
+  color: var(--electric-cyan);
+  text-transform: uppercase;
+  letter-spacing: 0.12em;
+  margin-bottom: 0.4rem;
+}
+
+.contact-zone-title {
+  font-family: var(--font-heading);
+  font-size: clamp(1.8rem, 2.8vw, 2.4rem);
+  font-weight: 800;
+  color: #ffffff;
+  line-height: 1.2;
+  margin-bottom: 1rem;
+}
+
+.contact-zone-desc {
+  font-size: 0.98rem;
+  color: #cbd5e1;
+  line-height: 1.65;
+  margin-bottom: 2rem;
+}
+
+/* Formulario Minimalista */
+.contact-minimal-form-box {
+  background: linear-gradient(145deg, rgba(14, 21, 35, 0.7), rgba(8, 11, 18, 0.9));
+  border: 1px solid var(--border-card);
+  border-radius: var(--radius-lg);
+  padding: 2.25rem;
+  box-shadow: 0 16px 40px rgba(0, 0, 0, 0.5);
+}
+
+.form-field-group {
+  margin-bottom: 1.35rem;
+}
+
+.form-field-label {
+  display: block;
+  font-family: var(--font-mono);
+  font-size: 0.72rem;
+  font-weight: 700;
+  color: #94a3b8;
+  text-transform: uppercase;
+  letter-spacing: 0.08em;
+  margin-bottom: 0.45rem;
+}
+
+.form-field-input {
+  width: 100%;
+  background: rgba(7, 9, 14, 0.85);
+  border: 1px solid rgba(0, 212, 255, 0.18);
+  border-radius: var(--radius-sm);
+  padding: 0.8rem 1.1rem;
+  font-family: var(--font-body);
+  font-size: 0.92rem;
+  color: #ffffff;
+  outline: none;
+  transition: all var(--transition-fast);
+}
+
+.form-field-input:focus {
+  border-color: var(--electric-cyan);
+  box-shadow: 0 0 14px rgba(0, 212, 255, 0.25);
+  background: rgba(10, 14, 24, 0.95);
+}
+
+.form-field-input::placeholder {
+  color: #64748b;
+  font-size: 0.86rem;
+}
+
+textarea.form-field-input {
+  min-height: 115px;
+  resize: vertical;
+}
+
+.contact-alert-msg {
+  padding: 0.85rem 1.15rem;
+  border-radius: var(--radius-sm);
+  background: rgba(0, 212, 255, 0.12);
+  border: 1px solid var(--electric-blue);
+  color: var(--electric-cyan);
+  font-size: 0.86rem;
+  margin-bottom: 1.25rem;
+  display: none;
+}
+
+/* Panel Visual Elegante Derecho (Identidad Académica) */
+.contact-right-panel {
+  background: linear-gradient(145deg, rgba(16, 25, 42, 0.85), rgba(8, 12, 20, 0.95));
+  border: 1px solid rgba(0, 212, 255, 0.24);
+  border-radius: var(--radius-xl);
+  padding: 2.75rem 2.25rem;
+  box-shadow: 0 20px 50px rgba(0, 0, 0, 0.65), var(--shadow-glow);
+  position: relative;
+  overflow: hidden;
+}
+
+.contact-right-panel::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  right: 0;
+  width: 140px;
+  height: 140px;
+  background: radial-gradient(circle at 100% 0%, rgba(0, 212, 255, 0.12) 0%, transparent 70%);
+  pointer-events: none;
+}
+
+.panel-badge-top {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.45rem;
+  font-family: var(--font-mono);
+  font-size: 0.72rem;
+  font-weight: 700;
+  color: var(--electric-cyan);
+  background: rgba(0, 212, 255, 0.08);
+  border: 1px solid rgba(0, 212, 255, 0.2);
+  padding: 0.3rem 0.75rem;
+  border-radius: var(--radius-full);
+  margin-bottom: 1.5rem;
+}
+
+.panel-entity-title {
+  font-family: var(--font-heading);
+  font-size: 1.55rem;
+  font-weight: 900;
+  color: #ffffff;
+  letter-spacing: 0.02em;
+  margin-bottom: 0.25rem;
+}
+
+.panel-entity-sub {
+  font-family: var(--font-mono);
+  font-size: 0.82rem;
+  font-weight: 700;
+  color: var(--electric-cyan);
+  text-transform: uppercase;
+  letter-spacing: 0.1em;
+  margin-bottom: 1.75rem;
+}
+
+.panel-triad-box {
+  background: rgba(7, 9, 14, 0.75);
+  border: 1px solid var(--border-subtle);
+  border-radius: var(--radius-md);
+  padding: 1.1rem 1.25rem;
+  margin-bottom: 1.75rem;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.triad-item {
+  font-family: var(--font-heading);
+  font-size: 0.82rem;
+  font-weight: 800;
+  color: #ffffff;
+  letter-spacing: 0.06em;
+  text-transform: uppercase;
+}
+
+.triad-sep {
+  color: var(--electric-cyan);
+  font-size: 0.9rem;
+}
+
+.panel-academic-specs {
+  display: flex;
+  flex-direction: column;
+  gap: 0.85rem;
+}
+
+.spec-line {
+  display: flex;
+  flex-direction: column;
+  padding-bottom: 0.65rem;
+  border-bottom: 1px solid var(--border-subtle);
+}
+
+.spec-line:last-child {
+  border-bottom: none;
+  padding-bottom: 0;
+}
+
+.spec-label {
+  font-family: var(--font-mono);
+  font-size: 0.7rem;
+  color: var(--text-muted);
+  text-transform: uppercase;
+  letter-spacing: 0.06em;
+}
+
+.spec-val {
+  font-size: 0.92rem;
+  font-weight: 600;
+  color: #ffffff;
+}
+
+.spec-val.accent {
+  color: var(--electric-cyan);
+}
+
+/* --- CONTACTO: BLOQUE FINAL DE CIERRE --- */
+.contact-closing-emblem-section {
+  text-align: center;
+  padding: 4.5rem 0 3.5rem 0;
+  border-top: 1px solid var(--border-subtle);
+}
+
+.closing-brand-emblem {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.85rem;
+  margin-bottom: 0.65rem;
+}
+
+.closing-brand-icon {
+  width: 44px;
+  height: 44px;
+  border-radius: var(--radius-sm);
+  background: rgba(0, 212, 255, 0.1);
+  border: 1px solid rgba(0, 212, 255, 0.35);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 1.35rem;
+  color: #00f0ff;
+  box-shadow: 0 0 16px rgba(0, 212, 255, 0.25);
+}
+
+.closing-brand-name {
+  font-family: var(--font-heading);
+  font-size: clamp(1.8rem, 3.2vw, 2.4rem);
+  font-weight: 900;
+  color: #ffffff;
+  letter-spacing: 0.03em;
+}
+
+.closing-brand-slogan {
+  font-family: var(--font-mono);
+  font-size: 0.84rem;
+  font-weight: 700;
+  color: var(--electric-cyan);
+  text-transform: uppercase;
+  letter-spacing: 0.16em;
+  margin-bottom: 1rem;
+}
+
+.closing-brand-quote {
+  font-size: 1.15rem;
+  font-style: italic;
+  color: #cbd5e1;
+  max-width: 500px;
+  margin: 0 auto;
+}
+
+/* --- RESPONSIVE QUERIES --- */
+@media (max-width: 1024px) {
+  .editorial-hero-grid,
+  .media-editorial-showcase,
+  .media-cinematic-wrap,
+  .contact-two-zone-grid {
+    grid-template-columns: 1fr;
+    gap: 2.5rem;
+  }
+  .media-categories-grid {
+    grid-template-columns: repeat(3, 1fr);
+  }
+}
+
+@media (max-width: 768px) {
+  .media-categories-grid {
+    grid-template-columns: repeat(2, 1fr);
+  }
+  .editorial-hero-frame {
+    height: 280px;
+  }
+  .media-cinematic-wrap {
+    padding: 2.25rem 1.5rem;
+  }
+  .contact-minimal-form-box,
+  .contact-right-panel {
+    padding: 2rem 1.5rem;
+  }
+}
+
+@media (max-width: 480px) {
+  .media-categories-grid {
+    grid-template-columns: 1fr;
+  }
+}
+
+/* ==========================================================================
+   17. REGLAS DE COMPATIBILIDAD CON GOOGLE SITES / IFRAME EMBED
+   ========================================================================== */
+html, body {
+  width: 100%;
+  max-width: 100%;
+  overflow-x: hidden !important;
+  box-sizing: border-box;
+}
+
+*, *::before, *::after {
+  box-sizing: border-box;
+}
+
+/* En modo iframe embebido de Google Sites, permitir fluidez total y evitar cortes */
+body.in-google-sites {
+  min-height: auto;
+  overflow-y: visible;
+}
+
+body.in-google-sites .site-header {
+  position: sticky;
+  top: 0;
+}
+
+/* Prevenir scrolls horizontales dentro de los bloques de Google Sites */
+.container {
+  width: 100%;
+  max-width: 1200px;
+  padding-left: clamp(1rem, 3vw, 2rem);
+  padding-right: clamp(1rem, 3vw, 2rem);
+}
+
+

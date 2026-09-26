@@ -1,0 +1,665 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>VOLTIX TECHNOLOGY | Electricidad • Tecnología • Innovación</title>
+  <meta name="description" content="VOLTIX TECHNOLOGY — Portal académico de Ingeniería Eléctrica. Fundamentos, componentes, aplicaciones y energías renovables.">
+  <meta name="author" content="GARCIA ANDRADE MATIAS EDUARDO - Ingeniería Eléctrica Curso 2-AF">
+  <meta name="theme-color" content="#07090e">
+
+  <!-- Google Fonts: Outfit, Inter & JetBrains Mono -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=JetBrains+Mono:wght@400;500;600;700&family=Outfit:wght@500;600;700;800;900&display=swap" rel="stylesheet">
+
+  <link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+
+  <!-- Rejilla Tecnológica de Fondo (Sutil) -->
+  <div class="tech-grid-overlay" aria-hidden="true"></div>
+
+  <!-- ==========================================================================
+       HEADER / NAVEGACIÓN GLOBAL
+       ========================================================================== -->
+  <header class="site-header" id="header">
+    <div class="container header-container">
+      <a href="inicio.html" class="brand-logo" aria-label="VOLTIX TECHNOLOGY - Inicio">
+        <div class="brand-icon-box">⚡</div>
+        <div class="brand-text">
+          <span class="brand-title">VOLTIX TECHNOLOGY</span>
+          <span class="brand-subtitle">Electricidad • Innovación</span>
+        </div>
+      </a>
+
+      <nav class="nav-menu" id="navMenu" aria-label="Navegación principal">
+        <a href="inicio.html" class="nav-link active">Inicio</a>
+        <a href="electricidad.html" class="nav-link">Electricidad</a>
+        <a href="componentes.html" class="nav-link">Componentes</a>
+        <a href="aplicaciones.html" class="nav-link">Aplicaciones</a>
+        <a href="energias.html" class="nav-link">Energías</a>
+        <a href="multimedia.html" class="nav-link">Multimedia</a>
+        <a href="contacto.html" class="nav-link">Contacto</a>
+      </nav>
+
+      <button class="mobile-toggle" id="mobileToggle" aria-label="Abrir menú de navegación" aria-expanded="false">
+        <span></span>
+        <span></span>
+        <span></span>
+      </button>
+    </div>
+  </header>
+
+  <main>
+    <!-- ==========================================================================
+         1. HERO PRINCIPAL
+         ========================================================================== -->
+    <section class="hero-section" id="inicio">
+      <div class="hero-background-wrapper">
+        <img src="assets/images/hero-energy.jpg" alt="Circuitos y energía eléctrica de alta tecnología" class="hero-bg-img">
+        <canvas id="heroCanvas" class="hero-canvas"></canvas>
+        <div class="hero-gradient-overlay"></div>
+      </div>
+
+      <div class="container">
+        <div class="hero-content">
+          <h1 class="hero-title">
+            VOLTIX <span class="glow-electric">TECHNOLOGY</span>
+          </h1>
+
+          <div class="hero-slogan">
+            <span>Electricidad</span>
+            <span class="dot">•</span>
+            <span>Tecnología</span>
+            <span class="dot">•</span>
+            <span>Innovación</span>
+          </div>
+
+          <p class="hero-description">
+            “Explora la energía que impulsa nuestro mundo.”
+          </p>
+
+          <div class="hero-actions">
+            <a href="#introduccion" class="btn btn-primary" id="btnExplorarSitio">
+              <span>EXPLORAR EL SITIO</span>
+              <span class="btn-icon">⚡</span>
+            </a>
+            <a href="electricidad.html" class="btn btn-secondary" id="btnDescubrirMas">
+              <span>DESCUBRIR MÁS</span>
+              <span class="btn-icon">→</span>
+            </a>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ==========================================================================
+         2. SECCIÓN INTRODUCCIÓN — CONECTANDO CONOCIMIENTO
+         ========================================================================== -->
+    <section class="section" id="introduccion">
+      <div class="container">
+        <div class="intro-grid">
+          <div class="intro-content">
+            <h2 class="section-title">
+              Conectando conocimiento, <br><span class="text-gradient">energía e innovación</span>
+            </h2>
+
+            <p class="intro-lead">
+              “<strong>VOLTIX TECHNOLOGY</strong> es un espacio educativo dedicado a explorar los fundamentos de la electricidad, los componentes eléctricos, sus aplicaciones y las nuevas tecnologías relacionadas con la energía.”
+            </p>
+
+            <div class="intro-cards-stack">
+              <!-- Item 1: Fundamentos Teóricos -->
+              <div class="intro-card-mini">
+                <div class="intro-card-header">
+                  <span class="intro-card-icon">⚡</span>
+                  <h3 class="intro-card-title">Fundamentos Teóricos</h3>
+                </div>
+                <p class="intro-card-desc">
+                  Comprensión rigurosa de las leyes de Ohm, Kirchhoff y los principios electromagnéticos que rigen los circuitos eléctricos.
+                </p>
+              </div>
+
+              <!-- Item 2: Enfoque Técnico y Experimental -->
+              <div class="intro-card-mini">
+                <div class="intro-card-header">
+                  <span class="intro-card-icon">🔬</span>
+                  <h3 class="intro-card-title">Enfoque Técnico y Experimental</h3>
+                </div>
+                <p class="intro-card-desc">
+                  Análisis práctico de componentes pasivos, semiconductores y sistemas de medición con instrumentación de laboratorio.
+                </p>
+              </div>
+
+              <!-- Item 3: Sostenibilidad y Futuro Tecnológico -->
+              <div class="intro-card-mini">
+                <div class="intro-card-header">
+                  <span class="intro-card-icon">🌱</span>
+                  <h3 class="intro-card-title">Sostenibilidad y Futuro Tecnológico</h3>
+                </div>
+                <p class="intro-card-desc">
+                  Exploración de la transición energética, generación limpia renovable, electromovilidad y automatización de procesos.
+                </p>
+              </div>
+            </div>
+          </div>
+
+          <div class="intro-visual">
+            <div class="intro-image-frame">
+              <img src="assets/images/intro-lab.jpg" alt="Laboratorio de investigación electrotécnica con pruebas de circuitos e instrumentación">
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ==========================================================================
+         3. SECCIÓN PILARES DE VOLTIX TECHNOLOGY
+         ========================================================================== -->
+    <section class="section section--alt" id="pilares">
+      <div class="container">
+        <div class="section-header">
+          <h2 class="section-title">
+            Pilares de <span class="text-gradient">Voltix Technology</span>
+          </h2>
+          <p class="section-subtitle">
+            Tres dimensiones estructuradas para el estudio integral y continuo de la ingeniería eléctrica.
+          </p>
+        </div>
+
+        <div class="pillars-grid">
+          <!-- Tarjeta 1: Electricidad -->
+          <article class="pillar-card">
+            <div class="pillar-icon-box">⚡</div>
+            <h3 class="pillar-title">ELECTRICIDAD</h3>
+            <p class="pillar-description">
+              “Conoce los conceptos fundamentales de la electricidad y su importancia en nuestra vida cotidiana.”
+            </p>
+            <div class="pillar-footer">
+              <a href="electricidad.html" class="pillar-link">
+                <span>Ver fundamentos</span>
+                <span>→</span>
+              </a>
+            </div>
+          </article>
+
+          <!-- Tarjeta 2: Tecnología -->
+          <article class="pillar-card">
+            <div class="pillar-icon-box">🔌</div>
+            <h3 class="pillar-title">TECNOLOGÍA</h3>
+            <p class="pillar-description">
+              “Explora componentes, circuitos y sistemas utilizados en diferentes aplicaciones.”
+            </p>
+            <div class="pillar-footer">
+              <a href="componentes.html" class="pillar-link">
+                <span>Ver componentes</span>
+                <span>→</span>
+              </a>
+            </div>
+          </article>
+
+          <!-- Tarjeta 3: Innovación -->
+          <article class="pillar-card">
+            <div class="pillar-icon-box">🚀</div>
+            <h3 class="pillar-title">INNOVACIÓN</h3>
+            <p class="pillar-description">
+              “Descubre nuevas tecnologías y soluciones relacionadas con la energía.”
+            </p>
+            <div class="pillar-footer">
+              <a href="energias.html" class="pillar-link">
+                <span>Ver energías</span>
+                <span>→</span>
+              </a>
+            </div>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <!-- ==========================================================================
+         4. SECCIÓN FUNDAMENTOS DE LA ELECTRICIDAD
+         ========================================================================== -->
+    <section class="section" id="fundamentos">
+      <div class="container">
+        <div class="section-header">
+          <h2 class="section-title">
+            Fundamentos de la <span class="text-gradient">Electricidad</span>
+          </h2>
+          <p class="section-subtitle">
+            Principios electrofísicos que determinan el comportamiento y flujo de energía en cualquier red.
+          </p>
+        </div>
+
+        <div class="fundamentals-grid">
+          <!-- Voltaje -->
+          <div class="fund-card">
+            <div class="fund-header">
+              <span class="fund-icon">⚡</span>
+              <span class="fund-unit-badge">V • Voltio</span>
+            </div>
+            <h3 class="fund-name">VOLTAJE</h3>
+            <p class="fund-desc">
+              Diferencia de potencial o fuerza electromotriz que impulsa a las cargas a través de un circuito cerrado.
+            </p>
+            <div class="fund-formula-tag">Tensión Eléctrica</div>
+          </div>
+
+          <!-- Corriente -->
+          <div class="fund-card">
+            <div class="fund-header">
+              <span class="fund-icon">🔌</span>
+              <span class="fund-unit-badge">A • Amperio</span>
+            </div>
+            <h3 class="fund-name">CORRIENTE</h3>
+            <p class="fund-desc">
+              Tasa o caudal de flujo neto de electrones que atraviesa una sección transversal por unidad de tiempo.
+            </p>
+            <div class="fund-formula-tag">Intensidad (I)</div>
+          </div>
+
+          <!-- Resistencia -->
+          <div class="fund-card">
+            <div class="fund-header">
+              <span class="fund-icon">◈</span>
+              <span class="fund-unit-badge">Ω • Ohmio</span>
+            </div>
+            <h3 class="fund-name">RESISTENCIA</h3>
+            <p class="fund-desc">
+              Oposición natural de los materiales al paso de corriente, disipando energía en forma de calor térmico.
+            </p>
+            <div class="fund-formula-tag">Oposición al Flujo</div>
+          </div>
+
+          <!-- Potencia -->
+          <div class="fund-card">
+            <div class="fund-header">
+              <span class="fund-icon">⚙️</span>
+              <span class="fund-unit-badge">W • Vatio</span>
+            </div>
+            <h3 class="fund-name">POTENCIA</h3>
+            <p class="fund-desc">
+              Velocidad con la que la energía eléctrica es transformada o aprovechada para realizar trabajo útil.
+            </p>
+            <div class="fund-formula-tag">P = V × I</div>
+          </div>
+        </div>
+
+        <!-- Banner Compacto de la Ley de Ohm -->
+        <div class="ohm-compact-banner">
+          <div class="ohm-formula-display">
+            <div class="ohm-formula-text">V = I × R</div>
+            <div class="ohm-formula-label">Ley de Ohm</div>
+          </div>
+          <div class="ohm-explanation-text">
+            <h4>La Relación Eléctrica Fundamental</h4>
+            <p>
+              Establece que la tensión (V) entre dos puntos de un conductor metálico es directamente proporcional a la corriente (I) que lo recorre, con la resistencia (R) como factor determinante.
+            </p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ==========================================================================
+         5. SECCIÓN APLICACIONES
+         ========================================================================== -->
+    <section class="section section--alt" id="aplicaciones">
+      <div class="container">
+        <div class="section-header">
+          <h2 class="section-title">
+            Aplicaciones de la <span class="text-gradient">Electricidad</span>
+          </h2>
+          <p class="section-subtitle">
+            Campos prioritarios donde los sistemas eléctricos impulsan el bienestar y la industria moderna.
+          </p>
+        </div>
+
+        <div class="apps-grid-compact">
+          <!-- 1. Hogar -->
+          <article class="app-card-item">
+            <div class="app-card-img-wrap">
+              <img src="assets/images/app-home.jpg" alt="Instalaciones residenciales y domótica">
+              <span class="app-card-badge">🏠 Hogar</span>
+            </div>
+            <div class="app-card-body">
+              <h3 class="app-card-title">Redes Residenciales</h3>
+              <p class="app-card-desc">
+                Sistemas en baja tensión, cuadros de distribución, protecciones diferenciales y automatización domótica.
+              </p>
+            </div>
+          </article>
+
+          <!-- 2. Industria -->
+          <article class="app-card-item">
+            <div class="app-card-img-wrap">
+              <img src="assets/images/app-industry.jpg" alt="Subestaciones y transformadores de potencia industrial">
+              <span class="app-card-badge">🏭 Industria</span>
+            </div>
+            <div class="app-card-body">
+              <h3 class="app-card-title">Media y Alta Tensión</h3>
+              <p class="app-card-desc">
+                Subestaciones eléctricas, centros de control de motores y corrección de factor de potencia.
+              </p>
+            </div>
+          </article>
+
+          <!-- 3. Electrónica -->
+          <article class="app-card-item">
+            <div class="app-card-img-wrap">
+              <img src="assets/images/app-tech.jpg" alt="Microprocesador semiconductor sobre placa electrónica">
+              <span class="app-card-badge">💻 Electrónica</span>
+            </div>
+            <div class="app-card-body">
+              <h3 class="app-card-title">Sistemas Embebidos</h3>
+              <p class="app-card-desc">
+                Tarjetas de circuito impreso (PCB), microcontroladores y conversión eficiente de energía DC-DC.
+              </p>
+            </div>
+          </article>
+
+          <!-- 4. Automatización -->
+          <article class="app-card-item">
+            <div class="app-card-img-wrap">
+              <img src="assets/images/app-automation.jpg" alt="Brazo robótico de soldadura y ensamblaje de precisión">
+              <span class="app-card-badge">🤖 Automatización</span>
+            </div>
+            <div class="app-card-body">
+              <h3 class="app-card-title">Robótica y Control</h3>
+              <p class="app-card-desc">
+                Autómatas programables (PLC), servodrives, sensores industriales y líneas automatizadas.
+              </p>
+            </div>
+          </article>
+
+          <!-- 5. Transporte -->
+          <article class="app-card-item">
+            <div class="app-card-img-wrap">
+              <img src="assets/images/app-transport.jpg" alt="Vehículo eléctrico en estación de carga rápida">
+              <span class="app-card-badge">🚗 Transporte</span>
+            </div>
+            <div class="app-card-body">
+              <h3 class="app-card-title">Electromovilidad</h3>
+              <p class="app-card-desc">
+                Inversores de tracción de carburo de silicio, paquetes de baterías de alto voltaje e infraestructura de carga.
+              </p>
+            </div>
+          </article>
+
+          <!-- 6. Sistemas Eléctricos -->
+          <article class="app-card-item">
+            <div class="app-card-img-wrap">
+              <img src="assets/images/cta-energy.jpg" alt="Arco de plasma y flujo de potencia">
+              <span class="app-card-badge">🏢 Sistemas Eléctricos</span>
+            </div>
+            <div class="app-card-body">
+              <h3 class="app-card-title">Infraestructura Eléctrica</h3>
+              <p class="app-card-desc">
+                Redes de transporte en muy alta tensión, mallas de puesta a tierra (PAT) y supervisión en tiempo real.
+              </p>
+            </div>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <!-- ==========================================================================
+         6. SECCIÓN ENERGÍAS RENOVABLES
+         ========================================================================== -->
+    <section class="section" id="energias">
+      <div class="container">
+        <div class="section-header">
+          <h2 class="section-title">
+            Fuentes de <span class="text-gradient">Energía Renovable</span>
+          </h2>
+          <p class="section-subtitle">
+            Tecnologías de generación limpia clave para el equilibrio y descarbonización del sistema eléctrico.
+          </p>
+        </div>
+
+        <div class="renew-grid-compact">
+          <!-- Solar -->
+          <article class="renew-card-item">
+            <div class="renew-card-media">
+              <img src="assets/images/energy-solar.jpg" alt="Paneles solares fotovoltaicos en granja solar">
+            </div>
+            <div class="renew-card-body">
+              <h3 class="renew-card-title">☀️ Energía Solar</h3>
+              <p class="renew-card-desc">
+                Conversión directa de la radiación lumínica en corriente continua mediante celdas fotovoltaicas de silicio, inyectada a la red por inversores de estado sólido.
+              </p>
+            </div>
+          </article>
+
+          <!-- Eólica -->
+          <article class="renew-card-item">
+            <div class="renew-card-media">
+              <img src="assets/images/energy-wind.jpg" alt="Turbinas eólicas marinas en parque offshore">
+            </div>
+            <div class="renew-card-body">
+              <h3 class="renew-card-title">💨 Energía Eólica</h3>
+              <p class="renew-card-desc">
+                Aprovechamiento de la energía cinética del viento a través de palas aerodinámicas que accionan generadores síncronos de imanes permanentes de gran potencia.
+              </p>
+            </div>
+          </article>
+
+          <!-- Hidroeléctrica -->
+          <article class="renew-card-item">
+            <div class="renew-card-media">
+              <img src="assets/images/energy-hydro.jpg" alt="Presa hidroeléctrica con flujo de agua por turbinas">
+            </div>
+            <div class="renew-card-body">
+              <h3 class="renew-card-title">💧 Energía Hidroeléctrica</h3>
+              <p class="renew-card-desc">
+                Transformación de la energía potencial del agua embalsada mediante turbinas Francis y Pelton, proporcionando inercia rotacional y estabilidad a la red.
+              </p>
+            </div>
+          </article>
+
+          <!-- Geotérmica -->
+          <article class="renew-card-item">
+            <div class="renew-card-media">
+              <img src="assets/images/energy-geothermal.jpg" alt="Central geotérmica con columnas de vapor">
+            </div>
+            <div class="renew-card-body">
+              <h3 class="renew-card-title">🌋 Energía Geotérmica</h3>
+              <p class="renew-card-desc">
+                Extracción de vapor y calor endógeno del subsuelo para mover turbinas de vapor en ciclo continuo las 24 horas del día sin intermitencia estacional.
+              </p>
+            </div>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <!-- ==========================================================================
+         7. SECCIÓN MULTIMEDIA — APRENDE DE FORMA VISUAL
+         ========================================================================== -->
+    <section class="section section--alt" id="multimedia">
+      <div class="container">
+        <div class="section-header">
+          <h2 class="section-title">
+            Aprende de <span class="text-gradient">Forma Visual</span>
+          </h2>
+          <p class="section-subtitle">
+            Recursos didácticos preparados para la divulgación técnica: videos demostrativos, infografías y registros de laboratorio.
+          </p>
+        </div>
+
+        <div class="multimedia-layout">
+          <!-- Video Principal -->
+          <div class="multimedia-main-card">
+            <div class="multimedia-player-preview">
+              <img src="assets/images/multimedia-preview.jpg" alt="Osciloscopio digital analizando ondas senoidales y FFT">
+              <div class="multimedia-play-badge">▶</div>
+            </div>
+            <div class="multimedia-main-info">
+              <h4>Análisis de Señales en Osciloscopio Digital</h4>
+              <p>Visualización en tiempo real de ondas alternas sinusoidales, armónicos y mediciones de laboratorio.</p>
+            </div>
+          </div>
+
+          <!-- Módulos Laterales -->
+          <div class="multimedia-side-list">
+            <a href="multimedia.html" class="multimedia-side-item">
+              <div class="multimedia-side-icon">📊</div>
+              <div class="multimedia-side-text">
+                <h5>Infografías Técnicas</h5>
+                <p>Diagramas unifilares de transporte, código de colores y señales AC.</p>
+              </div>
+            </a>
+
+            <a href="multimedia.html" class="multimedia-side-item">
+              <div class="multimedia-side-icon">🖼️</div>
+              <div class="multimedia-side-text">
+                <h5>Galería de Instrumentación</h5>
+                <p>Registros de bancos de pruebas, multímetros calibrados y prototipos.</p>
+              </div>
+            </a>
+
+            <a href="componentes.html" class="multimedia-side-item">
+              <div class="multimedia-side-icon">🔌</div>
+              <div class="multimedia-side-text">
+                <h5>Catálogo de Componentes</h5>
+                <p>Muestrario de los 8 dispositivos esenciales de la electrónica.</p>
+              </div>
+            </a>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ==========================================================================
+         8. SECCIÓN LLAMADA FINAL (CTA COMPACTA: 65-70% DEL ANCHO)
+         ========================================================================== -->
+    <section class="section" id="contacto-cta">
+      <div class="container">
+        <div class="cta-compact-wrapper">
+          <div class="cta-text-side">
+            <h2 class="cta-compact-title">
+              Descubre el mundo de la <span class="text-gradient">electricidad</span>
+            </h2>
+            <p class="cta-compact-desc">
+              “Explora nuestros contenidos y descubre cómo la energía y la tecnología están transformando nuestro mundo.”
+            </p>
+            <a href="electricidad.html" class="btn btn-primary">
+              <span>EXPLORAR VOLTIX</span>
+              <span class="btn-icon">⚡</span>
+            </a>
+          </div>
+          <div class="cta-art-side">
+            <img src="assets/images/cta-energy.jpg" alt="Arco de plasma y energía eléctrica tecnológica">
+          </div>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <!-- ==========================================================================
+       FOOTER TECNOLÓGICO PREMIUM (3 NIVELES)
+       ========================================================================== -->
+  <footer class="site-footer-premium">
+    <!-- NIVEL 1 — CIERRE VISUAL / TRANSICIÓN -->
+    <div class="footer-transition-level">
+      <div class="container">
+        <div class="footer-transition-pretitle">⚡ VISIÓN & PROYECCIÓN TECNOLÓGICA</div>
+        <h2 class="footer-transition-title">LA ELECTRICIDAD IMPULSA EL FUTURO.</h2>
+        <p class="footer-transition-subtitle">
+          Comprender la energía es el primer paso para transformar la tecnología.
+        </p>
+        <a href="componentes.html" class="btn-footer-explore">
+          <span>SEGUIR EXPLORANDO</span>
+          <span class="explore-arrow">→</span>
+        </a>
+      </div>
+    </div>
+
+    <!-- NIVEL 2 — FOOTER PRINCIPAL (3 COLUMNAS) -->
+    <div class="footer-main-level">
+      <div class="container">
+        <div class="premium-footer-grid">
+          <!-- Columna 1 — Identidad y Datos Académicos -->
+          <div class="premium-footer-col-brand">
+            <div class="footer-logo-wrap">
+              <div class="footer-logo-icon">⚡</div>
+              <span class="footer-logo-text">VOLTIX TECHNOLOGY</span>
+            </div>
+            <div class="footer-brand-slogan">Electricidad • Tecnología • Innovación</div>
+            <p class="footer-brand-summary">
+              Proyecto académico dedicado a explorar los fundamentos de la electricidad, la tecnología y la innovación.
+            </p>
+            <div class="footer-academic-block">
+              <div class="acad-line">Proyecto Académico • <strong>Ingeniería Eléctrica</strong></div>
+              <div class="acad-line">Curso: <strong>2-AF</strong></div>
+              <div class="student-line">
+                <span class="student-label">Estudiante:</span>
+                <span class="student-name">GARCIA ANDRADE MATIAS EDUARDO</span>
+              </div>
+            </div>
+          </div>
+
+          <!-- Columna 2 — Explorar -->
+          <div class="premium-footer-col-nav">
+            <h3 class="premium-footer-title">EXPLORAR</h3>
+            <nav class="footer-nav-premium" aria-label="Navegación del pie de página">
+              <a href="inicio.html" class="footer-nav-link"><span class="nav-arrow">→</span><span>Inicio</span></a>
+              <a href="electricidad.html" class="footer-nav-link"><span class="nav-arrow">→</span><span>Electricidad</span></a>
+              <a href="componentes.html" class="footer-nav-link"><span class="nav-arrow">→</span><span>Componentes</span></a>
+              <a href="aplicaciones.html" class="footer-nav-link"><span class="nav-arrow">→</span><span>Aplicaciones</span></a>
+              <a href="energias.html" class="footer-nav-link"><span class="nav-arrow">→</span><span>Energías</span></a>
+              <a href="multimedia.html" class="footer-nav-link"><span class="nav-arrow">→</span><span>Multimedia</span></a>
+              <a href="contacto.html" class="footer-nav-link"><span class="nav-arrow">→</span><span>Contacto</span></a>
+            </nav>
+          </div>
+
+          <!-- Columna 3 — Sobre el Proyecto -->
+          <div class="premium-footer-col-about">
+            <h3 class="premium-footer-title">SOBRE EL PROYECTO</h3>
+            <p class="footer-about-text">
+              VOLTIX TECHNOLOGY presenta contenidos educativos relacionados con la electricidad, sus fundamentos, aplicaciones, componentes y nuevas formas de generación de energía.
+            </p>
+            <div class="footer-triad-badge">
+              <div class="triad-icon">⚡</div>
+              <div class="triad-items">
+                <span>ELECTRICIDAD</span>
+                <span class="triad-dot">•</span>
+                <span>TECNOLOGÍA</span>
+                <span class="triad-dot">•</span>
+                <span>INNOVACIÓN</span>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- SEPARADOR PISTA DE CIRCUITO -->
+    <div class="footer-circuit-divider">
+      <div class="container">
+        <div class="pcb-trace-line">
+          <span class="pcb-node start"></span>
+          <span class="pcb-node end"></span>
+        </div>
+      </div>
+    </div>
+
+    <!-- NIVEL 3 — COPYRIGHT -->
+    <div class="footer-bottom-level">
+      <div class="container">
+        <div class="footer-bottom-flex">
+          <div class="footer-bottom-left">
+            <span>© 2026 VOLTIX TECHNOLOGY — Proyecto Académico de Ingeniería Eléctrica.</span>
+          </div>
+          <div class="footer-bottom-right">
+            <span>Ingeniería Eléctrica • Curso: 2-AF</span>
+          </div>
+        </div>
+      </div>
+    </div>
+  </footer>
+
+  <script src="js/main.js"></script>
+  <script src="js/google-sites-nav.js"></script>
+</body>
+</html>

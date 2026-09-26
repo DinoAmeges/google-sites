@@ -1,0 +1,493 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Componentes Eléctricos | VOLTIX TECHNOLOGY</title>
+  <meta name="description" content="Exploración editorial de componentes electrotécnicos: Resistencia, Capacitor, Inductor, Diodo, Transistor, Transformador, Motor e Interruptor.">
+  <meta name="author" content="GARCIA ANDRADE MATIAS EDUARDO - Ingeniería Eléctrica Curso 2-AF">
+  <meta name="theme-color" content="#07090e">
+
+  <!-- Google Fonts -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=JetBrains+Mono:wght@400;500;600;700&family=Outfit:wght@500;600;700;800;900&display=swap" rel="stylesheet">
+
+  <link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+
+  <div class="tech-grid-overlay" aria-hidden="true"></div>
+
+  <!-- HEADER GLOBAL -->
+  <header class="site-header" id="header">
+    <div class="container header-container">
+      <a href="inicio.html" class="brand-logo" aria-label="VOLTIX TECHNOLOGY - Inicio">
+        <div class="brand-icon-box">⚡</div>
+        <div class="brand-text">
+          <span class="brand-title">VOLTIX TECHNOLOGY</span>
+          <span class="brand-subtitle">Electricidad • Innovación</span>
+        </div>
+      </a>
+
+      <nav class="nav-menu" id="navMenu" aria-label="Navegación principal">
+        <a href="inicio.html" class="nav-link">Inicio</a>
+        <a href="electricidad.html" class="nav-link">Electricidad</a>
+        <a href="componentes.html" class="nav-link active">Componentes</a>
+        <a href="aplicaciones.html" class="nav-link">Aplicaciones</a>
+        <a href="energias.html" class="nav-link">Energías</a>
+        <a href="multimedia.html" class="nav-link">Multimedia</a>
+        <a href="contacto.html" class="nav-link">Contacto</a>
+      </nav>
+
+      <button class="mobile-toggle" id="mobileToggle" aria-label="Abrir menú de navegación" aria-expanded="false">
+        <span></span>
+        <span></span>
+        <span></span>
+      </button>
+    </div>
+  </header>
+
+  <main>
+    <!-- ==========================================================================
+         SECCIÓN 1 — HERO EDITORIAL DE COMPONENTES
+         ========================================================================== -->
+    <section class="hero-editorial">
+      <div class="container">
+        <div class="hero-editorial-grid">
+          <div class="hero-editorial-text-col">
+            <div class="hero-editorial-badge">⚡ ARQUITECTURA DE CIRCUITOS & HARDWARE</div>
+            <h1 class="hero-editorial-title">
+              COMPONENTES <span class="text-gradient">ELÉCTRICOS</span>
+            </h1>
+            <p class="hero-editorial-desc">
+              Conoce los elementos que hacen posible el funcionamiento de los sistemas eléctricos y electrónicos.
+            </p>
+            <a href="#catalogo" class="btn btn-secondary">
+              <span>EXPLORAR CATÁLOGO EDITORIAL</span>
+              <span class="btn-icon">↓</span>
+            </a>
+          </div>
+          <div class="hero-editorial-visual-col">
+            <div class="hero-editorial-frame">
+              <img src="assets/images/components-banner.jpg" alt="Muestrario profesional de componentes electrotécnicos sobre circuito impreso">
+              <div class="hero-frame-tag">
+                <span>⚡</span>
+                <span>VOLTIX TECH • CATÁLOGO DISPOSITIVOS FUNDAMENTALES</span>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ==========================================================================
+         SECCIÓN 2 — CATÁLOGO EDITORIAL DE DISPOSITIVOS
+         ========================================================================== -->
+    <section class="section" id="catalogo">
+      <div class="container">
+        <div class="section-header">
+          <div class="section-kicker">DISPOSITIVOS PASIVOS FUNDAMENTALES</div>
+          <h2 class="section-title">Control y Almacenamiento <span class="text-gradient">de Carga</span></h2>
+          <p class="section-subtitle">
+            Elementos de dos terminales que gobiernan la disipación térmica y los campos electrostáticos en el circuito.
+          </p>
+        </div>
+
+        <!-- DÚO 1: RESISTENCIA & CAPACITOR -->
+        <div class="comp-editorial-duo">
+          <!-- 1. RESISTENCIA -->
+          <article class="comp-editorial-card">
+            <div>
+              <div class="comp-header-flex">
+                <div class="comp-title-group">
+                  <h3>RESISTENCIA</h3>
+                  <span class="comp-symbol-tag">Símbolo: R [Ohmios, Ω]</span>
+                </div>
+                <div class="comp-schematic-wrap" aria-label="Símbolo esquemático de resistencia">
+                  <svg viewBox="0 0 60 30">
+                    <path d="M 4 15 L 14 15 L 19 6 L 29 24 L 39 6 L 44 15 L 56 15" />
+                  </svg>
+                </div>
+              </div>
+
+              <div class="comp-field">
+                <span class="comp-field-label">Función</span>
+                <p class="comp-field-text">
+                  Ofrece una oposición deliberada y calculada al paso de la corriente eléctrica, disipando energía en forma de calor por efecto Joule y produciendo una caída de tensión proporcional según la Ley de Ohm.
+                </p>
+              </div>
+            </div>
+
+            <div class="comp-field" style="margin-bottom: 0;">
+              <span class="comp-field-label">Aplicación</span>
+              <p class="comp-field-text">
+                Divisores resistivos de tensión, polarización de transistores, limitación de corriente para protección de diodos LED y redes de atenuación de señal.
+              </p>
+            </div>
+          </article>
+
+          <!-- 2. CAPACITOR -->
+          <article class="comp-editorial-card">
+            <div>
+              <div class="comp-header-flex">
+                <div class="comp-title-group">
+                  <h3>CAPACITOR</h3>
+                  <span class="comp-symbol-tag">Símbolo: C [Faradios, F]</span>
+                </div>
+                <div class="comp-schematic-wrap" aria-label="Símbolo esquemático de capacitor">
+                  <svg viewBox="0 0 60 30">
+                    <path d="M 4 15 L 24 15 M 24 5 L 24 25 M 36 5 L 36 25 M 36 15 L 56 15" />
+                  </svg>
+                </div>
+              </div>
+
+              <div class="comp-field">
+                <span class="comp-field-label">Función</span>
+                <p class="comp-field-text">
+                  Almacena energía potencial en el campo electrostático establecido entre placas conductoras separadas por un material dieléctrico, oponiéndose a variaciones bruscas de voltaje.
+                </p>
+              </div>
+            </div>
+
+            <div class="comp-field" style="margin-bottom: 0;">
+              <span class="comp-field-label">Aplicación</span>
+              <p class="comp-field-text">
+                Filtrado de rizado en fuentes rectificadas AC/DC, desacoplo de ruido de alta frecuencia en circuitos digitales, bancos de corrección del factor de potencia y arranque de motores monofásicos.
+              </p>
+            </div>
+          </article>
+        </div>
+
+        <!-- BLOQUE ANCHO 1: INDUCTOR -->
+        <article class="comp-editorial-wide">
+          <div style="display: flex; flex-direction: column; justify-content: center;">
+            <div style="display: flex; align-items: center; justify-content: space-between; margin-bottom: 1rem;">
+              <span class="comp-symbol-tag">Símbolo: L [Henrios, H]</span>
+              <div class="comp-schematic-wrap" style="width: 80px; height: 50px;">
+                <svg viewBox="0 0 60 30">
+                  <path d="M 4 18 L 14 18 C 14 8, 24 8, 24 18 C 24 8, 34 8, 34 18 C 34 8, 44 8, 44 18 L 56 18" />
+                </svg>
+              </div>
+            </div>
+            <h3 style="font-family: var(--font-heading); font-size: 1.85rem; font-weight: 900; color: #ffffff; margin-bottom: 0.5rem;">
+              INDUCTOR
+            </h3>
+            <p style="font-size: 0.92rem; color: #94a3b8; line-height: 1.6;">
+              Dispositivo electromagnético pasivo constituido por espiras de alambre conductor bobinadas sobre un núcleo ferromagnético o de aire.
+            </p>
+          </div>
+
+          <div>
+            <div class="comp-field">
+              <span class="comp-field-label">Función</span>
+              <p class="comp-field-text">
+                Almacena energía en forma de campo magnético inducido cuando circula corriente por sus espiras. En virtud de la Ley de Faraday-Lenz, genera una fuerza contraelectromotriz (FCEM) que se opone de inmediato a cualquier variación repentina de la intensidad de corriente.
+              </p>
+            </div>
+            <div class="comp-field" style="margin-bottom: 0;">
+              <span class="comp-field-label">Aplicación</span>
+              <p class="comp-field-text">
+                Bobinas de choque (chokes) para supresión de interferencias electromagnéticas (EMI), almacenamiento de energía en convertidores conmutados DC-DC (Buck/Boost), filtros de línea sintonizados y reactancias de balasto.
+              </p>
+            </div>
+          </div>
+        </article>
+
+        <!-- SECCIÓN SEMICONDUCTORES -->
+        <div class="section-header" style="margin-top: 5rem;">
+          <div class="section-kicker">SEMICONDUCTORES & CONMUTACIÓN DE ESTADO SÓLIDO</div>
+          <h2 class="section-title">Control Electrónico <span class="text-gradient">y Rectificación</span></h2>
+          <p class="section-subtitle">
+            Componentes basados en uniones de silicio que posibilitan el flujo unidireccional y la amplificación de potencia.
+          </p>
+        </div>
+
+        <!-- DÚO 2: DIODO & TRANSISTOR -->
+        <div class="comp-editorial-duo">
+          <!-- 4. DIODO -->
+          <article class="comp-editorial-card">
+            <div>
+              <div class="comp-header-flex">
+                <div class="comp-title-group">
+                  <h3>DIODO</h3>
+                  <span class="comp-symbol-tag">Símbolo: Unión P-N [Ánodo → Cátodo]</span>
+                </div>
+                <div class="comp-schematic-wrap" aria-label="Símbolo esquemático de diodo">
+                  <svg viewBox="0 0 60 30">
+                    <path d="M 4 15 L 22 15 M 22 7 L 22 23 L 38 15 Z M 38 7 L 38 23 M 38 15 L 56 15" />
+                  </svg>
+                </div>
+              </div>
+
+              <div class="comp-field">
+                <span class="comp-field-label">Función</span>
+                <p class="comp-field-text">
+                  Permite la circulación de corriente eléctrica exclusivamente en sentido de polarización directa (ánodo positivo respecto al cátodo) y bloquea el paso de electrones cuando se polariza en sentido inverso.
+                </p>
+              </div>
+            </div>
+
+            <div class="comp-field" style="margin-bottom: 0;">
+              <span class="comp-field-label">Aplicación</span>
+              <p class="comp-field-text">
+                Puentes rectificadores de onda completa para convertir corriente alterna en continua, diodos de libre circulación (flyback) para proteger relés inductivos y diodos Zener para regulación precisa de voltaje.
+              </p>
+            </div>
+          </article>
+
+          <!-- 5. TRANSISTOR -->
+          <article class="comp-editorial-card">
+            <div>
+              <div class="comp-header-flex">
+                <div class="comp-title-group">
+                  <h3>TRANSISTOR</h3>
+                  <span class="comp-symbol-tag">Símbolo: BJT / MOSFET [B, C, E / G, D, S]</span>
+                </div>
+                <div class="comp-schematic-wrap" aria-label="Símbolo esquemático de transistor">
+                  <svg viewBox="0 0 60 30">
+                    <path d="M 12 6 L 12 24 M 12 15 L 2 15 M 12 10 L 32 4 M 12 20 L 32 26 M 22 23 L 26 21 L 24 25 Z M 32 4 L 46 4 M 32 26 L 46 26" />
+                  </svg>
+                </div>
+              </div>
+
+              <div class="comp-field">
+                <span class="comp-field-label">Función</span>
+                <p class="comp-field-text">
+                  Actúa como un interruptor de estado sólido ultra rápido controlado eléctricamente o como un amplificador de corriente/voltaje. Regula la corriente principal que circula entre dos terminales mediante una pequeña señal en su terminal de control.
+                </p>
+              </div>
+            </div>
+
+            <div class="comp-field" style="margin-bottom: 0;">
+              <span class="comp-field-label">Aplicación</span>
+              <p class="comp-field-text">
+                Inversores de tracción de vehículos eléctricos, amplificadores de audiofrecuencia, fuentes de alimentación conmutadas (SMPS), modulación por ancho de pulsos (PWM) y compuertas lógicas de microprocesadores.
+              </p>
+            </div>
+          </article>
+        </div>
+
+        <!-- BLOQUE ANCHO 2: TRANSFORMADOR -->
+        <article class="comp-editorial-wide" style="margin-top: 1rem;">
+          <div style="display: flex; flex-direction: column; justify-content: center;">
+            <div style="display: flex; align-items: center; justify-content: space-between; margin-bottom: 1rem;">
+              <span class="comp-symbol-tag">Símbolo: T [Devanados Primario/Secundario]</span>
+              <div class="comp-schematic-wrap" style="width: 80px; height: 50px;">
+                <svg viewBox="0 0 60 30">
+                  <path d="M 4 8 C 12 8, 12 15, 4 15 C 12 15, 12 22, 4 22 M 28 5 L 28 25 M 32 5 L 32 25 M 56 8 C 48 8, 48 15, 56 15 C 48 15, 48 22, 56 22" />
+                </svg>
+              </div>
+            </div>
+            <h3 style="font-family: var(--font-heading); font-size: 1.85rem; font-weight: 900; color: #ffffff; margin-bottom: 0.5rem;">
+              TRANSFORMADOR
+            </h3>
+            <p style="font-size: 0.92rem; color: #94a3b8; line-height: 1.6;">
+              Máquina eléctrica estática de corriente alterna fundada en el fenómeno de la inducción electromagnética mutua.
+            </p>
+          </div>
+
+          <div>
+            <div class="comp-field">
+              <span class="comp-field-label">Función</span>
+              <p class="comp-field-text">
+                Modifica los niveles de tensión e intensidad de corriente alterna manteniendo constante la frecuencia y la potencia aparente (descontando pérdidas mínimas por histéresis y corrientes parásitas de Foucault en el núcleo).
+              </p>
+            </div>
+            <div class="comp-field" style="margin-bottom: 0;">
+              <span class="comp-field-label">Aplicación</span>
+              <p class="comp-field-text">
+                Subestaciones elevadoras para transmisión de potencia a alta tensión reduciendo pérdidas por efecto Joule, subestaciones reductoras de distribución urbana/industrial y aislamiento galvánico de seguridad en instrumentación.
+              </p>
+            </div>
+          </div>
+        </article>
+
+        <!-- SECCIÓN CONVERSIÓN ELECTROMECÁNICA Y MANIOBRA -->
+        <div class="section-header" style="margin-top: 5rem;">
+          <div class="section-kicker">MÁQUINAS ROTATIVAS & MANIOBRA MECÁNICA</div>
+          <h2 class="section-title">Conversión Electromecánica <span class="text-gradient">y Seguridad</span></h2>
+          <p class="section-subtitle">
+            Dispositivos para la generación de trabajo mecánico y el corte físico de continuidad galvánica.
+          </p>
+        </div>
+
+        <!-- DÚO 3: MOTOR & INTERRUPTOR -->
+        <div class="comp-editorial-duo">
+          <!-- 7. MOTOR ELÉCTRICO -->
+          <article class="comp-editorial-card">
+            <div>
+              <div class="comp-header-flex">
+                <div class="comp-title-group">
+                  <h3>MOTOR ELÉCTRICO</h3>
+                  <span class="comp-symbol-tag">Símbolo: M [Máquina Rotativa AC/DC]</span>
+                </div>
+                <div class="comp-schematic-wrap" aria-label="Símbolo esquemático de motor eléctrico">
+                  <svg viewBox="0 0 60 30">
+                    <circle cx="30" cy="15" r="10" />
+                    <path d="M 4 15 L 20 15 M 40 15 L 56 15 M 27 18 L 27 12 L 30 15 L 33 12 L 33 18" />
+                  </svg>
+                </div>
+              </div>
+
+              <div class="comp-field">
+                <span class="comp-field-label">Función</span>
+                <p class="comp-field-text">
+                  Convierte la energía eléctrica suministrada en energía mecánica de rotación continua mediante la fuerza de Lorentz ejercida sobre los conductores del rotor inmersos en el campo magnético del estator.
+                </p>
+              </div>
+            </div>
+
+            <div class="comp-field" style="margin-bottom: 0;">
+              <span class="comp-field-label">Aplicación</span>
+              <p class="comp-field-text">
+                Sistemas de tracción en trenes eléctricos y vehículos eléctricos (EV), accionamiento de compresores y bombas centrífugas en la industria, ventilación forzada en subestaciones y servomotores robóticos.
+              </p>
+            </div>
+          </article>
+
+          <!-- 8. INTERRUPTOR -->
+          <article class="comp-editorial-card">
+            <div>
+              <div class="comp-header-flex">
+                <div class="comp-title-group">
+                  <h3>INTERRUPTOR</h3>
+                  <span class="comp-symbol-tag">Símbolo: SW [Contacto Mecánico NA/NC]</span>
+                </div>
+                <div class="comp-schematic-wrap" aria-label="Símbolo esquemático de interruptor">
+                  <svg viewBox="0 0 60 30">
+                    <circle cx="15" cy="15" r="3" />
+                    <circle cx="45" cy="15" r="3" />
+                    <path d="M 4 15 L 12 15 M 48 15 L 56 15 M 17 14 L 40 6" />
+                  </svg>
+                </div>
+              </div>
+
+              <div class="comp-field">
+                <span class="comp-field-label">Función</span>
+                <p class="comp-field-text">
+                  Dispositivo electromecánico destinado a interrumpir, establecer o desviar intencionalmente el paso de corriente eléctrica mediante la separación o unión física de sus contactos conductores galvánicos.
+                </p>
+              </div>
+            </div>
+
+            <div class="comp-field" style="margin-bottom: 0;">
+              <span class="comp-field-label">Aplicación</span>
+              <p class="comp-field-text">
+                Seccionadores de maniobra bajo carga en tableros de distribución TGBT, interruptores termomagnéticos automáticos para protección contra sobrecargas y cortocircuitos, y pulsadores de parada de emergencia.
+              </p>
+            </div>
+          </article>
+        </div>
+
+      </div>
+    </section>
+  </main>
+
+  <!-- ==========================================================================
+       FOOTER TECNOLÓGICO PREMIUM (3 NIVELES)
+       ========================================================================== -->
+  <footer class="site-footer-premium">
+    <!-- NIVEL 1 — CIERRE VISUAL / TRANSICIÓN -->
+    <div class="footer-transition-level">
+      <div class="container">
+        <div class="footer-transition-pretitle">⚡ VISIÓN & PROYECCIÓN TECNOLÓGICA</div>
+        <h2 class="footer-transition-title">LA ELECTRICIDAD IMPULSA EL FUTURO.</h2>
+        <p class="footer-transition-subtitle">
+          Comprender la energía es el primer paso para transformar la tecnología.
+        </p>
+        <a href="componentes.html" class="btn-footer-explore">
+          <span>SEGUIR EXPLORANDO</span>
+          <span class="explore-arrow">→</span>
+        </a>
+      </div>
+    </div>
+
+    <!-- NIVEL 2 — FOOTER PRINCIPAL (3 COLUMNAS) -->
+    <div class="footer-main-level">
+      <div class="container">
+        <div class="premium-footer-grid">
+          <!-- Columna 1 — Identidad y Datos Académicos -->
+          <div class="premium-footer-col-brand">
+            <div class="footer-logo-wrap">
+              <div class="footer-logo-icon">⚡</div>
+              <span class="footer-logo-text">VOLTIX TECHNOLOGY</span>
+            </div>
+            <div class="footer-brand-slogan">Electricidad • Tecnología • Innovación</div>
+            <p class="footer-brand-summary">
+              Proyecto académico dedicado a explorar los fundamentos de la electricidad, la tecnología y la innovación.
+            </p>
+            <div class="footer-academic-block">
+              <div class="acad-line">Proyecto Académico • <strong>Ingeniería Eléctrica</strong></div>
+              <div class="acad-line">Curso: <strong>2-AF</strong></div>
+              <div class="student-line">
+                <span class="student-label">Estudiante:</span>
+                <span class="student-name">GARCIA ANDRADE MATIAS EDUARDO</span>
+              </div>
+            </div>
+          </div>
+
+          <!-- Columna 2 — Explorar -->
+          <div class="premium-footer-col-nav">
+            <h3 class="premium-footer-title">EXPLORAR</h3>
+            <nav class="footer-nav-premium" aria-label="Navegación del pie de página">
+              <a href="inicio.html" class="footer-nav-link"><span class="nav-arrow">→</span><span>Inicio</span></a>
+              <a href="electricidad.html" class="footer-nav-link"><span class="nav-arrow">→</span><span>Electricidad</span></a>
+              <a href="componentes.html" class="footer-nav-link"><span class="nav-arrow">→</span><span>Componentes</span></a>
+              <a href="aplicaciones.html" class="footer-nav-link"><span class="nav-arrow">→</span><span>Aplicaciones</span></a>
+              <a href="energias.html" class="footer-nav-link"><span class="nav-arrow">→</span><span>Energías</span></a>
+              <a href="multimedia.html" class="footer-nav-link"><span class="nav-arrow">→</span><span>Multimedia</span></a>
+              <a href="contacto.html" class="footer-nav-link"><span class="nav-arrow">→</span><span>Contacto</span></a>
+            </nav>
+          </div>
+
+          <!-- Columna 3 — Sobre el Proyecto -->
+          <div class="premium-footer-col-about">
+            <h3 class="premium-footer-title">SOBRE EL PROYECTO</h3>
+            <p class="footer-about-text">
+              VOLTIX TECHNOLOGY presenta contenidos educativos relacionados con la electricidad, sus fundamentos, aplicaciones, componentes y nuevas formas de generación de energía.
+            </p>
+            <div class="footer-triad-badge">
+              <div class="triad-icon">⚡</div>
+              <div class="triad-items">
+                <span>ELECTRICIDAD</span>
+                <span class="triad-dot">•</span>
+                <span>TECNOLOGÍA</span>
+                <span class="triad-dot">•</span>
+                <span>INNOVACIÓN</span>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- SEPARADOR PISTA DE CIRCUITO -->
+    <div class="footer-circuit-divider">
+      <div class="container">
+        <div class="pcb-trace-line">
+          <span class="pcb-node start"></span>
+          <span class="pcb-node end"></span>
+        </div>
+      </div>
+    </div>
+
+    <!-- NIVEL 3 — COPYRIGHT -->
+    <div class="footer-bottom-level">
+      <div class="container">
+        <div class="footer-bottom-flex">
+          <div class="footer-bottom-left">
+            <span>© 2026 VOLTIX TECHNOLOGY — Proyecto Académico de Ingeniería Eléctrica.</span>
+          </div>
+          <div class="footer-bottom-right">
+            <span>Ingeniería Eléctrica • Curso: 2-AF</span>
+          </div>
+        </div>
+      </div>
+    </div>
+  </footer>
+
+  <script src="js/main.js"></script>
+  <script src="js/google-sites-nav.js"></script>
+</body>
+</html>

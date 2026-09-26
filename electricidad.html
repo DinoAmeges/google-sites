@@ -1,0 +1,603 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Fundamentos de la Electricidad | VOLTIX TECHNOLOGY</title>
+  <meta name="description" content="Fundamentos de la Electricidad: Descubre la naturaleza del flujo de carga, magnitudes fundamentales, Ley de Ohm y potencia eléctrica. Experiencia educativa de VOLTIX TECHNOLOGY.">
+  <meta name="author" content="GARCIA ANDRADE MATIAS EDUARDO - Ingeniería Eléctrica Curso 2-AF">
+  <meta name="theme-color" content="#07090e">
+
+  <!-- Google Fonts -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=JetBrains+Mono:wght@400;500;600;700&family=Outfit:wght@500;600;700;800;900&display=swap" rel="stylesheet">
+
+  <link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+
+  <div class="tech-grid-overlay" aria-hidden="true"></div>
+
+  <!-- HEADER GLOBAL -->
+  <header class="site-header" id="header">
+    <div class="container header-container">
+      <a href="inicio.html" class="brand-logo" aria-label="VOLTIX TECHNOLOGY - Inicio">
+        <div class="brand-icon-box">⚡</div>
+        <div class="brand-text">
+          <span class="brand-title">VOLTIX TECHNOLOGY</span>
+          <span class="brand-subtitle">Electricidad • Innovación</span>
+        </div>
+      </a>
+
+      <nav class="nav-menu" id="navMenu" aria-label="Navegación principal">
+        <a href="inicio.html" class="nav-link">Inicio</a>
+        <a href="electricidad.html" class="nav-link active">Electricidad</a>
+        <a href="componentes.html" class="nav-link">Componentes</a>
+        <a href="aplicaciones.html" class="nav-link">Aplicaciones</a>
+        <a href="energias.html" class="nav-link">Energías</a>
+        <a href="multimedia.html" class="nav-link">Multimedia</a>
+        <a href="contacto.html" class="nav-link">Contacto</a>
+      </nav>
+
+      <button class="mobile-toggle" id="mobileToggle" aria-label="Abrir menú de navegación" aria-expanded="false">
+        <span></span>
+        <span></span>
+        <span></span>
+      </button>
+    </div>
+  </header>
+
+  <main>
+    <!-- ==========================================================================
+         SECCIÓN 1 — HERO DE ELECTRICIDAD
+         ========================================================================== -->
+    <section class="elec-hero-section">
+      <div class="container">
+        <div class="elec-hero-grid">
+          <div class="elec-hero-content">
+            <span class="elec-eyebrow">⚡ FUNDAMENTOS DE INGENIERÍA ELÉCTRICA</span>
+            <h1 class="elec-hero-title">
+              Fundamentos de la <span class="text-gradient">Electricidad</span>
+            </h1>
+            <p class="elec-hero-subtitle">
+              “Comprende los principios que hacen posible el funcionamiento de los sistemas eléctricos.”
+            </p>
+            <a href="#que-es" class="hero-explore-link">
+              <span>Explorar fundamentos</span>
+              <span class="explore-arrow">↓</span>
+            </a>
+          </div>
+          <div class="elec-hero-visual">
+            <div class="elec-hero-img-frame">
+              <img src="assets/images/hero-energy.jpg" alt="Campo electromagnético y energía eléctrica de alta potencia">
+              <div class="elec-hero-tag-badge">
+                <span class="dot"></span>
+                <span>VOLTIX LAB • SISTEMAS ELECTRODINÁMICOS</span>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ==========================================================================
+         SECCIÓN 2 — INTRODUCCIÓN EDITORIAL: "¿Qué es la electricidad?"
+         ========================================================================== -->
+    <section class="section section--alt" id="que-es">
+      <div class="container">
+        <div class="editorial-layout">
+          <div class="intro-editorial-text">
+            <div class="section-kicker">01 / NATURALEZA DEL FENÓMENO</div>
+            <h2 class="section-title">¿Qué es la <span class="text-gradient">electricidad?</span></h2>
+            <p class="editorial-lead">
+              La electricidad es una manifestación fundamental de la materia, originada por la presencia y el movimiento de cargas eléctricas elementales, principalmente los electrones en la corteza atómica. Cuando estas partículas cargadas experimentan una fuerza electrostática impulsada por una diferencia de potencial, inician una deriva orientada que da origen a la energía eléctrica.
+            </p>
+            <p class="editorial-text">
+              En la ingeniería moderna, este fenómeno constituye el vector dinámico primordial de transmisión de potencia e información. Canalizada mediante conductores, semiconductores y redes de transporte, la energía eléctrica se transforma instantáneamente en fuerza motriz, calor útil, radiación lumínica y cómputo digital.
+            </p>
+            <div class="editorial-quote-box">
+              “La energía eléctrica es el vínculo entre las leyes electromagnéticas del universo y la tecnología que impulsa nuestra civilización.”
+            </div>
+          </div>
+
+          <div class="intro-editorial-visual">
+            <div class="infographic-panel">
+              <div class="infographic-header">
+                <span class="infographic-title">Flujo de Carga en un Conductor</span>
+                <span class="infographic-code">[Cu • Electrones e⁻]</span>
+              </div>
+              <div class="infographic-canvas-wrap">
+                <svg viewBox="0 0 340 180" fill="none" xmlns="http://www.w3.org/2000/svg" role="img" aria-label="Microestructura de un conductor con campo eléctrico y flujo de electrones">
+                  <!-- Conductor cilíndrico metálico -->
+                  <rect x="30" y="40" width="280" height="90" rx="12" fill="#090e18" stroke="#00d4ff" stroke-width="1.8" />
+                  <!-- Líneas de campo eléctrico E -->
+                  <path d="M45 85 H295" stroke="rgba(0, 212, 255, 0.25)" stroke-width="1.5" stroke-dasharray="6 4" />
+                  <path d="M45 65 H295" stroke="rgba(0, 212, 255, 0.15)" stroke-width="1" stroke-dasharray="4 4" />
+                  <path d="M45 105 H295" stroke="rgba(0, 212, 255, 0.15)" stroke-width="1" stroke-dasharray="4 4" />
+                  <!-- Vector Campo Eléctrico E -->
+                  <line x1="120" y1="22" x2="220" y2="22" stroke="#00f0ff" stroke-width="2" />
+                  <text x="170" y="16" text-anchor="middle" font-family="'JetBrains Mono', monospace" font-size="11" font-weight="700" fill="#00f0ff">CAMPO ELÉCTRICO (E) →</text>
+                  <!-- Átomos de Cobre de la red cristalina -->
+                  <circle cx="70" cy="85" r="14" fill="#162035" stroke="rgba(245, 158, 11, 0.5)" stroke-width="1.5" />
+                  <text x="70" y="89" text-anchor="middle" font-family="'JetBrains Mono', monospace" font-size="10" font-weight="700" fill="#fb923c">Cu⁺</text>
+                  <circle cx="170" cy="85" r="14" fill="#162035" stroke="rgba(245, 158, 11, 0.5)" stroke-width="1.5" />
+                  <text x="170" y="89" text-anchor="middle" font-family="'JetBrains Mono', monospace" font-size="10" font-weight="700" fill="#fb923c">Cu⁺</text>
+                  <circle cx="270" cy="85" r="14" fill="#162035" stroke="rgba(245, 158, 11, 0.5)" stroke-width="1.5" />
+                  <text x="270" y="89" text-anchor="middle" font-family="'JetBrains Mono', monospace" font-size="10" font-weight="700" fill="#fb923c">Cu⁺</text>
+                  <!-- Electrones libres e- con estelas -->
+                  <g>
+                    <circle cx="115" cy="70" r="5" fill="#00f0ff" />
+                    <path d="M120 70 H132" stroke="#00d4ff" stroke-width="1.5" stroke-linecap="round" />
+                    <circle cx="215" cy="70" r="5" fill="#00f0ff" />
+                    <path d="M220 70 H232" stroke="#00d4ff" stroke-width="1.5" stroke-linecap="round" />
+                    <circle cx="125" cy="102" r="5" fill="#00f0ff" />
+                    <path d="M130 102 H142" stroke="#00d4ff" stroke-width="1.5" stroke-linecap="round" />
+                    <circle cx="225" cy="102" r="5" fill="#00f0ff" />
+                    <path d="M230 102 H242" stroke="#00d4ff" stroke-width="1.5" stroke-linecap="round" />
+                  </g>
+                  <!-- Indicador de polaridad en extremos -->
+                  <text x="45" y="152" font-family="'JetBrains Mono', monospace" font-size="10" font-weight="700" fill="#94a3b8">(-) ÁNODO</text>
+                  <text x="240" y="152" font-family="'JetBrains Mono', monospace" font-size="10" font-weight="700" fill="#00f0ff">(+) CÁTODO</text>
+                </svg>
+              </div>
+              <div class="infographic-caption">
+                <strong>Dinámica Microscópica:</strong> Los electrones libres colisionan ordenadamente a través de la red metálica, transfiriendo energía cinética casi instantáneamente a la velocidad de propagación de la onda electromagnética.
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ==========================================================================
+         SECCIÓN 3 — MAGNITUDES ELÉCTRICAS FUNDAMENTALES (COMPOSICIÓN ASIMÉTRICA)
+         ========================================================================== -->
+    <section class="section" id="magnitudes">
+      <div class="container">
+        <div class="section-header">
+          <div class="section-kicker">02 / PARÁMETROS DEL CIRCUITO</div>
+          <h2 class="section-title">Magnitudes <span class="text-gradient">Eléctricas Fundamentales</span></h2>
+          <p class="section-subtitle">
+            Estas magnitudes permiten describir, analizar y calcular el comportamiento de los circuitos eléctricos.
+          </p>
+        </div>
+
+        <div class="magnitudes-composition">
+          <!-- Magnitud Principal Destacada: VOLTAJE -->
+          <div class="magnitude-feature-box">
+            <div class="magnitude-feature-watermark">V</div>
+            <div>
+              <div class="mag-feature-top">
+                <span class="mag-index">01 • MAGNITUD MOTRIZ</span>
+                <span class="mag-unit-pill">Voltio (V)</span>
+              </div>
+              <div class="mag-symbol-huge">V</div>
+              <h3 class="mag-name-huge">VOLTAJE</h3>
+              <p class="mag-feature-desc">
+                Diferencia de potencial eléctrico entre dos puntos que impulsa el movimiento de las cargas eléctricas a través de un conductor o circuito cerrado.
+              </p>
+            </div>
+            <div class="mag-analogy-box">
+              <strong>Analogía Física:</strong> En un sistema hidráulico, el voltaje equivale a la presión de la bomba que empuja el fluido a través de las tuberías.
+            </div>
+          </div>
+
+          <!-- Cuatro Magnitudes Secundarias Dinámicas -->
+          <div class="magnitudes-sub-grid">
+            <!-- CORRIENTE -->
+            <article class="mag-sub-item">
+              <div class="mag-sub-header">
+                <span class="mag-sub-symbol">I</span>
+                <span class="mag-sub-unit">Amperio (A)</span>
+              </div>
+              <h4 class="mag-sub-name">CORRIENTE</h4>
+              <p class="mag-sub-desc">
+                Flujo de carga eléctrica que atraviesa un conductor por unidad de tiempo.
+              </p>
+              <span class="mag-sub-code">1 A = 1 C/s</span>
+            </article>
+
+            <!-- RESISTENCIA -->
+            <article class="mag-sub-item">
+              <div class="mag-sub-header">
+                <span class="mag-sub-symbol">R</span>
+                <span class="mag-sub-unit">Ohmio (Ω)</span>
+              </div>
+              <h4 class="mag-sub-name">RESISTENCIA</h4>
+              <p class="mag-sub-desc">
+                Oposición que presenta un elemento al paso de la corriente eléctrica.
+              </p>
+              <span class="mag-sub-code">Disipación / Efecto Joule</span>
+            </article>
+
+            <!-- POTENCIA -->
+            <article class="mag-sub-item">
+              <div class="mag-sub-header">
+                <span class="mag-sub-symbol">P</span>
+                <span class="mag-sub-unit">Watt (W)</span>
+              </div>
+              <h4 class="mag-sub-name">POTENCIA</h4>
+              <p class="mag-sub-desc">
+                Rapidez con la que se transfiere o transforma la energía eléctrica.
+              </p>
+              <span class="mag-sub-code">P = V × I</span>
+            </article>
+
+            <!-- ENERGÍA -->
+            <article class="mag-sub-item">
+              <div class="mag-sub-header">
+                <span class="mag-sub-symbol">E</span>
+                <span class="mag-sub-unit">Joule (J) / kWh</span>
+              </div>
+              <h4 class="mag-sub-name">ENERGÍA</h4>
+              <p class="mag-sub-desc">
+                Capacidad de un sistema eléctrico para realizar trabajo durante un determinado período.
+              </p>
+              <span class="mag-sub-code">E = P × t</span>
+            </article>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ==========================================================================
+         SECCIÓN 4 — RELACIÓN ENTRE LAS MAGNITUDES
+         ========================================================================== -->
+    <section class="section section--alt" id="relacion">
+      <div class="container">
+        <div class="section-header text-center">
+          <div class="section-kicker">03 / INTERDEPENDENCIA DE CIRCUITOS</div>
+          <h2 class="section-title">¿Cómo se <span class="text-gradient">relacionan?</span></h2>
+          <p class="section-subtitle">
+            El comportamiento de cualquier red eléctrica elemental depende de la interacción simultánea entre potencial, caudal y resistencia.
+          </p>
+        </div>
+
+        <div class="relationship-panel">
+          <!-- Fórmula Central Gigante -->
+          <div class="rel-center-equation">
+            <div class="rel-math-super">V = I × R</div>
+            <p class="rel-math-subtitle">
+              El voltaje es directamente proporcional al producto de la corriente por la resistencia del circuito.
+            </p>
+          </div>
+
+          <div class="rel-infographic-grid">
+            <!-- Despejes Visuales -->
+            <div class="rel-variations-stack">
+              <div class="rel-var-card">
+                <div class="rel-var-math">V = I × R</div>
+                <div class="rel-var-desc">
+                  <strong>Voltaje:</strong> Tensión necesaria para impulsar una corriente dada a través de una resistencia determinada.
+                </div>
+              </div>
+
+              <div class="rel-var-card">
+                <div class="rel-var-math">I = V / R</div>
+                <div class="rel-var-desc">
+                  <strong>Corriente:</strong> Flujo que circulará en el circuito al aplicar una tensión sobre una resistencia.
+                </div>
+              </div>
+
+              <div class="rel-var-card">
+                <div class="rel-var-math">R = V / I</div>
+                <div class="rel-var-desc">
+                  <strong>Resistencia:</strong> Valor óhmico necesario para limitar y fijar la corriente del circuito a un nivel seguro.
+                </div>
+              </div>
+            </div>
+
+            <!-- Diagrama Técnico de Circuito en SVG -->
+            <div class="rel-circuit-diagram-wrap">
+              <svg viewBox="0 0 340 210" fill="none" xmlns="http://www.w3.org/2000/svg" role="img" aria-label="Diagrama esquemático de circuito cerrado con fuente, resistencia y flujo de corriente">
+                <!-- Trayectoria del circuito (Líneas de conexión) -->
+                <rect x="50" y="35" width="240" height="140" rx="8" fill="none" stroke="#00d4ff" stroke-width="2" stroke-linejoin="round" />
+                <!-- Fuente de Voltaje V (Izquierda) -->
+                <circle cx="50" cy="105" r="22" fill="#0c121e" stroke="#00f0ff" stroke-width="2" />
+                <line x1="42" y1="100" x2="58" y2="100" stroke="#00f0ff" stroke-width="2" stroke-linecap="round" />
+                <line x1="50" y1="92" x2="50" y2="108" stroke="#00f0ff" stroke-width="2" stroke-linecap="round" />
+                <line x1="44" y1="114" x2="56" y2="114" stroke="#94a3b8" stroke-width="1.8" stroke-linecap="round" />
+                <text x="14" y="110" font-family="'JetBrains Mono', monospace" font-size="12" font-weight="800" fill="#ffffff">V</text>
+                <!-- Flechas de Flujo de Corriente I (Lado superior) -->
+                <path d="M125 35 L145 30 L145 40 Z" fill="#00f0ff" />
+                <text x="135" y="24" text-anchor="middle" font-family="'JetBrains Mono', monospace" font-size="12" font-weight="700" fill="#00f0ff">I (Corriente) →</text>
+                <!-- Resistencia R (Derecha) -->
+                <rect x="282" y="70" width="16" height="70" rx="4" fill="#162035" stroke="#fb923c" stroke-width="2" />
+                <!-- Zig-Zag interno decorativo de resistencia -->
+                <path d="M290 75 L286 85 L294 95 L286 105 L294 115 L286 125 L290 135" stroke="#fb923c" stroke-width="1.5" fill="none" />
+                <text x="312" y="110" font-family="'JetBrains Mono', monospace" font-size="12" font-weight="800" fill="#fb923c">R</text>
+                <!-- Nodos de conexión A y B -->
+                <circle cx="170" cy="35" r="3.5" fill="#ffffff" />
+                <circle cx="170" cy="175" r="3.5" fill="#ffffff" />
+                <!-- Retorno de Corriente (Lado inferior) -->
+                <path d="M145 175 L125 170 L125 180 Z" fill="#00d4ff" />
+                <text x="135" y="196" text-anchor="middle" font-family="'JetBrains Mono', monospace" font-size="10" font-weight="500" fill="#94a3b8">← Retorno a masa (PAT)</text>
+              </svg>
+              <div class="rel-circuit-caption">
+                Esquema circuital cerrado: La fuente establece la diferencia de potencial (V) que moviliza la corriente (I) a través del receptor resistivo (R).
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ==========================================================================
+         SECCIÓN 5 — LEY DE OHM (EXPERIENCIA DE CÁLCULO)
+         ========================================================================== -->
+    <section class="section" id="ley-de-ohm">
+      <div class="container">
+        <div class="ohm-lab-experience">
+          <!-- Teoría y Contexto -->
+          <div class="ohm-theory-side">
+            <div class="section-kicker">04 / PRINCIPIO ELECTROFÍSICO</div>
+            <h2 class="section-title">Ley de <span class="text-gradient">Ohm</span></h2>
+            <p>
+              La Ley de Ohm describe la relación entre el voltaje, la corriente y la resistencia en un circuito eléctrico. Formulada experimentalmente por Georg Simon Ohm en 1827, constituye el pilar analítico indispensable para predecir caídas de tensión y flujos de intensidad.
+            </p>
+            <p>
+              Cuando se conoce cualquier par de estas tres magnitudes, la tercera queda matemáticamente determinada mediante simple despeje algebraico: <strong>V = I × R</strong>.
+            </p>
+          </div>
+
+          <!-- Experiencia Visual de Cálculo -->
+          <div class="ohm-calc-interactive-box">
+            <div class="calc-box-title">
+              <span class="label">Experiencia Visual de Cálculo</span>
+              <span class="badge">CIRCUITO ANALÍTICO</span>
+            </div>
+
+            <div class="calc-inputs-row">
+              <div class="calc-input-block">
+                <span class="calc-input-label">Voltaje de entrada (V)</span>
+                <div class="calc-input-val">120 V</div>
+              </div>
+              <div class="calc-input-block">
+                <span class="calc-input-label">Resistencia de carga (R)</span>
+                <div class="calc-input-val">20 Ω</div>
+              </div>
+            </div>
+
+            <div class="calc-step-flow">
+              <div class="calc-flow-item">
+                <span class="calc-flow-label">Fórmula</span>
+                <span class="calc-flow-math">I = V / R</span>
+              </div>
+              <div class="calc-flow-arrow">→</div>
+              <div class="calc-flow-item">
+                <span class="calc-flow-label">Sustitución</span>
+                <span class="calc-flow-math">120 / 20</span>
+              </div>
+              <div class="calc-flow-arrow">=</div>
+              <div class="calc-flow-item">
+                <span class="calc-flow-label">Resultado</span>
+                <span class="calc-flow-math" style="color: #00f0ff;">6 A</span>
+              </div>
+            </div>
+
+            <div class="calc-result-box">
+              <span class="calc-result-label">Corriente Total en Conductor:</span>
+              <span class="calc-result-number">I = 6 A</span>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ==========================================================================
+         SECCIÓN 6 — POTENCIA Y ENERGÍA
+         ========================================================================== -->
+    <section class="section section--alt" id="potencia-energia">
+      <div class="container">
+        <div class="section-header text-center">
+          <div class="section-kicker">05 / TRANSFORMACIÓN Y RENDIMIENTO</div>
+          <h2 class="section-title">Potencia y <span class="text-gradient">Energía Eléctrica</span></h2>
+          <p class="section-subtitle">
+            Dos magnitudes íntimamente enlazadas por la variable tiempo: la velocidad instantánea frente a la acumulación total de trabajo.
+          </p>
+        </div>
+
+        <div class="power-energy-duo">
+          <!-- Columna Izquierda: Potencia Eléctrica -->
+          <div class="power-energy-column">
+            <div>
+              <div class="pe-col-header">
+                <span class="pe-category">TASA INSTANTÁNEA</span>
+                <h3 class="pe-title">Potencia eléctrica</h3>
+              </div>
+              <div class="pe-formula-giant">P = V × I</div>
+              <p class="pe-desc">
+                La potencia eléctrica representa la rapidez con la que se consume, transfiere o transforma la energía eléctrica en trabajo útil (mecánico, lumínico o calorífico) en cada segundo.
+              </p>
+            </div>
+            <div class="pe-visual-infobox">
+              <div class="pe-icon" aria-hidden="true">⚙️</div>
+              <div class="pe-infobox-text">
+                <strong>Consumo Activo:</strong> Se mide en <strong>watt (W)</strong>. Expresa la capacidad inmediata del equipo para realizar una tarea física sostenida.
+              </div>
+            </div>
+          </div>
+
+          <!-- Columna Derecha: Energía Eléctrica -->
+          <div class="power-energy-column">
+            <div>
+              <div class="pe-col-header">
+                <span class="pe-category">TRABAJO ACUMULADO</span>
+                <h3 class="pe-title">Energía eléctrica</h3>
+              </div>
+              <div class="pe-formula-giant">E = P × t</div>
+              <p class="pe-desc">
+                La energía eléctrica cuantifica la cantidad total de trabajo desarrollado por la potencia a lo largo de un período temporal determinado.
+              </p>
+            </div>
+            <div class="pe-visual-infobox">
+              <div class="pe-icon" aria-hidden="true">🔋</div>
+              <div class="pe-infobox-text">
+                <strong>Almacenamiento y Red:</strong> Se expresa en <strong>joule (J)</strong> en física teórica y comercialmente en <strong>kilowatt-hora (kWh)</strong>.
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ==========================================================================
+         SECCIÓN 7 — EJEMPLO APLICADO: “Electricidad en acción”
+         ========================================================================== -->
+    <section class="section" id="en-accion">
+      <div class="container">
+        <div class="section-header text-center">
+          <div class="section-kicker">06 / CASO PRÁCTICO REAL</div>
+          <h2 class="section-title">Electricidad en <span class="text-gradient">acción</span></h2>
+          <p class="section-subtitle">
+            Comprobación cuantitativa en un dispositivo eléctrico conectado a red comercial.
+          </p>
+        </div>
+
+        <div class="action-showcase">
+          <div class="action-info-col">
+            <div class="action-data-summary">
+              <div class="action-row">
+                <span class="action-label">Tensión de suministro de red:</span>
+                <span class="action-val">V = 120 V</span>
+              </div>
+              <div class="action-row">
+                <span class="action-label">Intensidad de corriente demandada:</span>
+                <span class="action-val">I = 5 A</span>
+              </div>
+            </div>
+
+            <div class="action-calculation-highlight">
+              <div class="action-calc-formula">P = V × I &nbsp;→&nbsp; 120 V × 5 A</div>
+              <div class="action-calc-result">P = 600 W</div>
+            </div>
+
+            <p class="action-explanation">
+              <strong>Interpretación de Ingeniería:</strong> El equipo convierte activamente 600 joules de energía eléctrica por cada segundo de operación. Si este dispositivo funciona durante 5 horas diarias continuas, su consumo acumulado equivaldrá a <strong>3.0 kilowatt-hora (kWh)</strong> de energía facturable.
+            </p>
+          </div>
+
+          <div class="action-media-wrap">
+            <img src="assets/images/intro-lab.jpg" alt="Laboratorio de pruebas con instrumentación y multímetros calibrados">
+            <div class="action-media-badge">
+              🔬 MEDICIÓN EXPERIMENTAL EN LABORATORIO
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ==========================================================================
+         SECCIÓN 8 — CIERRE EDITORIAL
+         ========================================================================== -->
+    <section class="elec-closing-banner" id="cierre" style="display:none;"></section>
+  </main>
+
+  <!-- ==========================================================================
+       FOOTER TECNOLÓGICO PREMIUM (3 NIVELES)
+       ========================================================================== -->
+  <footer class="site-footer-premium">
+    <!-- NIVEL 1 — CIERRE VISUAL / TRANSICIÓN -->
+    <div class="footer-transition-level">
+      <div class="container">
+        <div class="footer-transition-pretitle">⚡ VISIÓN & PROYECCIÓN TECNOLÓGICA</div>
+        <h2 class="footer-transition-title">LA ELECTRICIDAD IMPULSA EL FUTURO.</h2>
+        <p class="footer-transition-subtitle">
+          Comprender la energía es el primer paso para transformar la tecnología.
+        </p>
+        <a href="componentes.html" class="btn-footer-explore">
+          <span>SEGUIR EXPLORANDO</span>
+          <span class="explore-arrow">→</span>
+        </a>
+      </div>
+    </div>
+
+    <!-- NIVEL 2 — FOOTER PRINCIPAL (3 COLUMNAS) -->
+    <div class="footer-main-level">
+      <div class="container">
+        <div class="premium-footer-grid">
+          <!-- Columna 1 — Identidad y Datos Académicos -->
+          <div class="premium-footer-col-brand">
+            <div class="footer-logo-wrap">
+              <div class="footer-logo-icon">⚡</div>
+              <span class="footer-logo-text">VOLTIX TECHNOLOGY</span>
+            </div>
+            <div class="footer-brand-slogan">Electricidad • Tecnología • Innovación</div>
+            <p class="footer-brand-summary">
+              Proyecto académico dedicado a explorar los fundamentos de la electricidad, la tecnología y la innovación.
+            </p>
+            <div class="footer-academic-block">
+              <div class="acad-line">Proyecto Académico • <strong>Ingeniería Eléctrica</strong></div>
+              <div class="acad-line">Curso: <strong>2-AF</strong></div>
+              <div class="student-line">
+                <span class="student-label">Estudiante:</span>
+                <span class="student-name">GARCIA ANDRADE MATIAS EDUARDO</span>
+              </div>
+            </div>
+          </div>
+
+          <!-- Columna 2 — Explorar -->
+          <div class="premium-footer-col-nav">
+            <h3 class="premium-footer-title">EXPLORAR</h3>
+            <nav class="footer-nav-premium" aria-label="Navegación del pie de página">
+              <a href="inicio.html" class="footer-nav-link"><span class="nav-arrow">→</span><span>Inicio</span></a>
+              <a href="electricidad.html" class="footer-nav-link"><span class="nav-arrow">→</span><span>Electricidad</span></a>
+              <a href="componentes.html" class="footer-nav-link"><span class="nav-arrow">→</span><span>Componentes</span></a>
+              <a href="aplicaciones.html" class="footer-nav-link"><span class="nav-arrow">→</span><span>Aplicaciones</span></a>
+              <a href="energias.html" class="footer-nav-link"><span class="nav-arrow">→</span><span>Energías</span></a>
+              <a href="multimedia.html" class="footer-nav-link"><span class="nav-arrow">→</span><span>Multimedia</span></a>
+              <a href="contacto.html" class="footer-nav-link"><span class="nav-arrow">→</span><span>Contacto</span></a>
+            </nav>
+          </div>
+
+          <!-- Columna 3 — Sobre el Proyecto -->
+          <div class="premium-footer-col-about">
+            <h3 class="premium-footer-title">SOBRE EL PROYECTO</h3>
+            <p class="footer-about-text">
+              VOLTIX TECHNOLOGY presenta contenidos educativos relacionados con la electricidad, sus fundamentos, aplicaciones, componentes y nuevas formas de generación de energía.
+            </p>
+            <div class="footer-triad-badge">
+              <div class="triad-icon">⚡</div>
+              <div class="triad-items">
+                <span>ELECTRICIDAD</span>
+                <span class="triad-dot">•</span>
+                <span>TECNOLOGÍA</span>
+                <span class="triad-dot">•</span>
+                <span>INNOVACIÓN</span>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- SEPARADOR PISTA DE CIRCUITO -->
+    <div class="footer-circuit-divider">
+      <div class="container">
+        <div class="pcb-trace-line">
+          <span class="pcb-node start"></span>
+          <span class="pcb-node end"></span>
+        </div>
+      </div>
+    </div>
+
+    <!-- NIVEL 3 — COPYRIGHT -->
+    <div class="footer-bottom-level">
+      <div class="container">
+        <div class="footer-bottom-flex">
+          <div class="footer-bottom-left">
+            <span>© 2026 VOLTIX TECHNOLOGY — Proyecto Académico de Ingeniería Eléctrica.</span>
+          </div>
+          <div class="footer-bottom-right">
+            <span>Ingeniería Eléctrica • Curso: 2-AF</span>
+          </div>
+        </div>
+      </div>
+    </div>
+  </footer>
+
+  <script src="js/main.js"></script>
+  <script src="js/google-sites-nav.js"></script>
+</body>
+</html>

@@ -1,0 +1,289 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Energías | VOLTIX TECHNOLOGY</title>
+  <meta name="description" content="Presentación editorial de las fuentes de generación eléctrica: Solar, Eólica, Hidroeléctrica y Térmica, y su papel en el futuro tecnológico.">
+  <meta name="author" content="GARCIA ANDRADE MATIAS EDUARDO - Ingeniería Eléctrica Curso 2-AF">
+  <meta name="theme-color" content="#07090e">
+
+  <!-- Google Fonts -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=JetBrains+Mono:wght@400;500;600;700&family=Outfit:wght@500;600;700;800;900&display=swap" rel="stylesheet">
+
+  <link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+
+  <div class="tech-grid-overlay" aria-hidden="true"></div>
+
+  <!-- HEADER GLOBAL -->
+  <header class="site-header" id="header">
+    <div class="container header-container">
+      <a href="inicio.html" class="brand-logo" aria-label="VOLTIX TECHNOLOGY - Inicio">
+        <div class="brand-icon-box">⚡</div>
+        <div class="brand-text">
+          <span class="brand-title">VOLTIX TECHNOLOGY</span>
+          <span class="brand-subtitle">Electricidad • Innovación</span>
+        </div>
+      </a>
+
+      <nav class="nav-menu" id="navMenu" aria-label="Navegación principal">
+        <a href="inicio.html" class="nav-link">Inicio</a>
+        <a href="electricidad.html" class="nav-link">Electricidad</a>
+        <a href="componentes.html" class="nav-link">Componentes</a>
+        <a href="aplicaciones.html" class="nav-link">Aplicaciones</a>
+        <a href="energias.html" class="nav-link active">Energías</a>
+        <a href="multimedia.html" class="nav-link">Multimedia</a>
+        <a href="contacto.html" class="nav-link">Contacto</a>
+      </nav>
+
+      <button class="mobile-toggle" id="mobileToggle" aria-label="Abrir menú de navegación" aria-expanded="false">
+        <span></span>
+        <span></span>
+        <span></span>
+      </button>
+    </div>
+  </header>
+
+  <main>
+    <!-- ==========================================================================
+         SECCIÓN 1 — HERO INMERSIVO DE ENERGÍAS
+         ========================================================================== -->
+    <section class="hero-panoramic" style="background-image: url('assets/images/hero-energy.jpg');">
+      <div class="hero-panoramic-overlay"></div>
+      <div class="container hero-panoramic-content">
+        <div class="hero-editorial-badge">⚡ MATRIZ Y GENERACIÓN DE POTENCIA</div>
+        <h1 class="hero-editorial-title" style="font-size: clamp(2.5rem, 5vw, 4.2rem);">
+          <span class="text-gradient">ENERGÍAS</span>
+        </h1>
+        <p class="hero-editorial-desc" style="max-width: 760px; margin: 0 auto 2rem auto; font-size: 1.15rem;">
+          “Fuentes de energía que impulsan el desarrollo tecnológico y la transformación de nuestro entorno.”
+        </p>
+        <a href="#fuentes" class="btn btn-primary">
+          <span>EXPLORAR MATRIZ DE GENERACIÓN</span>
+          <span class="btn-icon">↓</span>
+        </a>
+      </div>
+    </section>
+
+    <!-- ==========================================================================
+         SECCIÓN 2 — PRESENTACIÓN EDITORIAL ALTERNADA POR FUENTE
+         ========================================================================== -->
+    <section class="section" id="fuentes">
+      <div class="container">
+
+        <!-- 1. ENERGÍA SOLAR FOTOVOLTAICA -->
+        <article class="energy-story-row">
+          <div class="energy-story-visual">
+            <img src="assets/images/energy-solar.jpg" alt="Granja solar fotovoltaica con módulos de silicio orientados al sol">
+          </div>
+          <div class="energy-story-content">
+            <div class="section-kicker">01 / RADIACIÓN FOTOVOLTAICA</div>
+            <h2 class="app-feature-title">ENERGÍA SOLAR</h2>
+            <p class="app-feature-desc">
+              Aprovecha directamente la radiación solar mediante el efecto fotoeléctrico. Los fotones incidentes excitan electrones en las uniones de silicio de los paneles, generando corriente continua (DC). Inversores electrónicos trifásicos sincronizan esta energía en fase y frecuencia (50/60 Hz) para su inyección inmediata a la red de transporte.
+            </p>
+            <div class="energy-data-callout">
+              <span class="energy-callout-label">Concepto Técnico Destacado</span>
+              <p class="energy-callout-text">
+                Generación limpia modular sin piezas móviles: densidad energética pico de ~1000 W/m² con celdas de silicio monocristalino de alta eficiencia.
+              </p>
+            </div>
+          </div>
+        </article>
+
+        <!-- 2. ENERGÍA EÓLICA (REVERSE) -->
+        <article class="energy-story-row reverse">
+          <div class="energy-story-visual">
+            <img src="assets/images/energy-wind.jpg" alt="Parque eólico marino con aerogeneradores de gran escala sobre el mar">
+          </div>
+          <div class="energy-story-content">
+            <div class="section-kicker">02 / CINÉTICA DE CORRIENTES DE AIRE</div>
+            <h2 class="app-feature-title">ENERGÍA EÓLICA</h2>
+            <p class="app-feature-desc">
+              Transforma la energía cinética de las masas de aire en energía mecánica de rotación. Al incidir el viento sobre las palas aerodinámicas de fibra compuesta, se transmite un torque al eje de generadores síncronos de imanes permanentes, cuyo voltaje de salida variable es acondicionado por convertidores electrónicos de potencia completa.
+            </p>
+            <div class="energy-data-callout">
+              <span class="energy-callout-label">Concepto Técnico Destacado</span>
+              <p class="energy-callout-text">
+                Límite físico de Betz: la eficiencia teórica máxima de conversión eólica es del 59.3%, alcanzando factores de capacidad superiores al 50% en parques marinos offshore.
+              </p>
+            </div>
+          </div>
+        </article>
+
+        <!-- 3. ENERGÍA HIDROELÉCTRICA -->
+        <article class="energy-story-row">
+          <div class="energy-story-visual">
+            <img src="assets/images/energy-hydro.jpg" alt="Presa hidroeléctrica con turbinas de generación de potencia">
+          </div>
+          <div class="energy-story-content">
+            <div class="section-kicker">03 / POTENCIAL GRAVITATORIO Y CAUDAL</div>
+            <h2 class="app-feature-title">ENERGÍA HIDROELÉCTRICA</h2>
+            <p class="app-feature-desc">
+              Convierte la energía potencial gravitatoria del agua embalsada a gran altura. Conducida a través de tuberías forzadas de alta presión, el agua impacta sobre los álabes de turbinas hidráulicas (Francis, Pelton o Kaplan) acopladas a generadores síncronos masivos, proporcionando la mayor reserva de inercia y estabilidad de tensión al sistema interconectado.
+            </p>
+            <div class="energy-data-callout">
+              <span class="energy-callout-label">Concepto Técnico Destacado</span>
+              <p class="energy-callout-text">
+                Inercia rotacional y arranque en negro (Black Start): capacidad única de estabilizar la frecuencia del sistema y restaurar la red ante apagones generales.
+              </p>
+            </div>
+          </div>
+        </article>
+
+        <!-- 4. ENERGÍA TÉRMICA Y GEOTÉRMICA (REVERSE) -->
+        <article class="energy-story-row reverse">
+          <div class="energy-story-visual">
+            <img src="assets/images/energy-geothermal.jpg" alt="Central de energía geotérmica con columnas de vapor profundo">
+          </div>
+          <div class="energy-story-content">
+            <div class="section-kicker">04 / CARGA BASE Y ENERGÍA TÉRMICA</div>
+            <h2 class="app-feature-title">ENERGÍA TÉRMICA</h2>
+            <p class="app-feature-desc">
+              Comprende la explotación del calor endógeno del subsuelo (geotermia) y las centrales termoeléctricas modernas de ciclo combinado de alta eficiencia (>60%). Al canalizar vapor a alta presión hacia turbinas de vapor multietapa acopladas a generadores eléctricos, se garantiza un flujo firme de potencia continua las 24 horas del día.
+            </p>
+            <div class="energy-data-callout">
+              <span class="energy-callout-label">Concepto Técnico Destacado</span>
+              <p class="energy-callout-text">
+                Operación de carga base 24/7: suministro continuo e independiente de condiciones climatológicas, crucial para la seguridad energética de los centros industriales.
+              </p>
+            </div>
+          </div>
+        </article>
+
+      </div>
+    </section>
+
+    <!-- ==========================================================================
+         SECCIÓN 3 — CIERRE EDITORIAL: ENERGÍA Y FUTURO
+         ========================================================================== -->
+    <section class="section section--alt">
+      <div class="container">
+        <div class="energy-future-banner">
+          <div class="section-kicker">TRANSICIÓN ENERGÉTICA GLOBAL</div>
+          <h2 class="action-connect-title">
+            ENERGÍA Y <span class="text-gradient">FUTURO</span>
+          </h2>
+          <p class="action-connect-desc">
+            El porvenir de la ingeniería eléctrica reside en la convergencia de la generación limpia descarbonizada, el almacenamiento masivo mediante baterías electroquímicas (BESS) y las redes inteligentes (Smart Grids) gestionadas por algoritmos predictivos. Comprender estas fuentes es el cimiento para liderar la transformación sostenible de nuestra sociedad.
+          </p>
+          <a href="multimedia.html" class="btn btn-primary">
+            <span>EXPLORAR RECURSOS MULTIMEDIA</span>
+            <span class="btn-icon">→</span>
+          </a>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <!-- ==========================================================================
+       FOOTER TECNOLÓGICO PREMIUM (3 NIVELES)
+       ========================================================================== -->
+  <footer class="site-footer-premium">
+    <!-- NIVEL 1 — CIERRE VISUAL / TRANSICIÓN -->
+    <div class="footer-transition-level">
+      <div class="container">
+        <div class="footer-transition-pretitle">⚡ VISIÓN & PROYECCIÓN TECNOLÓGICA</div>
+        <h2 class="footer-transition-title">LA ELECTRICIDAD IMPULSA EL FUTURO.</h2>
+        <p class="footer-transition-subtitle">
+          Comprender la energía es el primer paso para transformar la tecnología.
+        </p>
+        <a href="componentes.html" class="btn-footer-explore">
+          <span>SEGUIR EXPLORANDO</span>
+          <span class="explore-arrow">→</span>
+        </a>
+      </div>
+    </div>
+
+    <!-- NIVEL 2 — FOOTER PRINCIPAL (3 COLUMNAS) -->
+    <div class="footer-main-level">
+      <div class="container">
+        <div class="premium-footer-grid">
+          <!-- Columna 1 — Identidad y Datos Académicos -->
+          <div class="premium-footer-col-brand">
+            <div class="footer-logo-wrap">
+              <div class="footer-logo-icon">⚡</div>
+              <span class="footer-logo-text">VOLTIX TECHNOLOGY</span>
+            </div>
+            <div class="footer-brand-slogan">Electricidad • Tecnología • Innovación</div>
+            <p class="footer-brand-summary">
+              Proyecto académico dedicado a explorar los fundamentos de la electricidad, la tecnología y la innovación.
+            </p>
+            <div class="footer-academic-block">
+              <div class="acad-line">Proyecto Académico • <strong>Ingeniería Eléctrica</strong></div>
+              <div class="acad-line">Curso: <strong>2-AF</strong></div>
+              <div class="student-line">
+                <span class="student-label">Estudiante:</span>
+                <span class="student-name">GARCIA ANDRADE MATIAS EDUARDO</span>
+              </div>
+            </div>
+          </div>
+
+          <!-- Columna 2 — Explorar -->
+          <div class="premium-footer-col-nav">
+            <h3 class="premium-footer-title">EXPLORAR</h3>
+            <nav class="footer-nav-premium" aria-label="Navegación del pie de página">
+              <a href="inicio.html" class="footer-nav-link"><span class="nav-arrow">→</span><span>Inicio</span></a>
+              <a href="electricidad.html" class="footer-nav-link"><span class="nav-arrow">→</span><span>Electricidad</span></a>
+              <a href="componentes.html" class="footer-nav-link"><span class="nav-arrow">→</span><span>Componentes</span></a>
+              <a href="aplicaciones.html" class="footer-nav-link"><span class="nav-arrow">→</span><span>Aplicaciones</span></a>
+              <a href="energias.html" class="footer-nav-link"><span class="nav-arrow">→</span><span>Energías</span></a>
+              <a href="multimedia.html" class="footer-nav-link"><span class="nav-arrow">→</span><span>Multimedia</span></a>
+              <a href="contacto.html" class="footer-nav-link"><span class="nav-arrow">→</span><span>Contacto</span></a>
+            </nav>
+          </div>
+
+          <!-- Columna 3 — Sobre el Proyecto -->
+          <div class="premium-footer-col-about">
+            <h3 class="premium-footer-title">SOBRE EL PROYECTO</h3>
+            <p class="footer-about-text">
+              VOLTIX TECHNOLOGY presenta contenidos educativos relacionados con la electricidad, sus fundamentos, aplicaciones, componentes y nuevas formas de generación de energía.
+            </p>
+            <div class="footer-triad-badge">
+              <div class="triad-icon">⚡</div>
+              <div class="triad-items">
+                <span>ELECTRICIDAD</span>
+                <span class="triad-dot">•</span>
+                <span>TECNOLOGÍA</span>
+                <span class="triad-dot">•</span>
+                <span>INNOVACIÓN</span>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- SEPARADOR PISTA DE CIRCUITO -->
+    <div class="footer-circuit-divider">
+      <div class="container">
+        <div class="pcb-trace-line">
+          <span class="pcb-node start"></span>
+          <span class="pcb-node end"></span>
+        </div>
+      </div>
+    </div>
+
+    <!-- NIVEL 3 — COPYRIGHT -->
+    <div class="footer-bottom-level">
+      <div class="container">
+        <div class="footer-bottom-flex">
+          <div class="footer-bottom-left">
+            <span>© 2026 VOLTIX TECHNOLOGY — Proyecto Académico de Ingeniería Eléctrica.</span>
+          </div>
+          <div class="footer-bottom-right">
+            <span>Ingeniería Eléctrica • Curso: 2-AF</span>
+          </div>
+        </div>
+      </div>
+    </div>
+  </footer>
+
+  <script src="js/main.js"></script>
+  <script src="js/google-sites-nav.js"></script>
+</body>
+</html>
